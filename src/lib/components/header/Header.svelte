@@ -18,7 +18,7 @@
 			<Navigation />
 			<div class="mb-8 mt-5 xl:mt-24 2xl:ml-20">
 				<h1
-					class="mb-5 text-center text-3xl font-semibold lg:w-[500px] lg:text-left lg:text-5xl 2xl:w-[700px] 2xl:text-7xl"
+					class="mb-5 text-center text-3xl font-semibold lg:w-[500px] lg:text-left lg:text-5xl 2xl:w-[600px] 2xl:text-7xl"
 				>
 					Робота для лікарів у Польщі
 				</h1>

@@ -96,7 +96,7 @@
 		</svg>
 	</a>
 
-	<ul class="navigation-list-main flex items-center lg:ml-auto gap-4">
+	<ul class="navigation-list-main flex items-center lg:ml-auto gap-4 text-sm">
 		<li class="hidden 2xl:block"><a href="/">Про нас</a></li>
 		<li class="hidden 2xl:block"><a href="/">Вимоги</a></li>
 		<li class="hidden 2xl:block"><a href="/">Схема нашої співпраці</a></li>

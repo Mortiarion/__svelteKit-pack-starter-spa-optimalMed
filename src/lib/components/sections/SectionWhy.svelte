@@ -40,7 +40,7 @@
 
 <Section id="why">
 	<Container classes="px-5 2xl:px-32 2xl:max-w-screen-2xl">
-		<div class="why__content mb-20">
+		<div class="why__content">
 			<Heading
 				classes="flex flex-col text-3xl font-semibold text-center my-8 lg:text-5xl lg:text-left xl:text-6xl"
 			>

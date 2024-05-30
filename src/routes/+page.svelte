@@ -3,6 +3,7 @@
 	import Footer from '$lib/components/footer/Footer.svelte';
 	import SectionPages from '$lib/components/sections/SectionPages.svelte';
 	import SectionWhy from '$lib/components/sections/SectionWhy.svelte';
+	import Section_Requirements from '$lib/components/sections/Section_Requirements.svelte';
 </script>
 
 <svelte:head>
@@ -13,6 +14,7 @@
 	<Header />
 	<main class="flex-auto">
 		<SectionWhy />
+		<Section_Requirements />
 		<SectionPages />
 	</main>
 	<Footer />

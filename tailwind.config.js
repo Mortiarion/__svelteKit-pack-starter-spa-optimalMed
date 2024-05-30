@@ -5,7 +5,7 @@ export default {
 		colors: {
 			'bg-header': '#ace6ea',
 			'main-button': '#461dba',
-			'main': '#080808',
+			main: '#080808',
 			white: '#fff',
 			biruza: '#0fa4ae',
 			'biruze-light': '#ace6ea',
@@ -15,13 +15,17 @@ export default {
 		backgroundImage: {
 			'doctor-womem': "url('/img/main-page-img/doctor-women-375-768.png')",
 			'doctor-womem-1024-1440': "url('/img/main-page-img/doctor-women-1024-1440.png')",
-			'article-img': "url('/img/article/header-article-1440.png')"
+			'article-img': "url('/img/article/header-article-1440.png')",
+			'doctor-men': "url('/img/main-page-img/doctor-men-375px.png')",
+			'doctor-men-lg': "url('/img/main-page-img/doctor-men.png')"
 		},
 		fontFamily: {
 			montserrat: ['Montserrat', 'sans-serif'],
 			raleway: ['Raleway', 'sans-serif']
 		},
 		screens: {
+			bs: '320px',
+			
 			sm: '375px',
 
 			md: '425px',
