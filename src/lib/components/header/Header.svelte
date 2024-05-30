@@ -3,7 +3,6 @@
 	import Container from '$lib/base-components/Container.svelte';
 	import Section from '$lib/base-components/Section.svelte';
 	import Main_button from '$lib/components/header/Main_button.svelte';
-	// import Main_button from './Main_button.svelte';
 
 	let successes = [
 		{ value: '100', description: 'Приватних та державних лікарень' },
@@ -14,7 +13,7 @@
 </script>
 
 <Section tag="header">
-	<Container>
+	<Container classes="2xl:max-w-screen-2xl">
 		<div class="header-bg lg:mx-5 lg:mt-5 lg:rounded-t-3xl xl:h-[650px]">
 			<Navigation />
 			<div class="mb-8 mt-5 xl:mt-24 2xl:ml-20">

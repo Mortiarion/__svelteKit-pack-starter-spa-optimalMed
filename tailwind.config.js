@@ -5,7 +5,7 @@ export default {
 		colors: {
 			'bg-header': '#ace6ea',
 			'main-button': '#461dba',
-			'text-main': '#080808',
+			'main': '#080808',
 			white: '#fff',
 			biruza: '#0fa4ae',
 			'biruze-light': '#ace6ea',

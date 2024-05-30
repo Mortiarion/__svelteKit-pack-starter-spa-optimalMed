@@ -5,7 +5,7 @@
     export let classes: string = '';
 </script>
 
-<ul class="mb-5 flex list-disc flex-col gap-2 pl-5">
+<ul class="mb-5 flex list-disc flex-col gap-2 pl-7">
     {#each items as item}
         <li class={cn('', classes)}>
             {item.text}
