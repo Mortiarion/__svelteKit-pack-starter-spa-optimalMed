@@ -4,6 +4,8 @@
 	import SectionPages from '$lib/components/sections/SectionPages.svelte';
 	import SectionWhy from '$lib/components/sections/SectionWhy.svelte';
 	import Section_Requirements from '$lib/components/sections/Section_Requirements.svelte';
+	import Section_Additional from '$lib/components/sections/Section_Additional.svelte';
+	import Section_Scheme from '$lib/components/sections/Section_Scheme.svelte';
 </script>
 
 <svelte:head>
@@ -15,6 +17,8 @@
 	<main class="flex-auto">
 		<SectionWhy />
 		<Section_Requirements />
+		<Section_Additional />
+		<Section_Scheme />
 		<SectionPages />
 	</main>
 	<Footer />
