@@ -7,6 +7,7 @@
 	import Section_Additional from '$lib/components/sections/Section_Additional.svelte';
 	import Section_Scheme from '$lib/components/sections/Section_Scheme.svelte';
 	import Section_Doctors_Salary from '$lib/components/sections/Section_Doctors_Salary.svelte';
+	import Section_From from '$lib/components/sections/Section_From.svelte';
 </script>
 
 <svelte:head>
@@ -21,6 +22,7 @@
 		<Section_Additional />
 		<Section_Scheme />
 		<Section_Doctors_Salary />
+		<Section_From />
 		<SectionPages />
 	</main>
 	<Footer />
