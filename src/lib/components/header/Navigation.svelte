@@ -46,7 +46,7 @@
 	}
 </script>
 
-<nav bind:this={burger} class="bg-white shadow-lg rounded-full flex py-4 px-5 2xl:mx-10">
+<nav bind:this={burger} class="bg-white shadow-lg rounded-full flex py-4 px-5 2xl:mx-10 2xl:py-6 2xl:px-10">
 	<a href="/">
 		<svg
 			width="178"
@@ -96,7 +96,7 @@
 		</svg>
 	</a>
 
-	<ul class="navigation-list-main flex items-center lg:ml-auto gap-4 text-sm">
+	<ul class="navigation-list-main flex items-center lg:ml-auto gap-4 text-sm 2xl:gap-8">
 		<li class="hidden 2xl:block"><a href="/">Про нас</a></li>
 		<li class="hidden 2xl:block"><a href="/">Вимоги</a></li>
 		<li class="hidden 2xl:block"><a href="/">Схема нашої співпраці</a></li>
@@ -311,7 +311,7 @@
 			left: 0;
 			right: 0;
 			flex-direction: column;
-			background-color: white;
+			background-color: #ffffffe6;
 			align-items: center;
 			padding: 57px 0 25px 0;
 			& .navigation__list {

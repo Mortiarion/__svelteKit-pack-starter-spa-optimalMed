@@ -6,18 +6,23 @@
 </script>
 
 <Section>
-	<Container classes="2xl:max-w-screen-2xl">
+	<Container>
 		<div class="px-5 xl:px-14 2xl:px-32">
-			<Heading level="h2" classes="mb-5 text-3xl font-semibold text-biruza lg:max-w-[600px] lg:mb-10  xl:text-4xl">
+			<Heading
+				level="h2"
+				classes="my-5 text-3xl font-semibold text-biruza lg:max-w-[600px] lg:mb-10  xl:text-4xl 2xl:max-w-[700px] 2xl:mt-20"
+			>
 				Отримання права на виконання
 				<Text classes="text-main">лікарської діяльності</Text>
 			</Heading>
 
-			<div class=" grid grid-cols-2 justify-items-start gap-x-8 lg:grid-cols-4 mb-10 md:mb-16 xl:mb-20">
+			<div
+				class=" mb-10 grid grid-cols-2 justify-items-start gap-x-8 md:mb-16 lg:grid-cols-4 xl:mb-20"
+			>
 				<ul
 					class="list-disc pl-3 text-sm font-semibold text-biruza underline marker:text-xs marker:text-biruza lg:pl-5"
 				>
-					<li><a class='text-' href="/pages-doctors/alergologist">Алерголог</a></li>
+					<li><a class="text-" href="/pages-doctors/alergologist">Алерголог</a></li>
 					<li>
 						<a href="/pages-doctors/anestesiologist">Анестезіолог</a>
 					</li>

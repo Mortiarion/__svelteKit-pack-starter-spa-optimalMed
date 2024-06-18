@@ -47,7 +47,7 @@
 							<Paragraph classes="text-xs italic text-grey">{item.paragraph}</Paragraph>
 						</div>
 					{/each}
-					<MainButton classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto" />
+					<MainButton classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto" >Подати заявку</MainButton>
 				</div>
 				<MainButton classes="w-[227px] mb-24 md:block lg:hidden" />
 			</div>

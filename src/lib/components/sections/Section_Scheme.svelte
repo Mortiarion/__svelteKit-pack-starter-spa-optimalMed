@@ -41,6 +41,6 @@
 			{/each}
 			<Main_Button classes="xl:hidden py-6 lg:w-full" />
 		</div>
-		<Main_Button classes="hidden xl:block xl:mx-auto 2xl:py-6" />
+		<Main_Button classes="hidden xl:block xl:mx-auto 2xl:py-6" >Подати заявку</Main_Button>
 	</Container>
 </Section>

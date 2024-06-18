@@ -3,19 +3,19 @@
 	import Container from '$lib/base-components/Container.svelte';
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Text from '$lib/base-components/Text.svelte';
-	import Paragraph from '$lib/base-components/Paragraph.svelte';
 	import Link from '$lib/base-components/Link.svelte';
+	import Main_Button from '$lib/components/header/Main_button.svelte';
 </script>
 
 <Section id="form">
-	<Container>
-		<div class="bg-biruza px-5 text-white">
-			<div class="form__box">
-				<div class="form__col-1">
+	<Container classes="xl:px-5">
+		<div class="rounded-3xl bg-biruza px-5 py-7 text-white lg:mx-2 2xl:px-20">
+			<div class="form__box lg:flex lg:gap-10 xl:px-8 2xl:gap-32">
+				<div class="form__col-1 xl:w-full">
 					<div class="contacts">
 						<Heading level="h4" classes="text-2xl font-semibold text-center mb-8">Контакти:</Heading
 						>
-						<div class="flex-box flex">
+						<div class="flex-box flex lg:flex-col xl:flex-row">
 							<div class="fb-col-1 flex min-w-[50%] flex-col">
 								<Text classes="text-[10px] font-light">Понеділок - п'ятниця</Text>
 								<Text classes="font-raleway text-sm font-semibold mb-7">8:30 - 16:30</Text>
@@ -23,7 +23,7 @@
 								<Link href="tel:+48512058549" classes="text-sm font-semibold">+48 512 058 549</Link>
 								<Link href="tel:+48570501711" classes="text-sm font-semibold">+48 570 501 711</Link>
 							</div>
-							<div class="fb-col-2 flex min-w-[50%] flex-col mb-7">
+							<div class="fb-col-2 mb-7 flex min-w-[50%] flex-col">
 								<Heading level="h4" classes="text-[10px] font-light">Пошта:</Heading>
 								<Link
 									classes="font-raleway text-sm font-semibold mb-7"
@@ -35,13 +35,15 @@
 								>
 							</div>
 						</div>
-						<Heading level="h4" classes='text-2xl text-center font-semibold'>Зв'яжіться з нами</Heading>
+						<Heading level="h4" classes="text-2xl text-center font-semibold mb-5"
+							>Зв'яжіться з нами</Heading
+						>
 						<iframe
 							title="де ми розташовані"
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.1776446435592!2d20.974108512814624!3d52.22199027186765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd744f02c171%3A0xd0ee228a0f63b52b!2zYWwuIEplcm96b2xpbXNraWUgMTAwLCAwMi0wMTcgV2Fyc3phd2EsINCf0L7Qu9GM0YnQsA!5e0!3m2!1suk!2sua!4v1706205653425!5m2!1suk!2sua"
 							width="100%"
 							height="200px"
-                            class="rounded-3xl"
+							class="mb-8 rounded-3xl xl:h-[305px] xl:mb-0 xl:w-[438px] 2xl:w-full 2xl:h-[325px]"
 							style="border:0;"
 							loading="lazy"
 							referrerpolicy="no-referrer-when-downgrade"
@@ -49,19 +51,39 @@
 						</iframe>
 					</div>
 				</div>
-				<div class="form__col-2">
-					<Heading level="h4">Оставте заявку</Heading>
-					<form action="" id="main-form" class="main__form">
+				<div class="form__col-2 xl:w-full">
+					<Heading level="h4" classes="text-2xl font-semibold text-center mb-5"
+						>Оставте заявку</Heading
+					>
+					<form action="" id="main-form" class="flex flex-col gap-5">
 						<div class="main-form-box">
-							<input data-required="letter" type="text" name="name" placeholder="Ім'я *" />
+							<input
+								class=" h-16 w-full rounded-xl px-7"
+								data-required="letter"
+								type="text"
+								name="name"
+								placeholder="Ім'я *"
+							/>
 						</div>
 						<div class="main-form-box">
-							<input data-required="number" type="tel" name="tel" placeholder="Телефон *" />
+							<input
+								class=" h-16 w-full rounded-xl px-7"
+								data-required="number"
+								type="tel"
+								name="tel"
+								placeholder="Телефон *"
+							/>
 						</div>
 						<div class="main-form-box">
-							<input data-required="email" type="email" name="email" placeholder="Email *" />
+							<input
+								class=" h-16 w-full rounded-xl px-7"
+								data-required="email"
+								type="email"
+								name="email"
+								placeholder="Email *"
+							/>
 						</div>
-						<div class="main-form-box drop-big">
+						<div class="main-form-box drop-big hidden">
 							<input
 								type="button"
 								value=" "
@@ -86,15 +108,16 @@
 								<span class="number-selected"></span>
 							</span>
 						</div>
-						<div class="main-form-box drop-small">
+						<div class="main-form-box drop-small relative">
 							<input
 								data-required="select-small"
 								value=" "
 								type="button"
-								class="dropdown-speciality-small"
+								class="dropdown-speciality-small h-16 w-full rounded-xl bg-white px-7"
 							/>
 							<svg
 								width="11"
+								class="absolute right-5 top-2/4"
 								height="8"
 								viewBox="0 0 11 8"
 								fill="none"
@@ -105,12 +128,12 @@
 									fill="#0FA4AE"
 								/>
 							</svg>
-							<span class="speciality-small"
+							<span class="speciality-small absolute left-0 top-[35%] px-7 text-main"
 								>Спеціалізація *
 								<span class="number-selected-small"></span>
 							</span>
 						</div>
-						<div class="dropdown-speciality-small-filter-main">
+						<div class="dropdown-speciality-small-filter-main hidden">
 							<div class="filter-input">
 								<input type="text" />
 								<svg
@@ -410,17 +433,23 @@
 							</div>
 						</div>
 						<textarea
-							class="arena-text"
+							class="arena-text rounded-xl px-7 py-6 h-[200px]"
 							name="area"
 							id="area"
 							cols="30"
 							rows="10"
 							placeholder="Впишіть текст повідомлення..."
 						></textarea>
-						<button type="submit" class="form-btn btn">Відправити</button>
+						<Main_Button classes='xl:w-full' type="submit">Відправити</Main_Button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</Container>
 </Section>
+
+<style lang="postcss">
+	#main-form *::placeholder {
+		font-size: 14px;
+	}
+</style>
