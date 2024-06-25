@@ -1,18 +1,18 @@
 import type {
-	BreadcrumbType,
-	SectionTitleTwoParagraphType,
-	SectionImageType,
-	SectionTitleParTextListParType,
-	SectionTitleParListTwoParType,
-	SectionTitleParTextListParParType
+	Breadcrumb_Type,
+	Section_Title_Par_Par_Type,
+	Section_Image_Type,
+	Section_Title_Par_Text_List_Par_Type,
+	Section_Title_Par_List_Par_Par_Type,
+	Section_Title_Text_List_Par_Par_Type
 } from '$lib/types';
 
-export const BreadcrumbData: BreadcrumbType = {
+export const Breadcrumb_Data: Breadcrumb_Type = {
 	bredCrumbsHead: 'Головна',
 	bredCrumbsCategories: 'Робота алергологом у Польщі'
 };
 
-export const SectionTitleTwoParagraphData: SectionTitleTwoParagraphType = {
+export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
 	title: 'Робота',
 	subtitle: 'алергологом у Польщі',
 	paragraph__one:
@@ -21,7 +21,7 @@ export const SectionTitleTwoParagraphData: SectionTitleTwoParagraphType = {
 		'Ми займаємося працевлаштуванням іноземних лікарів, переважно, українців і білорусів, у польські медичні заклади впродовж кількох років. У нашому багажі - великий пул успішних кейсів і постійно оновлювана база актуальних вакансій. Знайдемо для вас роботу алергологом у Польщі з хорошою заробітною платою і комфортними умовами. А крім цього - надамо комплексну підтримку у вивченні мови, релокації, пошуку житла, оформленні документів.'
 };
 
-export const SectionImageData: SectionImageType = {
+export const Section_Image_Data: Section_Image_Type = {
 	image: {
 		src: '/img/all-article-web-page-content-img/article-alergologist.jpg',
 		alt: 'article-anestesiologist'
@@ -36,7 +36,7 @@ export const SectionImageData: SectionImageType = {
 	}
 };
 
-export const SectionTitleParTextListParData: SectionTitleParTextListParType = {
+export const Section_Title_Par_Text_List_Par_Data: Section_Title_Par_Text_List_Par_Type = {
 	title: 'Обов`язки',
 	subtitle: 'польського алерголога',
 	paragraph__one:
@@ -63,7 +63,7 @@ export const SectionTitleParTextListParData: SectionTitleParTextListParType = {
 		'Також алергологи за результатами обстеження пацієнтів оформляють допуск або недопуск до вакцинації.'
 };
 
-export const SectionTitleParListTwoParData: SectionTitleParListTwoParType = {
+export const Section_Title_Par_List_Par_Par_Data: Section_Title_Par_List_Par_Par_Type = {
 	title: 'Порядок отримання',
 	subtitle: 'дозволу на виконання лікарської практики',
 	paragraph__one:
@@ -83,7 +83,7 @@ export const SectionTitleParListTwoParData: SectionTitleParListTwoParType = {
 		'Працюють лікарі-алергологи в державних і комерційних амбулаторіях або в стаціонарах загального профілю.'
 };
 
-export const SectionTitleParTextListParParData: SectionTitleParTextListParParType = {
+export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
 	title: 'Вимоги',
 	subtitle: 'до кандидатів',
 	text: 'Для того, щоб отримати роботу алерголога в Польщі, здобувач повинен:',

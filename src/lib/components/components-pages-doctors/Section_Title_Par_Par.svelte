@@ -4,14 +4,14 @@
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
-	import type { SectionTitleTwoParagraphType } from '$lib/types';
-	export let data: SectionTitleTwoParagraphType;
+	import type { Section_Title_Par_Par_Type } from '$lib/types';
+	export let data: Section_Title_Par_Par_Type;
 </script>
 
 <Section>
-	<Container classes="mx-auto 2xl:max-w-3xl">
+	<Container classes="px-2.5 lg:px-[50px] 2xl:px-0 2xl:max-w-3xl">
 		<div class="mb-5 flex flex-col gap-5">
-			<Heading level="h3" classes="text-3xl font-bold">
+			<Heading level="h3" classes="text-3xl font-bold text-center lg:text-left">
 				{data.title}
 				<Text classes="text-biruza">{data.subtitle}</Text>
 			</Heading>

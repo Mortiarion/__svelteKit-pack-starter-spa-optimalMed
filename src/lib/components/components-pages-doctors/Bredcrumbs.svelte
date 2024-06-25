@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { BreadcrumbType } from '$lib/types';
+	import type { Breadcrumb_Type } from '$lib/types';
 	import Section from '$lib/base-components/Section.svelte';
 	import Container from '$lib/base-components/Container.svelte';
-	export let data: BreadcrumbType;
+	export let data: Breadcrumb_Type;
 </script>
 
 <Section>

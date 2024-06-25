@@ -6,14 +6,14 @@
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
 	import List from '$lib/base-components/List.svelte';
 
-	import type { SectionTitleParTextListParParType } from '$lib/types';
-	export let data: SectionTitleParTextListParParType;
+	import type { Section_Title_Text_List_Par_Par_Type } from '$lib/types';
+	export let data: Section_Title_Text_List_Par_Par_Type;
 </script>
 
 <Section>
-	<Container>
+	<Container classes="px-2.5 lg:px-[50px] 2xl:px-0 2xl:max-w-3xl">
 		<div class="mb-5 flex flex-col">
-			<Heading level="h3" classes="text-3xl font-bold mb-5">
+			<Heading level="h3" classes="text-3xl font-bold mb-5 text-center lg:text-left">
 				{data.title}
 				<Text classes="text-biruza">
 					{data.subtitle}

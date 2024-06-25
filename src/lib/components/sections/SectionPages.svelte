@@ -22,9 +22,9 @@
 				<ul
 					class="list-disc pl-3 text-sm font-semibold text-biruza underline marker:text-xs marker:text-biruza lg:pl-5"
 				>
-					<li><a class="text-" href="/pages-doctors/alergologist">Алерголог</a></li>
+					<li><a href="/pages-doctors/alergologist">Алерголог</a></li>
 					<li>
-						<a href="/pages-doctors/anestesiologist">Анестезіолог</a>
+						<a href="/">Анестезіолог</a>
 					</li>
 					<li><a href="/">Вірусолог</a></li>
 					<li><a href="/">Гастроентеролог</a></li>

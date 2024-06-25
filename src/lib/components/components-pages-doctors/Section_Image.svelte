@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { SectionImageType } from '$lib/types'
 	import Section from '$lib/base-components/Section.svelte';
 	import Container from '$lib/base-components/Container.svelte';
-
-	export let data: SectionImageType;
+	
+	import type { Section_Image_Type } from '$lib/types'
+	export let data: Section_Image_Type;
 </script>
 
 <Section classes="mb-5">

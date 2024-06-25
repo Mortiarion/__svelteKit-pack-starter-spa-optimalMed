@@ -1,16 +1,24 @@
-export type BreadcrumbType = {
+export type Breadcrumb_Type = {
 	bredCrumbsHead: string;
 	bredCrumbsCategories: string;
 };
 
-export type SectionTitleTwoParagraphType = {
+export type Section_Title_Par_Par_Type = {
 	title: string;
 	subtitle: string;
 	paragraph__one: string;
 	paragraph__two: string;
 };
 
-export type SectionTitleParListTwoParType = {
+export type Section_Title_Par_Par_Par_Type = {
+	title: string;
+	subtitle: string;
+	paragraph__one: string;
+	paragraph__two: string;
+	paragraph__three: string;
+};
+
+export type Section_Title_Par_List_Par_Par_Type = {
 	title: string;
 	subtitle: string;
 	paragraph__one: string;
@@ -19,7 +27,7 @@ export type SectionTitleParListTwoParType = {
 	paragraph__three: string;
 };
 
-export type SectionTitleParListParType = {
+export type Section_Title_Par_List_Par_Type = {
 	title: string;
 	subtitle: string;
 	paragraph__one: string;
@@ -27,15 +35,7 @@ export type SectionTitleParListParType = {
 	paragraph__two: string;
 };
 
-export type SectionTitleParListParTypeTwo = {
-	title: string;
-	subtitle: string;
-	paragraph__one: string;
-	list: { text: string }[];
-	paragraph__two: string;
-};
-
-export type SectionImageType = {
+export type Section_Image_Type = {
 	image: {
 		src: string;
 		alt: string;
@@ -50,7 +50,7 @@ export type SectionImageType = {
 	};
 };
 
-export type SectionTitleParTextListParType = {
+export type Section_Title_Par_Text_List_Par_Type = {
 	title: string;
 	subtitle: string;
 	paragraph__one: string;
@@ -59,11 +59,21 @@ export type SectionTitleParTextListParType = {
 	paragraph__two: string;
 };
 
-export type SectionTitleParTextListParParType = {
+export type Section_Title_Text_List_Par_Par_Type = {
 	title: string;
 	subtitle: string;
 	text: string;
 	list: { text: string }[];
 	paragraph__one: string;
+	paragraph__two: string;
+};
+
+export type Section_Title_Par_List_Text_List_Par_Type = {
+	title: string;
+	subtitle: string;
+	paragraph__one: string;
+	list_one: { text: string }[];
+	text: string;
+	list_two: { text: string }[];
 	paragraph__two: string;
 };
