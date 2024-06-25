@@ -22,15 +22,17 @@
 </script>
 
 <Section id="scheme">
-	<Container classes="px-5 mb-8 lg:px-8 lg:mb-14 2xl:px-32">
-		<Heading level="h4" classes="text-3xl text-main font-semibold my-12 xl:text-[38px] lg:w-[30%]">
+	<Container classes="px-5 pb-8 pt-16 lg:px-8 lg:pb-20 2xl:px-32 2xl:py-[100px]">
+		<Heading level="h4" classes="text-3xl text-main font-semibold  xl:text-[38px] lg:w-[30%]">
 			<Text classes="text-biruza">Схема</Text>
 			нашої співпраці
 		</Heading>
 
-		<div class="flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:grid-rows-3 lg:items-start xl:grid-cols-4 xl:grid-rows-2 xl:mb-10">
+		<div
+			class="flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:grid-rows-3 lg:items-start xl:mb-10 xl:grid-cols-4 xl:grid-rows-2"
+		>
 			{#each items as item}
-				<div class="flex lg:flex-col gap-3">
+				<div class="flex gap-3 lg:flex-col">
 					<Text classes="text-biruza font-semibold text-base">
 						{item.number}
 					</Text>
@@ -39,8 +41,8 @@
 					</Paragraph>
 				</div>
 			{/each}
-			<Main_Button classes="xl:hidden py-6 lg:w-full" />
+			<Main_Button classes="xl:hidden py-6 lg:w-full">Подати заявку</Main_Button>
 		</div>
-		<Main_Button classes="hidden xl:block xl:mx-auto 2xl:py-6" >Подати заявку</Main_Button>
+		<Main_Button classes="hidden xl:block xl:mx-auto 2xl:py-6">Подати заявку</Main_Button>
 	</Container>
 </Section>

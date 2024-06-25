@@ -32,12 +32,15 @@
 
 <Section>
 	<Container classes="2xl:max-w-screen-2xl">
-		<div class="gradient px-3 pb-10 pt-20">
+		<div class="gradient px-3 pb-10 pt-20 2xl:pb-[100px]">
 			<div
-				class=" flex flex-col gap-8 rounded-3xl bg-white bg-doctor-men bg-right-bottom bg-no-repeat p-5 lg:bg-doctor-men-lg lg:bg-[length:232px_249px] xl:bg-[length:301px_324px] 2xl:bg-[length:350px_377px]"
+				class=" flex flex-col gap-8 rounded-3xl bg-white bg-doctor-men bg-right-bottom bg-no-repeat p-5 lg:bg-doctor-men-lg lg:bg-[length:232px_249px] xl:bg-[length:301px_324px] 2xl:bg-[length:350px_377px] 2xl:px-28"
 			>
 				<div class="doctor-men mb-8 lg:mb-0">
-					<Heading level="h3" classes="text-3xl text-main font-semibold mb-7 xl:text-[38px] 2xl:w-[240px]">
+					<Heading
+						level="h3"
+						classes="text-3xl text-main font-semibold mb-7 xl:text-[38px] 2xl:w-[240px]"
+					>
 						<Text classes="text-biruza">Вимоги</Text> до кандидатів
 					</Heading>
 					{#each items as item}
@@ -47,9 +50,11 @@
 							<Paragraph classes="text-xs italic text-grey">{item.paragraph}</Paragraph>
 						</div>
 					{/each}
-					<MainButton classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto" >Подати заявку</MainButton>
+					<MainButton classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto"
+						>Подати заявку</MainButton
+					>
 				</div>
-				<MainButton classes="w-[227px] mb-24 md:block lg:hidden" />
+				<MainButton classes="w-[227px] mb-24 md:block lg:hidden">Подати заявку</MainButton>
 			</div>
 		</div>
 	</Container>
@@ -75,7 +80,6 @@
 			padding: 100px 34px 95px;
 			grid-template-columns: repeat(3, 1fr);
 			grid-column-gap: 20px;
-			
 			grid-row-gap: 99px;
 		}
 	}

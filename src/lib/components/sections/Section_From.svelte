@@ -15,23 +15,25 @@
 					<div class="contacts">
 						<Heading level="h4" classes="text-2xl font-semibold text-center mb-8">Контакти:</Heading
 						>
-						<div class="flex-box flex lg:flex-col xl:flex-row">
+						<div class="flex-box flex lg:flex-col lg:gap-5 xl:mb-6 xl:flex-row">
 							<div class="fb-col-1 flex min-w-[50%] flex-col">
 								<Text classes="text-[10px] font-light">Понеділок - п'ятниця</Text>
 								<Text classes="font-raleway text-sm font-semibold mb-7">8:30 - 16:30</Text>
-								<Heading level="h4" classes="text-[10px] font-light">Телефони:</Heading>
-								<Link href="tel:+48512058549" classes="text-sm font-semibold">+48 512 058 549</Link>
-								<Link href="tel:+48570501711" classes="text-sm font-semibold">+48 570 501 711</Link>
-							</div>
-							<div class="fb-col-2 mb-7 flex min-w-[50%] flex-col">
-								<Heading level="h4" classes="text-[10px] font-light">Пошта:</Heading>
-								<Link
-									classes="font-raleway text-sm font-semibold mb-7"
-									href="mailto:biuro@optimuswork.pl">biuro&#64;optimalmed.pl</Link
-								>
 								<Heading level="h4" classes="text-[10px] font-light">Адреса:</Heading>
 								<Text classes="font-raleway text-sm font-semibold"
 									>OptimalMed sp. z o.o. al. Jerozolimskie 100, Warszawa 00-807</Text
+								>
+							</div>
+							<div class="fb-col-2 mb-7 flex min-w-[50%] flex-col">
+								<Heading level="h4" classes="text-[10px] font-light">Телефони:</Heading>
+								<Link href="tel:+48512058549" classes="text-sm font-semibold">+48 512 058 549</Link>
+								<Link href="tel:+48570501711" classes="text-sm font-semibold mb-2"
+									>+48 570 501 711</Link
+								>
+								<Heading level="h4" classes="text-[10px] font-light">Пошта:</Heading>
+								<Link
+									classes="font-raleway text-sm font-semibold "
+									href="mailto:biuro@optimuswork.pl">biuro&#64;optimalmed.pl</Link
 								>
 							</div>
 						</div>
@@ -43,7 +45,7 @@
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.1776446435592!2d20.974108512814624!3d52.22199027186765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd744f02c171%3A0xd0ee228a0f63b52b!2zYWwuIEplcm96b2xpbXNraWUgMTAwLCAwMi0wMTcgV2Fyc3phd2EsINCf0L7Qu9GM0YnQsA!5e0!3m2!1suk!2sua!4v1706205653425!5m2!1suk!2sua"
 							width="100%"
 							height="200px"
-							class="mb-8 rounded-3xl xl:h-[305px] xl:mb-0 xl:w-[438px] 2xl:w-full 2xl:h-[325px]"
+							class="mb-8 rounded-3xl xl:mb-0 xl:h-[305px] xl:w-[438px] 2xl:h-[325px] 2xl:w-full"
 							style="border:0;"
 							loading="lazy"
 							referrerpolicy="no-referrer-when-downgrade"
@@ -433,14 +435,14 @@
 							</div>
 						</div>
 						<textarea
-							class="arena-text rounded-xl px-7 py-6 h-[200px]"
+							class="arena-text h-[200px] rounded-xl px-7 py-6"
 							name="area"
 							id="area"
 							cols="30"
 							rows="10"
 							placeholder="Впишіть текст повідомлення..."
 						></textarea>
-						<Main_Button classes='xl:w-full' type="submit">Відправити</Main_Button>
+						<Main_Button classes="xl:w-full" type="submit">Відправити</Main_Button>
 					</form>
 				</div>
 			</div>
@@ -451,5 +453,6 @@
 <style lang="postcss">
 	#main-form *::placeholder {
 		font-size: 14px;
+		color: #080808;
 	}
 </style>

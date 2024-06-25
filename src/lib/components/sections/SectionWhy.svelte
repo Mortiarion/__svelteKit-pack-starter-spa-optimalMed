@@ -39,17 +39,17 @@
 </script>
 
 <Section id="why">
-	<Container classes="px-5 2xl:px-32 2xl:max-w-screen-2xl">
+	<Container classes="px-5 xl:px-[50px] 2xl:px-32 2xl:max-w-screen-2xl">
 		<div class="why__content">
 			<Heading
-				classes="flex flex-col text-3xl font-semibold text-center my-8 lg:text-5xl lg:text-left xl:text-6xl xl:mt-32"
+				classes="flex flex-col text-3xl font-semibold text-center my-8 lg:text-5xl lg:text-left xl:text-6xl lg:mt-[60px] xl:mt-32"
 			>
 				Чому саме
 				<Text classes="text-biruza">Optimal Med</Text>
 			</Heading>
-			<div class="parent">
+			<div class="parent flex flex-col gap-5">
 				{#each whyItems as item, index}
-					<div class={`div${index + 1} mb-6`}>
+					<div class={`div${index + 1}`}>
 						<div class=" mb-3 h-px w-20 bg-biruza"></div>
 						<Heading level="h4" classes="font-semibold mb-2">
 							{item.value}
@@ -59,17 +59,17 @@
 						</Paragraph>
 					</div>
 				{/each}
-				<div class="badge grid-8 md:w-[334px]">
+				<div class="badge grid-8 h-fit md:w-[334px]">
 					<picture class="flex justify-center">
 						<source srcset={badgeAvif} type="image/avif" />
 						<source srcset={badgeWebp} type="image/webp" />
 						<img src={badgePng} alt="badge-png" />
 					</picture>
 					<div class="flex items-center md:justify-between">
-						<Heading classes="text-xl font-semibold md:w-52  lg:w-52"
+						<Heading classes="text-xl font-semibold md:w-52 lg:w-52 lg:text-lg"
 							>Розпочни медичну кар'єру в Польщі!</Heading
 						>
-						<a href="./index.html#form">
+						<a href="/">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="53"
@@ -105,6 +105,7 @@
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(5, 1fr);
 			grid-column-gap: 20px;
+			grid-row-gap: 20px;
 		}
 		.grid-1 {
 			grid-area: 1 / 1 / 2 / 2;
@@ -134,6 +135,7 @@
 	@media (min-width: 1024px) {
 		.badge {
 			transform: translateY(-70px);
+			width: 280px;
 		}
 		.parent {
 			grid-template-columns: repeat(3, 1fr);

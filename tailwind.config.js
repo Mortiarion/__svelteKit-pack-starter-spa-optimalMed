@@ -5,6 +5,9 @@ export default {
 		colors: {
 			'bg-header': '#ace6ea',
 			'main-button': '#461dba',
+			popup: '#00000080',
+			input: '#55555580',
+			filter: '#f9fafb',
 			main: '#080808',
 			white: '#fff',
 			biruza: '#0fa4ae',
