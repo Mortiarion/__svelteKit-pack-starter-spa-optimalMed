@@ -11,7 +11,7 @@
 		Section_Title_Par_Par_Data,
 		Section_Image_Data,
 		Section_Title_Par_Text_List_Par_Data,
-		Section_Title_Par_List_Par_Par_Data,
+		Section_Title_Par_List_Par_Par_Data_Two,
 		Section_Title_Text_List_Par_Par_Data
 	} from './data';
 </script>
@@ -24,6 +24,6 @@
 
 <Section_Title_Par_Text_List_Par data={Section_Title_Par_Text_List_Par_Data} />
 
-<Section_Title_Par_List_Par_Par data={Section_Title_Par_List_Par_Par_Data} />
+<Section_Title_Text_List_Par_Par data={Section_Title_Par_List_Par_Par_Data_Two} />
 
 <Section_Title_Text_List_Par_Par data={Section_Title_Text_List_Par_Par_Data} />

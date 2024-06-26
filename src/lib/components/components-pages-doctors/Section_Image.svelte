@@ -6,7 +6,7 @@
 	export let data: Section_Image_Type;
 </script>
 
-<Section classes="mb-5">
+<Section classes="mb-5 2xl:mb-[60px]">
 	<Container>
 		<picture >
 			<source

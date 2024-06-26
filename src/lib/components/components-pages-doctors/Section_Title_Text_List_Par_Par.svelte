@@ -12,7 +12,7 @@
 
 <Section>
 	<Container classes="px-2.5 lg:px-[50px] 2xl:px-0 2xl:max-w-3xl">
-		<div class="mb-5 flex flex-col">
+		<div class="mb-5 flex flex-col 2xl:mb-[60px]">
 			<Heading level="h3" classes="text-3xl font-bold mb-5 text-center lg:text-left">
 				{data.title}
 				<Text classes="text-biruza">
@@ -26,7 +26,7 @@
 			<Paragraph classes="mb-5">
 				{data.paragraph__one}
 			</Paragraph>
-			<Paragraph classes="mb-5">
+			<Paragraph>
 				{data.paragraph__two}
 			</Paragraph>
 		</div>
