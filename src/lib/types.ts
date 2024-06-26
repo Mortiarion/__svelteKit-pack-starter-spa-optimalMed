@@ -27,12 +27,12 @@ export type Section_Title_Par_List_Par_Par_Type = {
 	paragraph__three: string;
 };
 
-export type Section_Title_Par_List_Par_Type = {
+export type Section_Title_Text_List_Par_Type = {
 	title: string;
 	subtitle: string;
-	paragraph__one: string;
+	text: string;
 	list: { text: string }[];
-	paragraph__two: string;
+	paragraph: string;
 };
 
 export type Section_Image_Type = {
@@ -75,5 +75,22 @@ export type Section_Title_Par_List_Text_List_Par_Type = {
 	list_one: { text: string }[];
 	text: string;
 	list_two: { text: string }[];
+	paragraph__two: string;
+};
+
+export type Section_Title_Text_List_Img_Par_Par_Type = {
+	title: string;
+	subtitle: string;
+	text: string;
+	list: { text: string }[];
+	img: {
+		img: string;
+		alt: string;
+		srcset_one: string;
+		type_one: string;
+		srcset_two: string;
+		type_two: string;
+	};
+	paragraph__one: string;
 	paragraph__two: string;
 };

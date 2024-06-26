@@ -24,7 +24,7 @@
 				>
 					<li><a href="/pages-doctors/alergologist">Алерголог</a></li>
 					<li>
-						<a href="/">Анестезіолог</a>
+						<a href="/pages-doctors/anestesiologist">Анестезіолог</a>
 					</li>
 					<li><a href="/">Вірусолог</a></li>
 					<li><a href="/">Гастроентеролог</a></li>

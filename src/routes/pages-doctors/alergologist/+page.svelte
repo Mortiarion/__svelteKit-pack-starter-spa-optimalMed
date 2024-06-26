@@ -3,7 +3,7 @@
 	import Section_Title_Par_Par from '$lib/components/components-pages-doctors/Section_Title_Par_Par.svelte';
 	import Section_Image from '$lib/components/components-pages-doctors/Section_Image.svelte';
 	import Section_Title_Par_Text_List_Par from '$lib/components/components-pages-doctors/Section_Title_Par_Text_List_Par.svelte';
-	import Section_Title_Par_List_Par_Par from '$lib/components/components-pages-doctors/Section__Title_Par_List_Par_Par.svelte';
+	import Section_Title_Par_List_Par_Par from '$lib/components/components-pages-doctors/Section_Title_Par_List_Par_Par.svelte';
 	import Section_Title_Text_List_Par_Par from '$lib/components/components-pages-doctors/Section_Title_Text_List_Par_Par.svelte';
 
 	import {
