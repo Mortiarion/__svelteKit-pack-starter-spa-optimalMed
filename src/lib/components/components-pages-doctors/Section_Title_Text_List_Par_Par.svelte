@@ -19,7 +19,7 @@
 					{data.subtitle}
 				</Text>
 			</Heading>
-			<Text>
+			<Text classes='mb-5'>
 				{data.text}
 			</Text>
 			<List items={data.list} />
