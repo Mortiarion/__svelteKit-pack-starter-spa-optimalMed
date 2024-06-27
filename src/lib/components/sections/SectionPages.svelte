@@ -26,9 +26,9 @@
 					<li>
 						<a href="/pages-doctors/anestesiologist">Анестезіолог</a>
 					</li>
-					<li><a href="/">Вірусолог</a></li>
-					<li><a href="/">Гастроентеролог</a></li>
-					<li><a href="/">Гематолог</a></li>
+					<li><a href="/pages-doctors/virusologist">Вірусолог</a></li>
+					<li><a href="/pages-doctors/gastroenterologist">Гастроентеролог</a></li>
+					<li><a href="/pages-doctors/gematologist">Гематолог</a></li>
 					<li><a href="/">Генетик</a></li>
 					<li><a href="/">Геріатр</a></li>
 					<li><a href="/">Гінеколог</a></li>
