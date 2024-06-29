@@ -4,9 +4,9 @@
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
-	
-	import type { Section_Title_Par_Par_Type } from '$lib/types';
-	export let data: Section_Title_Par_Par_Type;
+
+	import type { Section_Title_Par_Type } from '$lib/types';
+	export let data: Section_Title_Par_Type;
 </script>
 
 <Section>
@@ -16,8 +16,7 @@
 				{data.title}
 				<Text classes="text-biruza">{data.subtitle}</Text>
 			</Heading>
-			<Paragraph>{data.paragraph__one}</Paragraph>
-			<Paragraph>{data.paragraph__two}</Paragraph>
+			<Paragraph>{data.paragraph}</Paragraph>
 		</div>
 	</Container>
 </Section>

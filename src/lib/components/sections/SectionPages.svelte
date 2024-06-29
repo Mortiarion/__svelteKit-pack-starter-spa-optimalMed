@@ -29,10 +29,10 @@
 					<li><a href="/pages-doctors/virusologist">Вірусолог</a></li>
 					<li><a href="/pages-doctors/gastroenterologist">Гастроентеролог</a></li>
 					<li><a href="/pages-doctors/gematologist">Гематолог</a></li>
-					<li><a href="/">Генетик</a></li>
-					<li><a href="/">Геріатр</a></li>
-					<li><a href="/">Гінеколог</a></li>
-					<li><a href="/">Швидка допомога</a></li>
+					<li><a href="/pages-doctors/geneticist">Генетик</a></li>
+					<li><a href="/pages-doctors/geriatrician">Геріатр</a></li>
+					<li><a href="/pages-doctors/gynecologist">Гінеколог</a></li>
+					<li><a href="/pages-doctors/ambulance">Швидка допомога</a></li>
 				</ul>
 				<ul
 					class="list-disc pl-3 text-sm font-semibold text-biruza underline marker:text-xs marker:text-biruza lg:pl-5"

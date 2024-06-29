@@ -4,9 +4,9 @@
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
-	
-	import type { Section_Title_Par_Par_Type } from '$lib/types';
-	export let data: Section_Title_Par_Par_Type;
+
+	import type { Section_Title_Five_Par_Type } from '$lib/types';
+	export let data: Section_Title_Five_Par_Type;
 </script>
 
 <Section>
@@ -18,6 +18,9 @@
 			</Heading>
 			<Paragraph>{data.paragraph__one}</Paragraph>
 			<Paragraph>{data.paragraph__two}</Paragraph>
+			<Paragraph>{data.paragraph__three}</Paragraph>
+			<Paragraph>{data.paragraph__four}</Paragraph>
+			<Paragraph>{data.paragraph__five}</Paragraph>
 		</div>
 	</Container>
 </Section>
