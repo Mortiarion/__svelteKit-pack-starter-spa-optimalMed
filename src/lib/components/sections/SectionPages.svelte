@@ -37,8 +37,8 @@
 				<ul
 					class="list-disc pl-3 text-sm font-semibold text-biruza underline marker:text-xs marker:text-biruza lg:pl-5"
 				>
-					<li><a href="/">Дерматолог</a></li>
-					<li><a href="/">Імунолог</a></li>
+					<li><a href="/pages-doctors/dermatologist">Дерматолог</a></li>
+					<li><a href="/pages-doctors/immunologist">Імунолог</a></li>
 					<li><a href="/">Карділолог</a></li>
 					<li><a href="/">Кардіо-хірург</a></li>
 					<li><a href="/">Нарколог</a></li>
