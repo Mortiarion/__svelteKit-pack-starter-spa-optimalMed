@@ -24,7 +24,7 @@ export type Section_Title_Five_Par_Type = {
 	paragraph__three: string;
 	paragraph__four: string;
 	paragraph__five: string;
-}
+};
 
 export type Section_Title_Par_Par_Par_Type = {
 	title: string;
@@ -148,7 +148,6 @@ export type Section_Title_Text_List_Par_Img_Text_List_Par_Par_Par_Type = {
 	paragraph_two: string;
 	paragraph_three: string;
 	paragraph_four: string;
-
 };
 
 export type Section_Title_Text_List_Par_Par_Par_Type = {
@@ -160,3 +159,5 @@ export type Section_Title_Text_List_Par_Par_Par_Type = {
 	paragraph_two: string;
 	paragraph_three: string;
 };
+
+export type Section_Page_Type = { href: string; text: string }[];
