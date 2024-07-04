@@ -161,3 +161,13 @@ export type Section_Title_Text_List_Par_Par_Par_Type = {
 };
 
 export type Section_Page_Type = { href: string; text: string }[];
+
+export type Section_Title_Par_Text_List_Par_Par_Type = {
+	title: string;
+	subtitle: string;
+	paragraph_one: string;
+	text: string;
+	list: { text: string }[];
+	paragraph_two: string;
+	paragraph_three: string;
+};

@@ -22,10 +22,10 @@
 	let items_two: Section_Page_Type = [
 		{ href: '/pages-doctors/dermatologist', text: 'Дерматолог' },
 		{ href: '/pages-doctors/immunologist', text: 'Імунолог' },
-		{ href: '/', text: 'Карділолог' },
-		{ href: '/', text: 'Кардіо-хірург' },
-		{ href: '/', text: 'Нарколог' },
-		{ href: '/', text: 'Невролог' },
+		{ href: '/pages-doctors/cardiologist', text: 'Карділолог' },
+		{ href: '/pages-doctors/cardiac_surgeon', text: 'Кардіо-хірург' },
+		{ href: '/pages-doctors/narcologist', text: 'Нарколог' },
+		{ href: '/pages-doctors/neurologist', text: 'Невролог' },
 		{ href: '/', text: 'Нейрохірург' },
 		{ href: '/', text: 'Онколог' },
 		{ href: '/', text: 'Уролог' }
