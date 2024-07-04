@@ -26,9 +26,9 @@
 		{ href: '/pages-doctors/cardiac_surgeon', text: 'Кардіо-хірург' },
 		{ href: '/pages-doctors/narcologist', text: 'Нарколог' },
 		{ href: '/pages-doctors/neurologist', text: 'Невролог' },
-		{ href: '/', text: 'Нейрохірург' },
-		{ href: '/', text: 'Онколог' },
-		{ href: '/', text: 'Уролог' }
+		{ href: '/pages-doctors/neurosurgeon', text: 'Нейрохірург' },
+		{ href: '/pages-doctors/oncologist', text: 'Онколог' },
+		{ href: '/pages-doctors/urologist', text: 'Уролог' }
 	];
 
 	let items_three: Section_Page_Type = [
