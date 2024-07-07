@@ -5,7 +5,7 @@
 	import Text from '$lib/base-components/Text.svelte';
 	import List_Link from '$lib/base-components/List_Link.svelte';
 
-	import type { Section_Page_Type } from '$lib/types'
+	import type { Section_Page_Type } from '$lib/types';
 
 	let items: Section_Page_Type = [
 		{ href: '/pages-doctors/alergologist', text: 'Алерголог' },
@@ -32,14 +32,14 @@
 	];
 
 	let items_three: Section_Page_Type = [
-		{ href: '/', text: 'Ортодонт' },
-		{ href: '/', text: 'Отоларинголог' },
-		{ href: '/', text: 'Офтальмолог' },
-		{ href: '/', text: 'Патологоанатом' },
-		{ href: '/', text: 'Педіатр' },
-		{ href: '/', text: 'Радіолог' },
-		{ href: '/', text: 'Реабілітолог' },
-		{ href: '/', text: 'Ревматолог' },
+		{ href: '/pages-doctors/orthodontist', text: 'Ортодонт' },
+		{ href: '/pages-doctors/otolaryngologist', text: 'Отоларинголог' },
+		{ href: '/pages-doctors/ophthalmologist', text: 'Офтальмолог' },
+		{ href: '/pages-doctors/pathologist', text: 'Патологоанатом' },
+		{ href: '/pages-doctors/pediatrician', text: 'Педіатр' },
+		{ href: '/pages-doctors/radiologist', text: 'Радіолог' },
+		{ href: '/pages-doctors/rehabilitation_specialist', text: 'Реабілітолог' },
+		{ href: '/pages-doctors/rheumatologist', text: 'Ревматолог' },
 		{ href: '/', text: 'Лікар в Польщі' }
 	];
 
