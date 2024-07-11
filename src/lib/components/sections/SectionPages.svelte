@@ -40,13 +40,13 @@
 		{ href: '/pages-doctors/radiologist', text: 'Радіолог' },
 		{ href: '/pages-doctors/rehabilitation_specialist', text: 'Реабілітолог' },
 		{ href: '/pages-doctors/rheumatologist', text: 'Ревматолог' },
-		{ href: '/', text: 'Лікар в Польщі' }
+		{ href: '/pages-doctors/doctor_in_poland', text: 'Лікар в Польщі' }
 	];
 
 	let items_four: Section_Page_Type = [
-		{ href: '/', text: 'Стоматолог' },
-		{ href: '/', text: 'Травматолог' },
-		{ href: '/', text: 'Трансфузіолог' },
+		{ href: '/pages-doctors/dentist', text: 'Стоматолог' },
+		{ href: '/pages-doctors/traumatologist', text: 'Травматолог' },
+		{ href: '/pages-doctors/transfusiologist', text: 'Трансфузіолог' },
 		{ href: '/', text: 'Терапевт' },
 		{ href: '/', text: 'Трансплантолог' },
 		{ href: '/', text: 'Фоніатр' },

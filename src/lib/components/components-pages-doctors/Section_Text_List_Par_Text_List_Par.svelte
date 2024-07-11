@@ -6,8 +6,8 @@
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
 	import List from '$lib/base-components/List.svelte';
 
-	import type { Section_Title_Par_Text_List_Par_Par_Type } from '$lib/types';
-	export let data: Section_Title_Par_Text_List_Par_Par_Type;
+	import type { Section_Text_List_Par_Text_List_Par_Type } from '$lib/types';
+	export let data: Section_Text_List_Par_Text_List_Par_Type;
 </script>
 
 <Section>
@@ -19,18 +19,19 @@
 					{data.subtitle}
 				</Text>
 			</Heading>
+			<Text classes="mb-5">
+				{data.text_one}
+			</Text>
+			<List items={data.list_one} />
 			<Paragraph classes="mb-5">
 				{data.paragraph_one}
 			</Paragraph>
 			<Text classes="mb-5">
-				{data.text}
+				{data.text_two}
 			</Text>
-			<List items={data.list} />
-			<Paragraph classes="mb-5">
+			<List items={data.list_two} />
+			<Paragraph>
 				{data.paragraph_two}
-			</Paragraph>
-			<Paragraph >
-				{data.paragraph_three}
 			</Paragraph>
 		</div>
 	</Container>

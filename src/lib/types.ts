@@ -191,3 +191,62 @@ export type Section_Title_Par_Par_Text_List_Par_Type = {
 	list: { text: string }[];
 	paragraph_three: string;
 };
+
+export type Section_Title_Six_Par_Type = {
+	title: string;
+	subtitle: string;
+	paragraph__one: string;
+	paragraph__two: string;
+	paragraph__three: string;
+	paragraph__four: string;
+	paragraph__five: string;
+	paragraph__six: string;
+};
+
+export type Section_Title_Par_Par_Text_List_Par_Text_List_Par_Par_Type = {
+	title: string;
+	subtitle: string;
+	paragraph_one: string;
+	paragraph_two: string;
+	text_one: string;
+	list_one: { text: string }[];
+	paragraph__three: string;
+	text_two: string;
+	list_two: { text: string }[];
+	paragraph__four: string;
+	paragraph__five: string;
+};
+
+export type Section_Title_Par_Par_Par_Par_Par_Text_List_Par_Par_Type = {
+	title: string;
+	subtitle: string;
+	paragraph_one: string;
+	paragraph_two: string;
+	paragraph_three: string;
+	paragraph_four: string;
+	paragraph_five: string;
+	text: string;
+	list: { text: string }[];
+	paragraph_six: string;
+	paragraph_seven: string;
+};
+
+export type Section_Title_Four_Par_Type = {
+	title: string;
+	subtitle: string;
+	paragraph_one: string;
+	paragraph_two: string;
+	paragraph_three: string;
+	paragraph_four: string;
+};
+
+export type Section_Text_List_Par_Text_List_Par_Type = {
+	title: string;
+	subtitle: string;
+	text_one: string;
+	list_one: { text: string }[];
+	paragraph_one: string;
+	text_two: string;
+	list_two: { text: string }[];
+	paragraph_two: string;
+};
