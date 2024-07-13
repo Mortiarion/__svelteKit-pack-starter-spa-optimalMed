@@ -47,11 +47,11 @@
 		{ href: '/pages-doctors/dentist', text: 'Стоматолог' },
 		{ href: '/pages-doctors/traumatologist', text: 'Травматолог' },
 		{ href: '/pages-doctors/transfusiologist', text: 'Трансфузіолог' },
-		{ href: '/', text: 'Терапевт' },
-		{ href: '/', text: 'Трансплантолог' },
-		{ href: '/', text: 'Фоніатр' },
-		{ href: '/', text: 'Хіміотерапевт' },
-		{ href: '/', text: 'Хірург' }
+		{ href: '/pages-doctors/therapist', text: 'Терапевт' },
+		{ href: '/pages-doctors/transplantologist', text: 'Трансплантолог' },
+		{ href: '/pages-doctors/phoniatrician', text: 'Фоніатр' },
+		{ href: '/chemotherapist', text: 'Хіміотерапевт' },
+		{ href: '/surgeon', text: 'Хірург' }
 	];
 </script>
 
