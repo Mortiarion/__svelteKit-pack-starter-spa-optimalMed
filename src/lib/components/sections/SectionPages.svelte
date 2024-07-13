@@ -50,8 +50,8 @@
 		{ href: '/pages-doctors/therapist', text: 'Терапевт' },
 		{ href: '/pages-doctors/transplantologist', text: 'Трансплантолог' },
 		{ href: '/pages-doctors/phoniatrician', text: 'Фоніатр' },
-		{ href: '/chemotherapist', text: 'Хіміотерапевт' },
-		{ href: '/surgeon', text: 'Хірург' }
+		{ href: '/pages-doctors/chemotherapist', text: 'Хіміотерапевт' },
+		{ href: '/pages-doctors/surgeon', text: 'Хірург' }
 	];
 </script>
 
