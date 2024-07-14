@@ -8,15 +8,17 @@
 	$: if (dialog && showModal) dialog.showModal();
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog
 	class="overflow-hidden rounded-[20px]"
 	bind:this={dialog}
 	on:close={() => (showModal = false)}
 	on:click|self={() => dialog.close()}
 >
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div on:click|stopPropagation>
 		<Popup_form />
-
+		<!-- svelte-ignore a11y-autofocus -->
 		<button class="hidden" autofocus on:click={() => dialog.close()}>close modal</button>
 	</div>
 </dialog>

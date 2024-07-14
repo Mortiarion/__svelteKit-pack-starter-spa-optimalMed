@@ -205,8 +205,8 @@
 			value: 'rheumatologist'
 		},
 		{
-			text: 'traumatologist-orthopedist',
-			value: 'Травматолог - ортопед'
+			text: 'Травматолог - ортопед',
+			value: 'traumatologist-orthopedist'
 		},
 		{
 			text: 'Терапевт',
@@ -221,8 +221,8 @@
 			value: 'transfusiologist'
 		},
 		{
-			text: 'ultrasound-diagnostician',
-			value: 'Ультразвукова діагностика'
+			text: 'Ультразвукова діагностика',
+			value: 'ultrasound-diagnostician'
 		},
 		{
 			text: 'Уролог',

@@ -9,6 +9,7 @@
 	import Section_Doctors_Salary from '$lib/components/sections/Section_Doctors_Salary.svelte';
 	import Section_From from '$lib/components/sections/Section_From.svelte';
 	import Popup from '$lib/components/popup/Modal.svelte';
+
 	export let showModal = false;
 </script>
 

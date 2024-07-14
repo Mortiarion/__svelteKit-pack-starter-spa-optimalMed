@@ -6,6 +6,7 @@
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Paragrahp from '$lib/base-components/Paragraph.svelte';
 	import Text from '$lib/base-components/Text.svelte';
+	import Popup from '$lib/components/popup/Modal.svelte';
 
 	let successes = [
 		{ value: '100', description: 'Приватних та державних лікарень' },
@@ -13,6 +14,8 @@
 		{ value: '30+', description: 'Працевлаштованих лікарів що місяця' },
 		{ value: '211', description: "Згод з Міністерства охорони здоров'я Польщі" }
 	];
+	export let showModal = false;
+
 </script>
 
 <Section tag="header">
@@ -34,7 +37,7 @@
 					план кар'єри на 5 років з нострифікацією диплома.
 				</Paragrahp>
 
-				<Main_button classes="py-6 lg:w-[372px] xl:w-[227px]">Подати заявку</Main_button>
+				<Main_button on:click={() => (showModal = true)} classes="py-6 lg:w-[372px] xl:w-[227px]">Подати заявку</Main_button>
 			</div>
 			<div
 				class="flex flex-col gap-4 pb-5 lg:grid lg:w-[372px] lg:grid-cols-2 lg:grid-rows-2 lg:gap-y-0"
@@ -55,6 +58,7 @@
 		</div>
 	</Container>
 </Section>
+<Popup bind:showModal />
 
 <style lang="postcss">
 	.header-bg {
