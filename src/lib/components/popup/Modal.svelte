@@ -16,7 +16,9 @@
 	on:click|self={() => dialog.close()}
 >
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div on:click|stopPropagation>
+	<div on:click|stopPropagation
+		class="lg:w-[708px]"
+	>
 		<Popup_form />
 		<!-- svelte-ignore a11y-autofocus -->
 		<button class="hidden" autofocus on:click={() => dialog.close()}>close modal</button>

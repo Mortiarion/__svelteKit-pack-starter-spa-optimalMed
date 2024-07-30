@@ -1,4 +1,6 @@
-<script lang="ts">
+<!-- <script lang="ts">
+	import { writable } from "svelte/store";
+
 	let filterData = [
 		{
 			text: 'Аллерголог',
@@ -270,8 +272,55 @@
 		}
 	];
 
-	let filter: HTMLElement;
-	export let showFilter = false;
+	export let showFilter: boolean = false;
+
+	let filterText: string = '';
+
+	let selectedSpecializations: Set<string> = new Set();
+
+	$: filteredData = filterData.filter((data) =>
+		data.text.toLowerCase().includes(filterText.toLowerCase())
+	);
+
+	function handleInput(event: Event) {
+		const inputElement = event.target as HTMLInputElement;
+		filterText = inputElement.value;
+	}
+
+	function clickOutside(node: HTMLElement, callback: () => void) {
+		const handleClick = (event: MouseEvent) => {
+			const target = event.target as Node;
+			if (!node.contains(target) && target !== buttonElement) {
+				callback();
+			}
+		};
+
+		const buttonElement = document.querySelector('.dropdown-speciality-small-popup');
+
+		document.addEventListener('click', handleClick, true);
+
+		return {
+			destroy() {
+				document.removeEventListener('click', handleClick, true);
+			}
+		};
+	}
+
+	$: selectedCount = selectedSpecializations.size;
+
+	function handleCheckboxChange(event: Event) {
+		const checkbox = event.target as HTMLInputElement;
+		if (checkbox.checked) {
+			selectedSpecializations.add(checkbox.value);
+		} else {
+			selectedSpecializations.delete(checkbox.value);
+		}
+		selectedCount = selectedSpecializations.size;
+	}
+
+	export const popupFilter = writable('');
+
+	export const popupFilterError = writable(false);
 </script>
 
 <div class="form-popup-box relative">
@@ -280,7 +329,14 @@
 		data-required="select"
 		value=" "
 		type="button"
-		class="dropdown-speciality-small-popup relative w-full cursor-pointer rounded-[10px] border border-input px-[28px] py-[19px]"
+		class="dropdown-speciality-small-popup relative w-full cursor-pointer rounded-[10px] border border-input px-[28px] py-[19px]
+			{$popupFilterError
+			? 'error-border'
+			: $popupFilter
+				? 'success-border'
+				: 'border-base'}
+		"
+		
 	/>
 	<svg
 		class="pointer-events-none absolute right-[15px] top-[30px]"
@@ -297,16 +353,17 @@
 	</svg>
 	<span class="speciality-small pointer-events-none absolute left-[28px] top-[20px]"
 		>Спеціалізація *
-		<span class="number-selected-small-filter"></span>
+		<span class="number-selected-small-filter pointer-events-none">{selectedCount} </span>
 	</span>
 </div>
 
 {#if showFilter}
-	<div class="dropdown-speciality-small-filter">
+	<div use:clickOutside={() => (showFilter = false)} class="dropdown-speciality-small-filter">
 		<div class="filter-input relative bg-filter px-2 py-5">
 			<input
 				class="w-full rounded-[10px] border border-input px-[28px] py-[19px] placeholder:text-sm placeholder:text-main"
 				type="text"
+				on:input={handleInput}
 			/>
 			<svg
 				class="absolute right-5 top-[42px]"
@@ -324,9 +381,15 @@
 		</div>
 
 		<div class="filter-container flex flex-col">
-			{#each filterData as data}
+			{#each filteredData as data}
 				<label class="checkbox-container-filter">
-					<input type="checkbox" name="specialization" value={data.value} />
+					<input
+						type="checkbox"
+						name="specialization"
+						value={data.value}
+						on:change={handleCheckboxChange}
+						checked={selectedSpecializations.has(data.value)}
+					/>
 					<span class="checkmark"></span>{data.text}
 				</label>
 			{/each}
@@ -359,4 +422,4 @@
 		overflow-y: scroll;
 		padding: 15px 25px;
 	}
-</style>
+</style> -->
