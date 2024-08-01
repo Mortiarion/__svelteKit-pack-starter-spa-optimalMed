@@ -462,11 +462,8 @@
 	/>
 
 	<input
-		class="w-full rounded-[10px] px-[28px] py-[19px] placeholder:text-sm placeholder:text-main {$phoneError
-			? 'error-border'
-			: $phone
-				? 'success-border'
-				: 'border-base'}"
+		class="w-full rounded-[10px] px-[28px] py-[19px] placeholder:text-sm placeholder:text-main
+		{$phoneError ? 'error-border' : $phone ? 'success-border' : 'border-base'}"
 		type="tel"
 		id="tel"
 		placeholder="Телефон *"
@@ -559,61 +556,7 @@
 		</div>
 	{/if}
 
-	<!-- <Popup_filter-LARGE /> -->
-	<!-- <div class="form-popup-box-large relative bs:hidden xl:block">
-		<input
-			on:click={() => (showFilterLarge = !showFilterLarge)}
-			data-required="select"
-			value=" "
-			type="button"
-			class="dropdown-speciality-small-popup relative w-full cursor-pointer rounded-[10px] border border-input px-[28px] py-[19px]
-				{$popupFilterError
-				? 'error-border'
-				: selectedSpecializations.size > 0
-					? 'success-border'
-					: 'border-base'}
-			"
-		/>
-		<svg
-			class="pointer-events-none absolute right-[15px] top-[30px]"
-			width="11"
-			height="8"
-			viewBox="0 0 11 8"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path
-				d="M6.6286 7.06466C6.22861 7.54961 5.48567 7.54961 5.08569 7.06466L1.02083 2.13629C0.482874 1.48405 0.946818 0.5 1.79229 0.5H9.922C10.7675 0.5 11.2314 1.48404 10.6935 2.13628L6.6286 7.06466Z"
-				fill="#0FA4AE"
-			/>
-		</svg>
-		<span class="speciality-small pointer-events-none absolute left-[28px] top-[20px]"
-			>Спеціалізація *
-			<span class="number-selected-small-filter pointer-events-none">{selectedCount} </span>
-		</span>
-	</div>
 
-	{#if showFilterLarge}
-		<div
-			use:clickOutside={() => (showFilterLarge = false)}
-			class="dropdown-speciality-large-filter"
-		>
-			<div class="filter-container-large">
-				{#each filteredData as data}
-					<label class="checkbox-container-filter">
-						<input
-							type="checkbox"
-							name="specialization"
-							value={data.value}
-							on:change={handleCheckboxChange}
-							checked={selectedSpecializations.has(data.value)}
-						/>
-						<span class="checkmark"></span>{data.text}
-					</label>
-				{/each}
-			</div>
-		</div>
-	{/if} -->
 
 	<textarea
 		class="border-base w-full resize-none rounded-[10px] px-[28px] py-[19px] placeholder:text-sm placeholder:text-main"

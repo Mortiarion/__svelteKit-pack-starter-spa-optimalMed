@@ -5,6 +5,7 @@
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
 	import Main_Button from '$lib/components/header/Main_button.svelte';
+	import Popup from '$lib/components/popup/Modal.svelte';
 
 	export let items = [
 		{ number: '01/', text: 'Консультація нашого рекрутера телефоном або в офісі фірми' },
@@ -19,6 +20,8 @@
 		{ number: '07/', text: 'Початок роботи лікарем у Польщі' },
 		{ number: '08/', text: 'Допомога в підтвердженні диплома (нострифікації) та спеціалізації' }
 	];
+
+	export let showModal: boolean = false;
 </script>
 
 <Section id="scheme">
@@ -41,8 +44,13 @@
 					</Paragraph>
 				</div>
 			{/each}
-			<Main_Button classes="xl:hidden py-6 lg:w-full">Подати заявку</Main_Button>
+			<Main_Button on:click={() => (showModal = true)} classes="xl:hidden py-6 lg:w-full"
+				>Подати заявку</Main_Button
+			>
 		</div>
-		<Main_Button classes="hidden xl:block xl:mx-auto 2xl:py-6">Подати заявку</Main_Button>
+		<Main_Button on:click={() => (showModal = true)} classes="hidden xl:block xl:mx-auto 2xl:py-6"
+			>Подати заявку</Main_Button
+		>
 	</Container>
 </Section>
+<Popup bind:showModal />

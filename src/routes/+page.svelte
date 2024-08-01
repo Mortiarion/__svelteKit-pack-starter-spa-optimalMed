@@ -8,9 +8,9 @@
 	import Section_Scheme from '$lib/components/sections/Section_Scheme.svelte';
 	import Section_Doctors_Salary from '$lib/components/sections/Section_Doctors_Salary.svelte';
 	import Section_From from '$lib/components/sections/Section_From.svelte';
-	import Popup from '$lib/components/popup/Modal.svelte';
+	// import Popup from '$lib/components/popup/Modal.svelte';
 
-	export let showModal = false;
+	// export let showModal = false;
 </script>
 
 <svelte:head>
@@ -31,5 +31,5 @@
 	</main>
 	<Footer />
 </div>
-<Popup bind:showModal />
+<!-- <Popup bind:showModal /> -->
 

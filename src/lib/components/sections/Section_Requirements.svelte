@@ -4,7 +4,8 @@
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
-	import MainButton from '../header/Main_button.svelte';
+	import MainButton from '$lib/components/header/Main_button.svelte';
+	import Popup from '$lib/components/popup/Modal.svelte';
 
 	export let items = [
 		{
@@ -28,6 +29,8 @@
 			paragraph: '(знання мови вітається)'
 		}
 	];
+
+	export let showModal: boolean = false;
 </script>
 
 <Section>
@@ -50,8 +53,9 @@
 							<Paragraph classes="text-xs italic text-grey">{item.paragraph}</Paragraph>
 						</div>
 					{/each}
-					<MainButton classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto"
-						>Подати заявку</MainButton
+					<MainButton
+						on:click={() => (showModal = true)}
+						classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto">Подати заявку</MainButton
 					>
 				</div>
 				<MainButton classes="w-[227px] mb-24 md:block lg:hidden">Подати заявку</MainButton>
@@ -59,6 +63,7 @@
 		</div>
 	</Container>
 </Section>
+<Popup bind:showModal />
 
 <style lang="postcss">
 	.gradient {

@@ -5,6 +5,399 @@
 	import Text from '$lib/base-components/Text.svelte';
 	import Link from '$lib/base-components/Link.svelte';
 	import Main_Button from '$lib/components/header/Main_button.svelte';
+	import { writable } from 'svelte/store';
+
+	let filterData = [
+		{
+			text: 'Аллерголог',
+			value: 'allergist'
+		},
+		{
+			text: 'Андролог',
+			value: 'andrologist'
+		},
+		{
+			text: 'Анестезіолог',
+			value: 'anesthesiologist'
+		},
+		{
+			text: 'Акушер - гінеколог',
+			value: 'obstetrician-gynecologist'
+		},
+		{
+			text: 'Вірусолог',
+			value: 'virologist'
+		},
+		{
+			text: 'Лікар без спеціалізації',
+			value: 'general-practitioner'
+		},
+		{
+			text: 'Гастроентеролог',
+			value: 'gastroenterologist'
+		},
+		{
+			text: 'Гематолог',
+			value: 'hematologist'
+		},
+		{
+			text: 'Генетик',
+			value: 'genetic'
+		},
+		{
+			text: 'Геріатр',
+			value: 'geriatrician'
+		},
+		{
+			text: 'Дерматолог',
+			value: 'dermatologist'
+		},
+		{
+			text: 'Дитячий анестезіолог',
+			value: 'pediatric-anesthesiologist'
+		},
+		{
+			text: 'Дитячий гінеколог',
+			value: 'pediatric-gynecologist'
+		},
+		{
+			text: 'Дитячий гастроентеролог',
+			value: 'pediatric-gastroenterologist'
+		},
+		{
+			text: 'Дитячий дерматолог',
+			value: 'pediatric-dermatologist'
+		},
+		{
+			text: 'Дитячий кардіолог',
+			value: 'pediatric-cardiologist'
+		},
+		{
+			text: 'Дитячий невролог',
+			value: 'pediatric-neurologist'
+		},
+		{
+			text: 'Дитячий отоларинголог',
+			value: 'pediatric-otorhinolaryngologist'
+		},
+		{
+			text: 'Дитячий травматолог - ортопед',
+			value: 'pediatric-traumatologist-orthopedist'
+		},
+		{
+			text: 'Дитячий хірург',
+			value: 'pediatric-surgeon'
+		},
+		{
+			text: 'Дитячий хірург',
+			value: 'pediatric-surgeon'
+		},
+		{
+			text: 'Дитячий пульмонолог',
+			value: 'pediatric-pulmonologist'
+		},
+		{
+			text: 'Дитячий нефролог',
+			value: 'pediatric-nephrologist'
+		},
+		{
+			text: 'Дитячий уролог',
+			value: 'pediatric-urologist'
+		},
+		{
+			text: 'Дитячий эндокринолог',
+			value: 'pediatric-endocrinologist'
+		},
+		{
+			text: 'Іммунолог',
+			value: 'immunologist'
+		},
+		{
+			text: 'Інфекціоніст',
+			value: 'infectious-disease-specialist'
+		},
+		{
+			text: 'Кардіолог',
+			value: 'cardiologist'
+		},
+		{
+			text: 'Кардіохірург',
+			value: 'cardiovascular-surgeon'
+		},
+		{
+			text: 'Лабораторна діагностика',
+			value: 'laboratory-diagnostician'
+		},
+		{
+			text: 'Маммолог',
+			value: 'mammologist'
+		},
+		{
+			text: 'Нарколог',
+			value: 'narcologist'
+		},
+		{
+			text: 'Невролог',
+			value: 'neurologist'
+		},
+		{
+			text: 'Нейрохірург',
+			value: 'neurosurgeon'
+		},
+		{
+			text: 'Неонатолог',
+			value: 'neonatologist'
+		},
+		{
+			text: 'Невідкладні стани',
+			value: 'emergency-medicine'
+		},
+		{
+			text: 'Нефролог',
+			value: 'nephrologist'
+		},
+		{
+			text: 'Онколог',
+			value: 'oncologist'
+		},
+		{
+			text: 'Отоларинголог',
+			value: 'otolaryngologist'
+		},
+		{
+			text: 'Офтальмолог',
+			value: 'ophthalmologist'
+		},
+		{
+			text: 'Патологоанатом',
+			value: 'pathologist'
+		},
+		{
+			text: 'Педіатр',
+			value: 'pediatrician'
+		},
+		{
+			text: 'Проктолог',
+			value: 'proctologist'
+		},
+		{
+			text: 'Пульмонолог',
+			value: 'pulmonologist'
+		},
+		{
+			text: 'Психіатр',
+			value: 'psychiatrist'
+		},
+		{
+			text: 'Радіолог',
+			value: 'radiologist'
+		},
+		{
+			text: 'Реабілітолог',
+			value: 'rehabilitation-specialist'
+		},
+		{
+			text: 'Судово-медичний експерт',
+			value: 'forensic-medical-expert'
+		},
+		{
+			text: 'Судинний хірург',
+			value: 'vascular-surgeon'
+		},
+		{
+			text: 'Стоматолог',
+			value: 'dentist'
+		},
+		{
+			text: 'Ревматолог',
+			value: 'rheumatologist'
+		},
+		{
+			text: 'Травматолог - ортопед',
+			value: 'traumatologist-orthopedist'
+		},
+		{
+			text: 'Терапевт',
+			value: 'therapist'
+		},
+		{
+			text: 'Токсиколог',
+			value: 'toxicologist'
+		},
+		{
+			text: 'Трансфузіолог',
+			value: 'transfusiologist'
+		},
+		{
+			text: 'Ультразвукова діагностика',
+			value: 'ultrasound-diagnostician'
+		},
+		{
+			text: 'Уролог',
+			value: 'urologist'
+		},
+		{
+			text: 'Фоніатр',
+			value: 'phoniatrist'
+		},
+		{
+			text: 'Фтизіатр',
+			value: 'phthisiatrist'
+		},
+		{
+			text: 'Хіміотерапевт',
+			value: 'chemotherapist'
+		},
+		{
+			text: 'Хірург загальний',
+			value: 'general-surgeon'
+		},
+		{
+			text: 'Хірург онколог',
+			value: 'oncological-surgeon'
+		},
+		{
+			text: 'Хірург пластичний',
+			value: 'plastic-surgeon'
+		},
+		{
+			text: 'Ендокринолог',
+			value: 'endocrinologist'
+		},
+		{
+			text: 'Ендоскопія',
+			value: 'endoscopist'
+		},
+		{
+			text: 'Епідеміолог',
+			value: 'epidemiologist'
+		},
+		{
+			text: 'Інші',
+			value: 'other'
+		}
+	];
+
+	let showFilterLarge: boolean = true;
+
+	let selectedSpecializations: Set<string> = new Set();
+
+	function clickOutside(node: HTMLElement, callback: () => void) {
+		const handleClick = (event: MouseEvent) => {
+			const target = event.target as Node;
+			if (!node.contains(target) && target !== buttonElement) {
+				callback();
+			}
+			// if (!node.contains(target) && target !== buttonElementLarge) {
+			// 	callback();
+			// }
+		};
+
+		const buttonElement = document.querySelector('.dropdown-speciality-small-popup');
+		// const buttonElementLarge = document.querySelector('.dropdown-speciality-large-filter');
+
+		document.addEventListener('click', handleClick, true);
+
+		return {
+			destroy() {
+				document.removeEventListener('click', handleClick, true);
+			}
+		};
+	}
+
+	const name = writable('');
+	const email = writable('');
+	const phone = writable('');
+
+	const nameError = writable(false);
+	const emailError = writable(false);
+	const phoneError = writable(false);
+	const popupFilterError = writable(false);
+
+	function handleSubmit() {
+		let valid = true;
+
+		name.update((value) => {
+			if (!value.trim()) {
+				nameError.set(true);
+				valid = false;
+			} else {
+				nameError.set(false);
+			}
+
+			return value;
+		});
+
+		phone.update((value) => {
+			if (!validatePhone(value)) {
+				phoneError.set(true);
+				valid = false;
+			} else {
+				phoneError.set(false);
+			}
+
+			return value;
+		});
+
+		email.update((value) => {
+			if (!validateEmail(value)) {
+				emailError.set(true);
+				valid = false;
+			} else {
+				emailError.set(false);
+			}
+
+			return value;
+		});
+
+		if (selectedSpecializations.size === 0) {
+			popupFilterError.set(true);
+			valid = false;
+		} else {
+			popupFilterError.set(false);
+		}
+
+		if (valid) {
+			alert('Форма успішно відправлена');
+			resetForm();
+		}
+	}
+
+	function resetForm() {
+		name.set('');
+		email.set('');
+		phone.set('');
+		selectedSpecializations.clear();
+		selectedCount = 0;
+		// filterText = '';
+		// showFilter = false;
+		nameError.set(false);
+		emailError.set(false);
+		phoneError.set(false);
+		popupFilterError.set(false);
+	}
+
+	function validateEmail(email: string): boolean {
+		const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return re.test(email);
+	}
+
+	function validatePhone(phone: string): boolean {
+		const re = /^(?:\+380|0)?\d{9}$/;
+		return re.test(phone);
+	}
+
+	$: selectedCount = selectedSpecializations.size;
+
+	function handleCheckboxChange(event: Event) {
+		const checkbox = event.target as HTMLInputElement;
+		if (checkbox.checked) {
+			selectedSpecializations.add(checkbox.value);
+		} else {
+			selectedSpecializations.delete(checkbox.value);
+		}
+		selectedCount = selectedSpecializations.size;
+	}
 </script>
 
 <Section id="form">
@@ -57,60 +450,52 @@
 					<Heading level="h4" classes="text-2xl font-semibold text-center mb-5"
 						>Оставте заявку</Heading
 					>
-					<form action="" id="main-form" class="flex flex-col gap-5">
+					<form
+						on:submit|preventDefault={handleSubmit}
+						action=""
+						id="main-form"
+						class="flex flex-col gap-5"
+					>
 						<div class="main-form-box">
 							<input
-								class=" h-16 w-full rounded-xl px-7"
+								class=" h-16 w-full rounded-xl px-7 {$nameError
+									? 'error-border'
+									: $name
+										? 'success-border'
+										: 'border-base'}
+								"
 								data-required="letter"
 								type="text"
 								name="name"
 								placeholder="Ім'я *"
+								bind:value={$name}
 							/>
 						</div>
 						<div class="main-form-box">
 							<input
-								class=" h-16 w-full rounded-xl px-7"
+								class=" h-16 w-full rounded-xl px-7
+								{$phoneError ? 'error-border' : $phone ? 'success-border' : 'border-base'}"
 								data-required="number"
 								type="tel"
 								name="tel"
 								placeholder="Телефон *"
+								bind:value={$phone}
 							/>
 						</div>
 						<div class="main-form-box">
 							<input
-								class=" h-16 w-full rounded-xl px-7"
+								class=" h-16 w-full rounded-xl px-7
+								{$emailError ? 'error-border' : $email ? 'success-border' : 'border-base'}
+								"
 								data-required="email"
 								type="email"
 								name="email"
 								placeholder="Email *"
+								bind:value={$email}
 							/>
 						</div>
-						<div class="main-form-box drop-big hidden">
-							<input
-								type="button"
-								value=" "
-								data-required="select"
-								id="dropdown-speciality"
-								class="dropdown-speciality"
-							/>
-							<svg
-								width="11"
-								height="8"
-								viewBox="0 0 11 8"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M6.6286 7.06466C6.22861 7.54961 5.48567 7.54961 5.08569 7.06466L1.02083 2.13629C0.482874 1.48405 0.946818 0.5 1.79229 0.5H9.922C10.7675 0.5 11.2314 1.48404 10.6935 2.13628L6.6286 7.06466Z"
-									fill="#0FA4AE"
-								/>
-							</svg>
-							<span class="speciality"
-								>Спеціалізація *
-								<span class="number-selected"></span>
-							</span>
-						</div>
-						<div class="main-form-box drop-small relative">
+
+						<!-- <div class="main-form-box drop-small relative">
 							<input
 								data-required="select-small"
 								value=" "
@@ -134,8 +519,77 @@
 								>Спеціалізація *
 								<span class="number-selected-small"></span>
 							</span>
+						</div> -->
+
+						<!-- <Popup_filter-LARGE /> -->
+						<div class="form-popup-box-large relative bs:hidden xl:block">
+							<input
+								on:click={() => (showFilterLarge = !showFilterLarge)}
+								data-required="select"
+								value=" "
+								type="button"
+								class="dropdown-speciality-small-popup relative w-full cursor-pointer rounded-[10px] border border-input bg-white px-[28px] py-[19px]
+								{$popupFilterError
+									? 'error-border'
+									: selectedSpecializations.size > 0
+										? 'success-border'
+										: 'border-base'}"
+							/>
+							<svg
+								class="pointer-events-none absolute right-[15px] top-[30px]"
+								width="11"
+								height="8"
+								viewBox="0 0 11 8"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M6.6286 7.06466C6.22861 7.54961 5.48567 7.54961 5.08569 7.06466L1.02083 2.13629C0.482874 1.48405 0.946818 0.5 1.79229 0.5H9.922C10.7675 0.5 11.2314 1.48404 10.6935 2.13628L6.6286 7.06466Z"
+									fill="#0FA4AE"
+								/>
+							</svg>
+							<span
+								class="speciality-small pointer-events-none absolute left-[28px] top-[20px] text-main"
+								>Спеціалізація *
+								<span class="number-selected-small-filter pointer-events-none"
+									>{selectedCount}
+								</span>
+							</span>
 						</div>
-						<div class="dropdown-speciality-small-filter-main hidden">
+
+						{#if showFilterLarge}
+							<div
+								use:clickOutside={() => (showFilterLarge = false)}
+								class="dropdown-speciality-large-filter"
+							>
+								<div class=" bg-white rounded-3xl">
+									<div class="filter-container-large">
+										{#each filterData as data}
+											<label class="checkbox-container-filter text-sm">
+												<input
+													type="checkbox"
+													name="specialization"
+													value={data.value}
+													on:change={handleCheckboxChange}
+													checked={selectedSpecializations.has(data.value)}
+												/>
+												<span class="checkmark"></span>{data.text}
+											</label>
+										{/each}
+									</div>
+									<div class="mb-10 flex justify-center gap-5">
+										<button class="clear_button text-3xl text-main-button" type="button"
+											>Очистить выбор</button
+										>
+										<button class="acept_button bg-main-button text-3xl" type="button"
+											>Выбрать</button
+										>
+									</div>
+								</div>
+							</div>
+						{/if}
+
+						<!-- <div class="dropdown-speciality-small-filter-main hidden">
 							<div class="filter-input">
 								<input type="text" />
 								<svg
@@ -433,7 +887,7 @@
 									<span class="checkmark"></span>Інші
 								</label>
 							</div>
-						</div>
+						</div> -->
 						<textarea
 							class="arena-text h-[200px] rounded-xl px-7 py-6"
 							name="area"
@@ -454,5 +908,73 @@
 	#main-form *::placeholder {
 		font-size: 14px;
 		color: #080808;
+	}
+
+	.error-border {
+		border-color: red;
+		border-width: 1px;
+	}
+
+	.success-border {
+		border-width: 1px;
+		border-color: green;
+	}
+
+	.border-base {
+		border-width: 1px;
+		border-style: solid;
+		border-color: #ccc;
+	}
+
+	.filter-container-large {
+		/* position: fixed; */
+		color: #080808;
+		/* position: absolute; */
+		/* background-color: #fff; */
+		padding: 40px 80px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-column-gap: 40px;
+		grid-row-gap: 10px;
+	}
+
+	.dropdown-speciality-large-filter {
+		position: fixed;
+		display: flex;
+		background-color: #08080899;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		/* opacity: 1; */
+		/* drop-filter: blur(0.2px); */
+		align-items: center;
+		justify-content: center;
+	}
+
+	.clear_button {
+		box-shadow:
+			0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+			0px 3px 7px 0px rgba(0, 0, 0, 0.1),
+			0px 12px 12px 0px rgba(0, 0, 0, 0.09),
+			0px 27px 16px 0px rgba(0, 0, 0, 0.05),
+			0px 48px 19px 0px rgba(0, 0, 0, 0.01),
+			0px 75px 21px 0px rgba(0, 0, 0, 0);
+		border-radius: 35px;
+		text-align: center;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 28px;
+		width: 380px;
+		padding: 21px 0;
+	}
+
+	.acept_button {
+		width: 380px;
+		padding: 21px 0;
+		border-radius: 35px;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 28px;
 	}
 </style>
