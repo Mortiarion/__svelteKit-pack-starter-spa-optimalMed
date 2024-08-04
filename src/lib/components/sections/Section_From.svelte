@@ -278,32 +278,10 @@
 		}
 	];
 
-	let showFilterLarge: boolean = true;
+	let showFilterLarge: boolean = false;
+	let showFilterSmall: boolean = false;
 
 	let selectedSpecializations: Set<string> = new Set();
-
-	function clickOutside(node: HTMLElement, callback: () => void) {
-		const handleClick = (event: MouseEvent) => {
-			const target = event.target as Node;
-			if (!node.contains(target) && target !== buttonElement) {
-				callback();
-			}
-			// if (!node.contains(target) && target !== buttonElementLarge) {
-			// 	callback();
-			// }
-		};
-
-		const buttonElement = document.querySelector('.dropdown-speciality-small-popup');
-		// const buttonElementLarge = document.querySelector('.dropdown-speciality-large-filter');
-
-		document.addEventListener('click', handleClick, true);
-
-		return {
-			destroy() {
-				document.removeEventListener('click', handleClick, true);
-			}
-		};
-	}
 
 	const name = writable('');
 	const email = writable('');
@@ -313,6 +291,7 @@
 	const emailError = writable(false);
 	const phoneError = writable(false);
 	const popupFilterError = writable(false);
+	const popupFilterErrorSmall = writable(false);
 
 	function handleSubmit() {
 		let valid = true;
@@ -352,9 +331,12 @@
 
 		if (selectedSpecializations.size === 0) {
 			popupFilterError.set(true);
+			popupFilterErrorSmall.set(true);
+
 			valid = false;
 		} else {
 			popupFilterError.set(false);
+			popupFilterErrorSmall.set(false);
 		}
 
 		if (valid) {
@@ -369,12 +351,19 @@
 		phone.set('');
 		selectedSpecializations.clear();
 		selectedCount = 0;
-		// filterText = '';
-		// showFilter = false;
 		nameError.set(false);
 		emailError.set(false);
 		phoneError.set(false);
 		popupFilterError.set(false);
+	}
+
+	function resetCheckBox() {
+		const checkboxes = document.querySelectorAll('input[name="specialization"]');
+		checkboxes.forEach((checkbox) => {
+			(checkbox as HTMLInputElement).checked = false;
+		});
+		selectedCount = 0;
+		selectedSpecializations.clear();
 	}
 
 	function validateEmail(email: string): boolean {
@@ -397,6 +386,36 @@
 			selectedSpecializations.delete(checkbox.value);
 		}
 		selectedCount = selectedSpecializations.size;
+	}
+
+	let filterText: string = '';
+
+	$: filteredData = filterData.filter((data) =>
+		data.text.toLowerCase().includes(filterText.toLowerCase())
+	);
+
+	function handleInput(event: Event) {
+		const inputElement = event.target as HTMLInputElement;
+		filterText = inputElement.value;
+	}
+
+	function clickOutside(node: HTMLElement, callback: () => void) {
+		const handleClick = (event: MouseEvent) => {
+			const target = event.target as Node;
+			if (!node.contains(target) && target !== buttonElement) {
+				callback();
+			}
+		};
+
+		const buttonElement = document.querySelector('.dropdown-speciality-small-filter');
+
+		document.addEventListener('click', handleClick, true);
+
+		return {
+			destroy() {
+				document.removeEventListener('click', handleClick, true);
+			}
+		};
 	}
 </script>
 
@@ -495,16 +514,23 @@
 							/>
 						</div>
 
-						<!-- <div class="main-form-box drop-small relative">
+						<div class="main-form-box drop-small relative xl:hidden">
 							<input
+								on:click={() => (showFilterSmall = !showFilterSmall)}
 								data-required="select-small"
 								value=" "
 								type="button"
-								class="dropdown-speciality-small h-16 w-full rounded-xl bg-white px-7"
+								class="dropdown-speciality-small h-16 w-full rounded-xl bg-white px-7
+								{$popupFilterErrorSmall
+									? 'error-border'
+									: selectedSpecializations.size > 0
+										? 'success-border'
+										: 'border-base'}
+								"
 							/>
 							<svg
 								width="11"
-								class="absolute right-5 top-2/4"
+								class="pointer-events-none absolute right-5 top-2/4"
 								height="8"
 								viewBox="0 0 11 8"
 								fill="none"
@@ -515,11 +541,55 @@
 									fill="#0FA4AE"
 								/>
 							</svg>
-							<span class="speciality-small absolute left-0 top-[35%] px-7 text-main"
+							<span
+								class="speciality-small pointer-events-none absolute left-0 top-[35%] px-7 text-main"
 								>Спеціалізація *
-								<span class="number-selected-small"></span>
+								<span class="number-selected-small">{selectedCount}</span>
 							</span>
-						</div> -->
+						</div>
+
+						{#if showFilterSmall}
+							<div
+								use:clickOutside={() => (showFilterSmall = false)}
+								class="dropdown-speciality-small-filter bs:w-[280px] sm:w-[335px] md:w-[385px] lg:w-[330px]"
+							>
+								<div class="filter-input relative bg-filter px-2 py-5">
+									<input
+										class="w-full rounded-[10px] border border-input px-[28px] py-[19px] text-main placeholder:text-sm placeholder:text-main"
+										type="text"
+										on:input={handleInput}
+									/>
+									<svg
+										class="absolute right-5 top-[42px]"
+										width="20"
+										height="20"
+										viewBox="0 0 20 20"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M8.04937 16.0903C9.837 16.0904 11.5735 15.4939 12.9838 14.3955L18.3044 19.7161C18.7019 20.1 19.3353 20.089 19.7191 19.6915C20.0936 19.3038 20.0936 18.6891 19.7191 18.3014L14.3985 12.9808C17.1242 9.47199 16.4895 4.41791 12.9807 1.69215C9.47194 -1.03361 4.41791 -0.398871 1.69215 3.10991C-1.03361 6.6187 -0.398871 11.6728 3.10991 14.3985C4.52252 15.4959 6.26057 16.0912 8.04937 16.0903ZM3.77429 3.77121C6.13538 1.41008 9.96346 1.41004 12.3246 3.77113C14.6857 6.13221 14.6858 9.96029 12.3247 12.3214C9.96359 14.6826 6.13551 14.6826 3.77437 12.3215C3.77433 12.3215 3.77433 12.3215 3.77429 12.3214C1.4132 9.97754 1.39929 6.16341 3.74317 3.80233C3.75353 3.79193 3.76389 3.78157 3.77429 3.77121Z"
+											fill="#0FA4AE"
+										></path>
+									</svg>
+								</div>
+
+								<div class="filter-container flex flex-col">
+									{#each filteredData as data}
+										<label class="checkbox-container-filter text-main">
+											<input
+												type="checkbox"
+												name="specialization"
+												value={data.value}
+												on:change={handleCheckboxChange}
+												checked={selectedSpecializations.has(data.value)}
+											/>
+											<span class="checkmark"></span>{data.text}
+										</label>
+									{/each}
+								</div>
+							</div>
+						{/if}
 
 						<!-- <Popup_filter-LARGE /> -->
 						<div class="form-popup-box-large relative bs:hidden xl:block">
@@ -557,13 +627,61 @@
 							</span>
 						</div>
 
+						<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 						{#if showFilterLarge}
+							<!-- svelte-ignore a11y-no-static-element-interactions -->
 							<div
-								use:clickOutside={() => (showFilterLarge = false)}
+								on:click={() => (showFilterLarge = false)}
 								class="dropdown-speciality-large-filter"
 							>
-								<div class=" bg-white rounded-3xl">
-									<div class="filter-container-large">
+								<div on:click|stopPropagation class=" rounded-3xl bg-white">
+									<div class="filter-container-large relative">
+										<button
+											on:click={() => (showFilterLarge = false)}
+											type="button"
+											class="popup-close absolute right-5 top-5"
+										>
+											<svg
+												width="40"
+												height="40"
+												viewBox="0 0 40 40"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<g clip-path="url(#clip0_1245_8901)">
+													<path
+														d="M26.4128 11.6735C26.6842 11.4021 27.1243 11.4021 27.3957 11.6735C27.6671 11.945 27.6671 12.385 27.3957 12.6564L12.6527 27.3994C12.3813 27.6708 11.9413 27.6708 11.6699 27.3994C11.3984 27.1279 11.3984 26.6879 11.6699 26.4165L26.4128 11.6735Z"
+														stroke="#461DBA"
+														stroke-width="2"
+													></path>
+												</g>
+												<g clip-path="url(#clip1_1245_8901)">
+													<path
+														d="M13.1497 11.6735C12.8783 11.4021 12.4382 11.4021 12.1668 11.6735C11.8954 11.945 11.8954 12.385 12.1668 12.6564L26.9098 27.3994C27.1812 27.6708 27.6212 27.6708 27.8926 27.3994C28.1641 27.1279 28.1641 26.6879 27.8926 26.4165L13.1497 11.6735Z"
+														stroke="#461DBA"
+														stroke-width="2"
+													></path>
+												</g>
+												<defs>
+													<clipPath>
+														<rect
+															width="25.0196"
+															height="9.03486"
+															fill="white"
+															transform="translate(7.74219 25.4336) rotate(-45)"
+														></rect>
+													</clipPath>
+													<clipPath>
+														<rect
+															width="25.0196"
+															height="9.03486"
+															fill="white"
+															transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 31.8203 25.4336)"
+														></rect>
+													</clipPath>
+												</defs>
+											</svg>
+										</button>
 										{#each filterData as data}
 											<label class="checkbox-container-filter text-sm">
 												<input
@@ -578,316 +696,21 @@
 										{/each}
 									</div>
 									<div class="mb-10 flex justify-center gap-5">
-										<button class="clear_button text-3xl text-main-button" type="button"
-											>Очистить выбор</button
+										<button
+											on:click={resetCheckBox}
+											class="clear_button text-3xl text-main-button"
+											type="button">Очистить выбор</button
 										>
-										<button class="acept_button bg-main-button text-3xl" type="button"
-											>Выбрать</button
+										<button
+											on:click={() => (showFilterLarge = false)}
+											class="acept_button bg-main-button text-3xl"
+											type="button">Выбрать</button
 										>
 									</div>
 								</div>
 							</div>
 						{/if}
 
-						<!-- <div class="dropdown-speciality-small-filter-main hidden">
-							<div class="filter-input">
-								<input type="text" />
-								<svg
-									width="20"
-									height="20"
-									viewBox="0 0 20 20"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M8.04937 16.0903C9.837 16.0904 11.5735 15.4939 12.9838 14.3955L18.3044 19.7161C18.7019 20.1 19.3353 20.089 19.7191 19.6915C20.0936 19.3038 20.0936 18.6891 19.7191 18.3014L14.3985 12.9808C17.1242 9.47199 16.4895 4.41791 12.9807 1.69215C9.47194 -1.03361 4.41791 -0.398871 1.69215 3.10991C-1.03361 6.6187 -0.398871 11.6728 3.10991 14.3985C4.52252 15.4959 6.26057 16.0912 8.04937 16.0903ZM3.77429 3.77121C6.13538 1.41008 9.96346 1.41004 12.3246 3.77113C14.6857 6.13221 14.6858 9.96029 12.3247 12.3214C9.96359 14.6826 6.13551 14.6826 3.77437 12.3215C3.77433 12.3215 3.77433 12.3215 3.77429 12.3214C1.4132 9.97754 1.39929 6.16341 3.74317 3.80233C3.75353 3.79193 3.76389 3.78157 3.77429 3.77121Z"
-										fill="#0FA4AE"
-									/>
-								</svg>
-							</div>
-							<div class="filter-container">
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="allergist" />
-									<span class="checkmark"></span>Аллерголог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="andrologist" />
-									<span class="checkmark"></span>Андролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="anesthesiologist" />
-									<span class="checkmark"></span>Анестезіолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="obstetrician-gynecologist" />
-									<span class="checkmark"></span>Акушер - гінеколог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="virologist" />
-									<span class="checkmark"></span>Вірусолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="general-practitioner" />
-									<span class="checkmark"></span>Лікар без спеціалізації
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="gastroenterologist" />
-									<span class="checkmark"></span>Гастроентеролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="hematologist" />
-									<span class="checkmark"></span>Гематолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="allergist" />
-									<span class="checkmark"></span>Генетик
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="geriatrician" />
-									<span class="checkmark"></span>Геріатр
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="dermatologist" />
-									<span class="checkmark"></span>Дерматолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-anesthesiologist" />
-									<span class="checkmark"></span>Дитячий анестезіолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-gynecologist" />
-									<span class="checkmark"></span>Дитячий гінеколог
-								</label>
-								<label class="checkbox-container-filter">
-									<input
-										type="checkbox"
-										name="specialization"
-										value="pediatric-gastroenterologist"
-									/>
-									<span class="checkmark"></span>Дитячий гастроентеролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-dermatologist" />
-									<span class="checkmark"></span>Дитячий дерматолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-cardiologist" />
-									<span class="checkmark"></span>Дитячий кардіолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-neurologist" />
-									<span class="checkmark"></span>Дитячий невролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input
-										type="checkbox"
-										name="specialization"
-										value="pediatric-otorhinolaryngologist"
-									/>
-									<span class="checkmark"></span>Дитячий отоларинголог
-								</label>
-								<label class="checkbox-container-filter">
-									<input
-										type="checkbox"
-										name="specialization"
-										value="pediatric-traumatologist-orthopedist"
-									/>
-									<span class="checkmark"></span>Дитячий травматолог - ортопед
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-surgeon" />
-									<span class="checkmark"></span>Дитячий хірург
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-pulmonologist" />
-									<span class="checkmark"></span>Дитячий пульмонолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-nephrologist" />
-									<span class="checkmark"></span>Дитячий нефролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-urologist" />
-									<span class="checkmark"></span>Дитячий уролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatric-endocrinologist" />
-									<span class="checkmark"></span>Дитячий ендокринолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="immunologist" />
-									<span class="checkmark"></span>Іммунолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input
-										type="checkbox"
-										name="specialization"
-										value="infectious-disease-specialist"
-									/>
-									<span class="checkmark"></span>Інфекціоніст
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="cardiologist" />
-									<span class="checkmark"></span>Кардіолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="cardiovascular-surgeon" />
-									<span class="checkmark"></span>Кардіохірург
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="laboratory-diagnostician" />
-									<span class="checkmark"></span>Лабораторна діагностика
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="mammologist" />
-									<span class="checkmark"></span>Маммолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="narcologist" />
-									<span class="checkmark"></span>Нарколог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="neurologist" />
-									<span class="checkmark"></span>Невролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="neurosurgeon" />
-									<span class="checkmark"></span>Нейрохірург
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="neonatologist" />
-									<span class="checkmark"></span>Неонатолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="emergency-medicine" />
-									<span class="checkmark"></span>Невідкладні стани
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="nephrologist" />
-									<span class="checkmark"></span>Нефролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="oncologist" />
-									<span class="checkmark"></span>Онколог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="otolaryngologist" />
-									<span class="checkmark"></span>Отоларинголог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="ophthalmologist" />
-									<span class="checkmark"></span>Офтальмолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pathologist" />
-									<span class="checkmark"></span>Патологоанатом
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pediatrician" />
-									<span class="checkmark"></span>Педіатр
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="proctologist" />
-									<span class="checkmark"></span>Проктолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="pulmonologist" />
-									<span class="checkmark"></span>Пульмонолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="psychiatrist" />
-									<span class="checkmark"></span>Психіатр
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="radiologist" />
-									<span class="checkmark"></span>Радіолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="rehabilitation-specialist" />
-									<span class="checkmark"></span>Реабілітолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="forensic-medical-expert" />
-									<span class="checkmark"></span>Судово-медичний експерт
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="vascular-surgeon" />
-									<span class="checkmark"></span>Судинний хірург
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="dentist" />
-									<span class="checkmark"></span>Стоматолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="rheumatologist" />
-									<span class="checkmark"></span>Ревматолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="traumatologist-orthopedist" />
-									<span class="checkmark"></span>Травматолог - ортопед
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="therapist" />
-									<span class="checkmark"></span>Терапевт
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="toxicologist" />
-									<span class="checkmark"></span>Токсиколог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="transfusiologist" />
-									<span class="checkmark"></span>Трансфузіолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="ultrasound-diagnostician" />
-									<span class="checkmark"></span>Ультразвукова діагностика
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="urologist" />
-									<span class="checkmark"></span>Уролог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="phoniatrist" />
-									<span class="checkmark"></span>Фоніатр
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="phthisiatrist" />
-									<span class="checkmark"></span>Фтізіатр
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="chemotherapist" />
-									<span class="checkmark"></span>Хіміотерапевт
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="general-surgeon" />
-									<span class="checkmark"></span>Хірург загальний
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="oncological-surgeon" />
-									<span class="checkmark"></span>Хірург онколог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="plastic-surgeon" />
-									<span class="checkmark"></span>Хірург пластичний
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="endocrinologist" />
-									<span class="checkmark"></span>Ендокринолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="endoscopist" />
-									<span class="checkmark"></span>Ендоскопія
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="epidemiologist" />
-									<span class="checkmark"></span>Епідеміолог
-								</label>
-								<label class="checkbox-container-filter">
-									<input type="checkbox" name="specialization" value="other" />
-									<span class="checkmark"></span>Інші
-								</label>
-							</div>
-						</div> -->
 						<textarea
 							class="arena-text h-[200px] rounded-xl px-7 py-6"
 							name="area"
@@ -927,10 +750,7 @@
 	}
 
 	.filter-container-large {
-		/* position: fixed; */
 		color: #080808;
-		/* position: absolute; */
-		/* background-color: #fff; */
 		padding: 40px 80px;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
@@ -946,10 +766,9 @@
 		bottom: 0;
 		right: 0;
 		left: 0;
-		/* opacity: 1; */
-		/* drop-filter: blur(0.2px); */
 		align-items: center;
 		justify-content: center;
+		z-index: 100;
 	}
 
 	.clear_button {
@@ -976,5 +795,46 @@
 		font-size: 16px;
 		font-weight: 700;
 		line-height: 28px;
+	}
+
+	.dropdown-speciality-small-filter {
+		border-radius: 10px;
+		border: 1px solid rgba(85, 85, 85, 0.5);
+		box-shadow:
+			0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+			0px 3px 7px 0px rgba(0, 0, 0, 0.1),
+			0px 12px 12px 0px rgba(0, 0, 0, 0.09),
+			0px 27px 16px 0px rgba(0, 0, 0, 0.05),
+			0px 48px 19px 0px rgba(0, 0, 0, 0.01),
+			0px 75px 21px 0px rgba(0, 0, 0, 0);
+		height: 280px;
+		/* width: 280px; */
+		overflow-y: hidden;
+		position: absolute;
+		background-color: #fff;
+		bottom: 45px;
+		z-index: 2;
+		/* right: 10px; */
+		/* left: 10px; */
+	}
+
+	.filter-container {
+		height: 200px;
+		overflow-y: scroll;
+		padding: 15px 25px 25px;
+	}
+
+	@media (min-width: 768px) {
+		.dropdown-speciality-small-filter {
+			display: flex;
+			flex-direction: column;
+			/* align-items: center; */
+			/* width: 460px; */
+			/* margin: 0 auto; */
+		}
+		.filter-container,
+		.filter-input {
+			width: 100%;
+		}
 	}
 </style>
