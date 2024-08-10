@@ -6,27 +6,28 @@
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
 	import MainButton from '$lib/components/header/Main_button.svelte';
 	import Popup from '$lib/components/popup/Modal.svelte';
+	import { t } from '$lib/i18n';
 
-	export let items = [
+	$: items = [
 		{
 			number: '01/',
-			title: 'Нострифікація диплома не є обов`язковою',
-			paragraph: 'за бажання буде можливість нострифікувати диплом уже в Польщі під час роботи.'
+			title: $t('section_requirements.title_one'),
+			paragraph: $t('section_requirements.paragraph_one')
 		},
 		{
 			number: '02/',
-			title: 'Диплом про вищу медичну освіту та сертифікат про проходження інтернатури',
+			title: $t('section_requirements.title_two'),
 			paragraph: ''
 		},
 		{
 			number: '03/',
-			title: 'Бажання працевлаштуватися на термін на роботу',
-			paragraph: '(перший контракт максимально на 5 років)'
+			title: $t('section_requirements.title_three'),
+			paragraph: $t('section_requirements.paragraph_three')
 		},
 		{
 			number: '04/',
-			title: 'Бажання вчитися польської мови',
-			paragraph: '(знання мови вітається)'
+			title: $t('section_requirements.title_four'),
+			paragraph: $t('section_requirements.paragraph_four')
 		}
 	];
 
@@ -44,7 +45,8 @@
 						level="h3"
 						classes="text-3xl text-main font-semibold mb-7 xl:text-[38px] 2xl:w-[240px]"
 					>
-						<Text classes="text-biruza">Вимоги</Text> до кандидатів
+						<Text classes="text-biruza">{$t('section_requirements.main_title')}</Text>
+						{$t('section_requirements.main_subtitle')}
 					</Heading>
 					{#each items as item}
 						<div class="flex flex-col gap-2 2xl:w-[280px]">
@@ -55,14 +57,18 @@
 					{/each}
 					<MainButton
 						on:click={() => (showModal = true)}
-						classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto">Подати заявку</MainButton
+						classes="w-[227px] bs:hidden md:hidden lg:block lg:mt-auto"
+						>{$t('header.main_button')}</MainButton
 					>
 				</div>
-				<MainButton classes="w-[227px] mb-24 md:block lg:hidden">Подати заявку</MainButton>
+				<MainButton classes="w-[227px] mb-24 md:block lg:hidden"
+					>{$t('header.main_button')}</MainButton
+				>
 			</div>
 		</div>
 	</Container>
 </Section>
+
 <Popup bind:showModal />
 
 <style lang="postcss">

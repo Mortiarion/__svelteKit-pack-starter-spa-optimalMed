@@ -6,274 +6,275 @@
 	import Link from '$lib/base-components/Link.svelte';
 	import Main_Button from '$lib/components/header/Main_button.svelte';
 	import { writable } from 'svelte/store';
+	import { t } from '$lib/i18n';
 
-	let filterData = [
+	$: filterData = [
 		{
-			text: 'Аллерголог',
+			text: $t('section_main_form.filter_one'),
 			value: 'allergist'
 		},
 		{
-			text: 'Андролог',
+			text: $t('section_main_form.filter_two'),
 			value: 'andrologist'
 		},
 		{
-			text: 'Анестезіолог',
+			text: $t('section_main_form.filter_three'),
 			value: 'anesthesiologist'
 		},
 		{
-			text: 'Акушер - гінеколог',
+			text: $t('section_main_form.filter_four'),
 			value: 'obstetrician-gynecologist'
 		},
 		{
-			text: 'Вірусолог',
+			text: $t('section_main_form.filter_five'),
 			value: 'virologist'
 		},
 		{
-			text: 'Лікар без спеціалізації',
+			text: $t('section_main_form.filter_six'),
 			value: 'general-practitioner'
 		},
 		{
-			text: 'Гастроентеролог',
+			text: $t('section_main_form.filter_seven'),
 			value: 'gastroenterologist'
 		},
 		{
-			text: 'Гематолог',
+			text: $t('section_main_form.filter_eight'),
 			value: 'hematologist'
 		},
 		{
-			text: 'Генетик',
+			text: $t('section_main_form.filter_nine'),
 			value: 'genetic'
 		},
 		{
-			text: 'Геріатр',
+			text: $t('section_main_form.filter_ten'),
 			value: 'geriatrician'
 		},
 		{
-			text: 'Дерматолог',
+			text: $t('section_main_form.filter_eleven'),
 			value: 'dermatologist'
 		},
 		{
-			text: 'Дитячий анестезіолог',
+			text: $t('section_main_form.filter_twel'),
 			value: 'pediatric-anesthesiologist'
 		},
 		{
-			text: 'Дитячий гінеколог',
+			text: $t('section_main_form.filter_thirteen'),
 			value: 'pediatric-gynecologist'
 		},
 		{
-			text: 'Дитячий гастроентеролог',
+			text: $t('section_main_form.filter_fourteen'),
 			value: 'pediatric-gastroenterologist'
 		},
 		{
-			text: 'Дитячий дерматолог',
+			text: $t('section_main_form.filter_fiveteen'),
 			value: 'pediatric-dermatologist'
 		},
 		{
-			text: 'Дитячий кардіолог',
+			text: $t('section_main_form.filter_sixteen'),
 			value: 'pediatric-cardiologist'
 		},
 		{
-			text: 'Дитячий невролог',
+			text: $t('section_main_form.filter_seventeen'),
 			value: 'pediatric-neurologist'
 		},
 		{
-			text: 'Дитячий отоларинголог',
+			text: $t('section_main_form.filter_eightteen'),
 			value: 'pediatric-otorhinolaryngologist'
 		},
 		{
-			text: 'Дитячий травматолог - ортопед',
+			text: $t('section_main_form.filter_nineteen'),
 			value: 'pediatric-traumatologist-orthopedist'
 		},
 		{
-			text: 'Дитячий хірург',
+			text: $t('section_main_form.filter_twenty'),
 			value: 'pediatric-surgeon'
 		},
+		// {
+		// 	text: 'Дитячий хірург',
+		// 	value: 'pediatric-surgeon'
+		// },
 		{
-			text: 'Дитячий хірург',
-			value: 'pediatric-surgeon'
-		},
-		{
-			text: 'Дитячий пульмонолог',
+			text: $t('section_main_form.filter_twenty_one'),
 			value: 'pediatric-pulmonologist'
 		},
 		{
-			text: 'Дитячий нефролог',
+			text: $t('section_main_form.filter_twenty_two'),
 			value: 'pediatric-nephrologist'
 		},
 		{
-			text: 'Дитячий уролог',
+			text: $t('section_main_form.filter_twenty_three'),
 			value: 'pediatric-urologist'
 		},
 		{
-			text: 'Дитячий эндокринолог',
+			text: $t('section_main_form.filter_twenty_four'),
 			value: 'pediatric-endocrinologist'
 		},
 		{
-			text: 'Іммунолог',
+			text: $t('section_main_form.filter_twenty_five'),
 			value: 'immunologist'
 		},
 		{
-			text: 'Інфекціоніст',
+			text: $t('section_main_form.filter_twenty_six'),
 			value: 'infectious-disease-specialist'
 		},
 		{
-			text: 'Кардіолог',
+			text: $t('section_main_form.filter_twenty_seven'),
 			value: 'cardiologist'
 		},
 		{
-			text: 'Кардіохірург',
+			text: $t('section_main_form.filter_twenty_eight'),
 			value: 'cardiovascular-surgeon'
 		},
 		{
-			text: 'Лабораторна діагностика',
+			text: $t('section_main_form.filter_twenty_nine'),
 			value: 'laboratory-diagnostician'
 		},
 		{
-			text: 'Маммолог',
+			text: $t('section_main_form.filter_thirty'),
 			value: 'mammologist'
 		},
 		{
-			text: 'Нарколог',
+			text: $t('section_main_form.filter_thirty_one'),
 			value: 'narcologist'
 		},
 		{
-			text: 'Невролог',
+			text: $t('section_main_form.filter_thirty_two'),
 			value: 'neurologist'
 		},
 		{
-			text: 'Нейрохірург',
+			text: $t('section_main_form.filter_thirty_three'),
 			value: 'neurosurgeon'
 		},
 		{
-			text: 'Неонатолог',
+			text: $t('section_main_form.filter_thirty_four'),
 			value: 'neonatologist'
 		},
 		{
-			text: 'Невідкладні стани',
+			text: $t('section_main_form.filter_thirty_five'),
 			value: 'emergency-medicine'
 		},
 		{
-			text: 'Нефролог',
+			text: $t('section_main_form.filter_thirty_six'),
 			value: 'nephrologist'
 		},
 		{
-			text: 'Онколог',
+			text: $t('section_main_form.filter_thirty_seven'),
 			value: 'oncologist'
 		},
 		{
-			text: 'Отоларинголог',
+			text: $t('section_main_form.filter_thirty_eight'),
 			value: 'otolaryngologist'
 		},
 		{
-			text: 'Офтальмолог',
+			text: $t('section_main_form.filter_thirty_nine'),
 			value: 'ophthalmologist'
 		},
 		{
-			text: 'Патологоанатом',
+			text: $t('section_main_form.filter_fourty'),
 			value: 'pathologist'
 		},
 		{
-			text: 'Педіатр',
+			text: $t('section_main_form.filter_fourty_one'),
 			value: 'pediatrician'
 		},
 		{
-			text: 'Проктолог',
+			text: $t('section_main_form.filter_fourty_two'),
 			value: 'proctologist'
 		},
 		{
-			text: 'Пульмонолог',
+			text: $t('section_main_form.filter_fourty_three'),
 			value: 'pulmonologist'
 		},
 		{
-			text: 'Психіатр',
+			text: $t('section_main_form.filter_fourty_four'),
 			value: 'psychiatrist'
 		},
 		{
-			text: 'Радіолог',
+			text: $t('section_main_form.filter_fourty_five'),
 			value: 'radiologist'
 		},
 		{
-			text: 'Реабілітолог',
+			text: $t('section_main_form.filter_fourty_six'),
 			value: 'rehabilitation-specialist'
 		},
 		{
-			text: 'Судово-медичний експерт',
+			text: $t('section_main_form.filter_fourty_seven'),
 			value: 'forensic-medical-expert'
 		},
 		{
-			text: 'Судинний хірург',
+			text: $t('section_main_form.filter_fourty_eight'),
 			value: 'vascular-surgeon'
 		},
 		{
-			text: 'Стоматолог',
+			text: $t('section_main_form.filter_fourty_nine'),
 			value: 'dentist'
 		},
 		{
-			text: 'Ревматолог',
+			text: $t('section_main_form.filter_fivety'),
 			value: 'rheumatologist'
 		},
 		{
-			text: 'Травматолог - ортопед',
+			text: $t('section_main_form.filter_fivety_one'),
 			value: 'traumatologist-orthopedist'
 		},
 		{
-			text: 'Терапевт',
+			text: $t('section_main_form.filter_fivety_two'),
 			value: 'therapist'
 		},
 		{
-			text: 'Токсиколог',
+			text: $t('section_main_form.filter_fivety_three'),
 			value: 'toxicologist'
 		},
 		{
-			text: 'Трансфузіолог',
+			text: $t('section_main_form.filter_fivety_four'),
 			value: 'transfusiologist'
 		},
 		{
-			text: 'Ультразвукова діагностика',
+			text: $t('section_main_form.filter_fivety_five'),
 			value: 'ultrasound-diagnostician'
 		},
 		{
-			text: 'Уролог',
+			text: $t('section_main_form.filter_fivety_six'),
 			value: 'urologist'
 		},
 		{
-			text: 'Фоніатр',
+			text: $t('section_main_form.filter_fivety_seven'),
 			value: 'phoniatrist'
 		},
 		{
-			text: 'Фтизіатр',
+			text: $t('section_main_form.filter_fivety_eight'),
 			value: 'phthisiatrist'
 		},
 		{
-			text: 'Хіміотерапевт',
+			text: $t('section_main_form.filter_fivety_nine'),
 			value: 'chemotherapist'
 		},
 		{
-			text: 'Хірург загальний',
+			text: $t('section_main_form.filter_sixty'),
 			value: 'general-surgeon'
 		},
 		{
-			text: 'Хірург онколог',
+			text: $t('section_main_form.filter_sixty_one'),
 			value: 'oncological-surgeon'
 		},
 		{
-			text: 'Хірург пластичний',
+			text: $t('section_main_form.filter_sixty_two'),
 			value: 'plastic-surgeon'
 		},
 		{
-			text: 'Ендокринолог',
+			text: $t('section_main_form.filter_sixty_three'),
 			value: 'endocrinologist'
 		},
 		{
-			text: 'Ендоскопія',
+			text: $t('section_main_form.filter_sixty_four'),
 			value: 'endoscopist'
 		},
 		{
-			text: 'Епідеміолог',
+			text: $t('section_main_form.filter_sixty_five'),
 			value: 'epidemiologist'
 		},
 		{
-			text: 'Інші',
+			text: $t('section_main_form.filter_sixty_six'),
 			value: 'other'
 		}
 	];

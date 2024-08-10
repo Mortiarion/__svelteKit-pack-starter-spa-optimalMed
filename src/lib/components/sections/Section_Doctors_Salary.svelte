@@ -5,14 +5,15 @@
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
 	import Link from '$lib/base-components/Link.svelte';
+	import { t } from '$lib/i18n';
 </script>
 
 <Section>
 	<Container classes="px-5 lg:px-8 xl:px-14 2xl:px-32">
 		<div class="mb-10">
 			<Heading classes="text-3xl font-semibold text-main mb-5 lg:max-w-[60%]">
-				<Text classes="text-biruza">Зарплата лікаря в Польщі:</Text>
-				скільки заробляють іноземні фахівці
+				<Text classes="text-biruza">{$t('section_doctor_salary.title')}</Text>
+				{$t('section_doctor_salary.subtitle')}
 			</Heading>
 			<div>
 				<picture class="mb-5 block lg:hidden">
@@ -29,7 +30,7 @@
 						<source srcset="./img/main-page-img/team-surgeon-768.avif" type="image/avif" />
 						<source srcset="./img/main-page-img/team-surgeon-768.webp" type="image/webp" />
 						<img
-							class="min-w-[212px] xl:min-w-[275px] xl:max-h-[434px]"
+							class="min-w-[212px] xl:max-h-[434px] xl:min-w-[275px]"
 							src="./img/main-page-img/team-surgeon-768.jpg"
 							alt="surgeon-768"
 						/>
@@ -37,24 +38,16 @@
 				</div>
 				<div class="lg:flex lg:max-w-[70%] lg:flex-col lg:gap-5 xl:text-base">
 					<Paragraph>
-						Медичних фахівців з України, Білорусі та інших пострадянських країн, які розглядають
-						можливість переїзду в іншу країну, прогнозовано цікавить інформація про зарплату лікаря
-						в Польщі. Одразу зазначимо, що питання це досить багатогранне - залежно від низки
-						обставин і умов різниця в зарплатах лікарів у Польщі може обчислюватися десятками тисяч
-						злотих. Однак із деякими загальними тенденціями ми постараємося ознайомити всіх
-						зацікавлених.
+						{$t('section_doctor_salary.one')}
 					</Paragraph>
-					<Paragraph>Фактори, що впливають на розмір заробітної плати польського лікаря</Paragraph>
+					<Paragraph>
+						{$t('section_doctor_salary.two')}
+					</Paragraph>
 					<Paragraph classes="mb-2.5">
-						Насамперед, оклад залежить від спеціальності лікаря. Найбільш високооплачуваними
-						напрямками на сьогодні вважаються естетична хірургія, офтальмологія, ортопедія,
-						анестезіологія. Складність полягає в тому, що іноземці, які працевлаштовуються за
-						спрощеним алгоритмом, спочатку прирівнюються до лікарів без спеціалізації. Такі
-						співробітники можуть розраховувати на мінімальну зарплату лікаря в Польщі. Станом на
-						сьогодні вона становить близько 7500 злотих до вирахування податків щомісяця.
+						{$t('section_doctor_salary.three')}
 					</Paragraph>
 					<div class="hidden items-center gap-5 lg:flex">
-						<Paragraph classes="text-sm text-biruza font-semibold">читати повністю</Paragraph>
+						<Paragraph classes="text-sm text-biruza font-semibold">{$t('section_doctor_salary.four')}</Paragraph>
 						<Link href="#">
 							<svg
 								width="80"
@@ -84,7 +77,7 @@
 				</div>
 			</div>
 			<div class="flex items-center gap-5 lg:hidden">
-				<Paragraph classes="text-sm text-biruza font-semibold">читати повністю</Paragraph>
+				<Paragraph classes="text-sm text-biruza font-semibold">{$t('section_doctor_salary.four')}</Paragraph>
 				<Link href="#">
 					<svg
 						width="80"

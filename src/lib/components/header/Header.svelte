@@ -8,14 +8,15 @@
 	import Text from '$lib/base-components/Text.svelte';
 	import Popup from '$lib/components/popup/Modal.svelte';
 
-	let successes = [
-		{ value: '100', description: 'Приватних та державних лікарень' },
-		{ value: '160+', description: 'Працевлаштованих лікарів' },
-		{ value: '30+', description: 'Працевлаштованих лікарів що місяця' },
-		{ value: '211', description: "Згод з Міністерства охорони здоров'я Польщі" }
+	import { t } from '$lib/i18n';
+
+	$: successes = [
+		{ value: '100', description: $t('header.block_one') },
+		{ value: '160+', description: $t('header.block_two') },
+		{ value: '30+', description: $t('header.block_three') },
+		{ value: '211', description: $t('header.block_four') }
 	];
 	export let showModal = false;
-
 </script>
 
 <Section tag="header">
@@ -27,17 +28,18 @@
 					level="h1"
 					classes="mb-5 text-center text-[32px] leading-9 font-semibold lg:w-[500px] lg:text-left lg:text-[42px] lg:leading-[48px] xl:w-[600px] xl:text-[64px] xl:leading-none "
 				>
-					Робота для лікарів у Польщі
+					{$t('header.main_title')}
 				</Heading>
 
 				<Paragrahp
 					classes="mb-8 text-center font-raleway text-sm lg:w-[420px] lg:text-left lg:text-base"
 				>
-					Заповни заявку і протягом 24 годин отримай унікальну пропозицію початку роботи в Польщі та
-					план кар'єри на 5 років з нострифікацією диплома.
+					{$t('header.subtitle')}
 				</Paragrahp>
 
-				<Main_button on:click={() => (showModal = true)} classes="py-6 lg:w-[372px] xl:w-[227px]">Подати заявку</Main_button>
+				<Main_button on:click={() => (showModal = true)} classes="py-6 lg:w-[372px] xl:w-[227px]"
+					>{$t('header.main_button')}</Main_button
+				>
 			</div>
 			<div
 				class="flex flex-col gap-4 pb-5 lg:grid lg:w-[372px] lg:grid-cols-2 lg:grid-rows-2 lg:gap-y-0"

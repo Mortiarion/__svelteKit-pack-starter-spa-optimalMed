@@ -1,9 +1,12 @@
+<!-- Navigation_list_main.svelte -->
 <script lang="ts">
-	let items = [
-		{ href: '/', text: 'Про нас' },
-		{ href: '/', text: 'Вимоги' },
-		{ href: '/', text: 'Схема нашої співпраці' },
-		{ href: '/', text: 'Заробітки' }
+	import { t } from '$lib/i18n';
+
+	$: items = [
+		{ href: '/', text: $t('main_navigation.about_us') },
+		{ href: '/', text: $t('main_navigation.requirements') },
+		{ href: '/', text: $t('main_navigation.scheme') },
+		{ href: '/', text: $t('main_navigation.earnings') }
 	];
 </script>
 

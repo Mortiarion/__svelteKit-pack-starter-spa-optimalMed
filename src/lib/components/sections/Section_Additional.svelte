@@ -3,6 +3,7 @@
 	import Container from '$lib/base-components/Container.svelte';
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
+	import { t } from '$lib/i18n';
 </script>
 
 <Section id="additional">
@@ -12,7 +13,7 @@
 		>
 			<div class="mb-8 lg:mb-0 lg:max-w-[40%]">
 				<Heading level="h4" classes="font-semibold text-xl text-main mb-2.5 w-[120px] xl:text-2xl"
-					>Додаткові можливості</Heading
+					>{$t('section_additional.main_title')}</Heading
 				>
 				<div class=" mb-7 h-0.5 w-20 bg-main"></div>
 
@@ -60,7 +61,7 @@
 							</svg>
 						</div>
 						<Paragraph classes="font-semibold lg:text-sm xl:text-base"
-							>Курси підвищення кваліфікації</Paragraph
+							>{$t('section_additional.list_one')}</Paragraph
 						>
 					</div>
 
@@ -92,7 +93,9 @@
 								</defs>
 							</svg>
 						</div>
-						<Paragraph classes="font-semibold lg:text-sm xl:text-base">Медичний нагляд</Paragraph>
+						<Paragraph classes="font-semibold lg:text-sm xl:text-base"
+							>{$t('section_additional.list_two')}</Paragraph
+						>
 					</div>
 
 					<div class="flex items-center gap-5">
@@ -127,7 +130,7 @@
 							</svg>
 						</div>
 						<Paragraph classes="font-semibold lg:text-sm xl:text-base"
-							>Широкий вибір лікарень</Paragraph
+							>{$t('section_additional.list_three')}</Paragraph
 						>
 					</div>
 				</div>
@@ -135,27 +138,24 @@
 
 			<div class="pb-8 lg:max-w-[60%] lg:pb-12">
 				<Heading level="h4" classes="font-raleway font-bold mb-5 text-lg xl:text-2xl">
-					Ми пропонуємо унікальні можливості для лікарів, які бажають розпочати нову кар'єру за
-					кордоном. Польща є привабливим місцем для роботи в медичній сфері завдяки своїй сучасній
-					інфраструктурі та високому рівню медичного обслуговування. Ми спеціалізуємося на допомозі
-					українським лікарям у процесі працевлаштування в Польщі, надаючи всі необхідні ресурси та
-					підтримку.
+					{$t('section_additional.title')}
 				</Heading>
 				<Paragraph classes="text-sm font-raleway xl:text-base">
-					Ми володіємо досвідом і експертизою в працевлаштуванні лікарів у Польщі
+					{$t('section_additional.list_four')}
 				</Paragraph>
 				<ul class="mb-5 list-disc pl-6 font-raleway text-sm xl:text-base">
-					<li>Ми пропонуємо індивідуальний підхід до кожного клієнта.</li>
-					<li>У нас широка мережа контактів з медичними установами та роботодавцями в Польщі.</li>
 					<li>
-						Ми надаємо повний спектр послуг, пов'язаних із працевлаштуванням лікарів у Польщі.
+						{$t('section_additional.list_five')}
+					</li>
+					<li>
+						{$t('section_additional.list_six')}
+					</li>
+					<li>
+						{$t('section_additional.list_seven')}
 					</li>
 				</ul>
 				<Paragraph classes="text-sm font-raleway xl:text-base">
-					Наші послуги включають підготовку документів, супровід у процесі оформлення візи та
-					дозволу на роботу, пошук відповідних вакансій, а також допомогу з адаптацією та
-					інтеграцією в нове середовище. Ми тісно співпрацюємо з польськими медичними установами та
-					роботодавцями, щоб забезпечити нашим клієнтам найкращі можливості працевлаштування.
+					{$t('section_additional.list_eight')}
 				</Paragraph>
 			</div>
 		</div>

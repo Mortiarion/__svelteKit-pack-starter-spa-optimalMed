@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Logo from '$lib/base-components/Logo.svelte';
 	import Navigation_list_main from '$lib/components/header/Navigation_list_main.svelte';
+	import Language_Swicther from '$lib/Language_Swicther.svelte';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
+
 
 	let isOpenlanguageMenu = writable(false);
 	let isOpenlanguageMenuDropdown = writable(false);
@@ -50,33 +52,22 @@
 
 <nav
 	bind:this={burger}
-	class="flex rounded-full bg-white px-5 py-[23px] shadow-lg  2xl:px-10 2xl:py-6"
+	class="flex rounded-full bg-white px-5 py-[23px] shadow-lg 2xl:px-10 2xl:py-6"
 >
 	<Logo />
 
 	<Navigation_list_main />
 
-	<ul class="lg:ml-16 flex items-center gap-5 text-sm">
+	<ul class="flex items-center gap-5 text-sm lg:ml-16">
 		<li class="hidden font-bold text-main-button 2xl:block">
 			<a href="tel:+48512058549">+48 512 058 549</a>
 		</li>
 		<li class="hidden font-bold text-main-button lg:block 2xl:block">
 			<a href="mailto:biuro@optimalmed.pl">biuro@optimalmed.pl</a>
 		</li>
-		<li class="language-menu relative hidden lg:block" bind:this={languageMenu}>
-			<button
-				on:click={togglelanguageMenu}
-				class="language-menu-button ml-10 rounded-full border px-4 py-1.5 text-xs text-main-button 2xl:m-0"
-				>Ua</button
-			>
-			<ul
-				class:active={$isOpenlanguageMenu}
-				class="language-dropdown border bg-white px-4 py-1 text-main-button"
-			>
-				<li><a href="/" class="text-xs text-main-button">Ua</a></li>
-				<li><a href="/" class="text-xs text-main-button">Ru</a></li>
-			</ul>
-		</li>
+
+		<Language_Swicther />
+		<!-- <h1>{$_: 'greeting'}</h1> -->
 	</ul>
 
 	<button class="hamburger-menu-button ml-auto lg:ml-10 2xl:hidden" on:click={toggleBurger}>
@@ -231,6 +222,7 @@
 		<hr class="line" />
 		<a class="tell" href="tel:+48512058549">+48 512 058 549</a>
 		<a class="email" href="mailto:biuro@optimuswork.pl">biuro@optimalmed.pl</a>
+
 		<div bind:this={languageMenuDropdown} class="language__menu">
 			<button on:click={togglelanguageMenuDropdown} class="open-language-menu">Ua</button>
 			<ul class:active={$isOpenlanguageMenuDropdown} class="dropdown-language">

@@ -4,36 +4,37 @@
 	import Heading from '$lib/base-components/Heading.svelte';
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
+	import { t } from '$lib/i18n';
+
 	let badgePng = '/img/main-page-img/badge.png';
 	let badgeAvif = '/img/main-page-img/badge.avif';
 	let badgeWebp = '/img/main-page-img/badge.webp';
 
-	let whyItems = [
+	$: whyItems = [
 		{
-			value: 'Лікарі починають роботу на 63% швидше',
-			description: 'ніж колеги, які не користуються нашими послугами'
+			value: $t('section_why.block_one_value'),
+			description: $t('section_why.block_one_desc')
 		},
 		{
-			value: 'Поєднуємо роль агентства',
-			description: 'з працевлаштування та медичного закладу, який працевлаштовує лікарів у Польщі.'
+			value: $t('section_why.block_two_value'),
+			description: $t('section_why.block_two_desc')
 		},
 		{
-			value: 'Офіс у Варшаві',
-			description: "щодня подаємо документи до Міністерства Здоров'я Польщі."
+			value: $t('section_why.block_three_value'),
+			description: $t('section_why.block_three_desc')
 		},
 		{
-			value: 'Член асоціації польських медичних установ',
-			description: 'це дає нам можливість співпрацювати з найкращими лікарнями в Польщі'
+			value: $t('section_why.block_four_value'),
+			description: $t('section_why.block_four_desc')
 		},
 		{
-			value: 'Інвестуємо в наших лікарів',
-			description:
-				'оплачуючи їхні курси польської мови, присяжні переклади та курси підвищення кваліфікації'
+			value: $t('section_why.block_five_value'),
+			description: $t('section_why.block_five_desc')
 		},
-		{ value: 'Знаходимо можливості', description: 'для наших лікарів заробляти більше' },
+		{ value: $t('section_why.block_six_value'), description: $t('section_why.block_six_desc') },
 		{
-			value: 'Допомагаємо підтвердити диплом і спеціалізацію',
-			description: 'протягом 5 років роботи в Польщі'
+			value: $t('section_why.block_seven_value'),
+			description: $t('section_why.block_seven_desc')
 		}
 	];
 </script>
@@ -44,7 +45,7 @@
 			<Heading
 				classes="flex flex-col text-3xl font-semibold text-center my-8 lg:text-5xl lg:text-left xl:text-6xl lg:mt-[60px] xl:mt-32"
 			>
-				Чому саме
+				{$t('section_why.title')}
 				<Text classes="text-biruza">Optimal Med</Text>
 			</Heading>
 			<div class="parent flex flex-col gap-5">
@@ -67,7 +68,7 @@
 					</picture>
 					<div class="flex items-center md:justify-between">
 						<Heading classes="text-xl font-semibold md:w-52 lg:w-52 lg:text-lg"
-							>Розпочни медичну кар'єру в Польщі!</Heading
+							>{$t('section_why.badge')}</Heading
 						>
 						<a href="/">
 							<svg
