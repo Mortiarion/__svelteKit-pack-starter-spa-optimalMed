@@ -89,10 +89,6 @@
 			text: $t('section_main_form.filter_twenty'),
 			value: 'pediatric-surgeon'
 		},
-		// {
-		// 	text: 'Дитячий хірург',
-		// 	value: 'pediatric-surgeon'
-		// },
 		{
 			text: $t('section_main_form.filter_twenty_one'),
 			value: 'pediatric-pulmonologist'
@@ -426,33 +422,42 @@
 			<div class="form__box lg:flex lg:gap-10 xl:px-8 2xl:gap-32">
 				<div class="form__col-1 xl:w-full">
 					<div class="contacts">
-						<Heading level="h4" classes="text-2xl font-semibold text-center mb-8">Контакти:</Heading
-						>
+						<Heading level="h4" classes="text-2xl font-semibold text-center mb-8">
+							{$t('section_main_form.main_title')}
+						</Heading>
 						<div class="flex-box flex lg:flex-col lg:gap-5 xl:mb-6 xl:flex-row">
 							<div class="fb-col-1 flex min-w-[50%] flex-col">
-								<Text classes="text-[10px] font-light">Понеділок - п'ятниця</Text>
+								<Text classes="text-[10px] font-light">
+									{$t('section_main_form.work_days')}
+								</Text>
 								<Text classes="font-raleway text-sm font-semibold mb-7">8:30 - 16:30</Text>
-								<Heading level="h4" classes="text-[10px] font-light">Адреса:</Heading>
+								<Heading level="h4" classes="text-[10px] font-light">
+									{$t('section_main_form.work_adress')}
+								</Heading>
 								<Text classes="font-raleway text-sm font-semibold"
 									>OptimalMed sp. z o.o. al. Jerozolimskie 100, Warszawa 00-807</Text
 								>
 							</div>
 							<div class="fb-col-2 mb-7 flex min-w-[50%] flex-col">
-								<Heading level="h4" classes="text-[10px] font-light">Телефони:</Heading>
+								<Heading level="h4" classes="text-[10px] font-light">
+									{$t('section_main_form.work_tell')}
+								</Heading>
 								<Link href="tel:+48512058549" classes="text-sm font-semibold">+48 512 058 549</Link>
 								<Link href="tel:+48570501711" classes="text-sm font-semibold mb-2"
 									>+48 570 501 711</Link
 								>
-								<Heading level="h4" classes="text-[10px] font-light">Пошта:</Heading>
+								<Heading level="h4" classes="text-[10px] font-light">
+									{$t('section_main_form.work_email')}
+								</Heading>
 								<Link
 									classes="font-raleway text-sm font-semibold "
 									href="mailto:biuro@optimuswork.pl">biuro&#64;optimalmed.pl</Link
 								>
 							</div>
 						</div>
-						<Heading level="h4" classes="text-2xl text-center font-semibold mb-5"
-							>Зв'яжіться з нами</Heading
-						>
+						<Heading level="h4" classes="text-2xl text-center font-semibold mb-5">
+							{$t('section_main_form.work_call_us')}
+						</Heading>
 						<iframe
 							title="де ми розташовані"
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.1776446435592!2d20.974108512814624!3d52.22199027186765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd744f02c171%3A0xd0ee228a0f63b52b!2zYWwuIEplcm96b2xpbXNraWUgMTAwLCAwMi0wMTcgV2Fyc3phd2EsINCf0L7Qu9GM0YnQsA!5e0!3m2!1suk!2sua!4v1706205653425!5m2!1suk!2sua"
@@ -467,9 +472,9 @@
 					</div>
 				</div>
 				<div class="form__col-2 xl:w-full">
-					<Heading level="h4" classes="text-2xl font-semibold text-center mb-5"
-						>Оставте заявку</Heading
-					>
+					<Heading level="h4" classes="text-2xl font-semibold text-center mb-5">
+						{$t('section_main_form.leave_request')}
+					</Heading>
 					<form
 						on:submit|preventDefault={handleSubmit}
 						action=""
@@ -478,7 +483,7 @@
 					>
 						<div class="main-form-box">
 							<input
-								class=" h-16 w-full rounded-xl px-7 {$nameError
+								class="h-16 w-full rounded-xl px-7 text-main {$nameError
 									? 'error-border'
 									: $name
 										? 'success-border'
@@ -487,13 +492,13 @@
 								data-required="letter"
 								type="text"
 								name="name"
-								placeholder="Ім'я *"
+								placeholder={$t('section_main_form.imput_name')}
 								bind:value={$name}
 							/>
 						</div>
 						<div class="main-form-box">
 							<input
-								class=" h-16 w-full rounded-xl px-7
+								class="h-16 w-full rounded-xl px-7 text-main
 								{$phoneError ? 'error-border' : $phone ? 'success-border' : 'border-base'}"
 								data-required="number"
 								type="tel"
@@ -504,7 +509,7 @@
 						</div>
 						<div class="main-form-box">
 							<input
-								class=" h-16 w-full rounded-xl px-7
+								class="h-16 w-full rounded-xl px-7 text-main
 								{$emailError ? 'error-border' : $email ? 'success-border' : 'border-base'}
 								"
 								data-required="email"
@@ -544,7 +549,7 @@
 							</svg>
 							<span
 								class="speciality-small pointer-events-none absolute left-0 top-[35%] px-7 text-main"
-								>Спеціалізація *
+								>{$t('section_main_form.specialisation')} *
 								<span class="number-selected-small">{selectedCount}</span>
 							</span>
 						</div>
@@ -621,7 +626,7 @@
 							</svg>
 							<span
 								class="speciality-small pointer-events-none absolute left-[28px] top-[20px] text-main"
-								>Спеціалізація *
+								>{$t('section_main_form.specialisation')} *
 								<span class="number-selected-small-filter pointer-events-none"
 									>{selectedCount}
 								</span>
@@ -700,13 +705,17 @@
 										<button
 											on:click={resetCheckBox}
 											class="clear_button text-3xl text-main-button"
-											type="button">Очистить выбор</button
+											type="button"
 										>
+											{$t('section_main_form.clear_select')}
+										</button>
 										<button
 											on:click={() => (showFilterLarge = false)}
 											class="acept_button bg-main-button text-3xl"
-											type="button">Выбрать</button
+											type="button"
 										>
+											{$t('section_main_form.selected')}
+										</button>
 									</div>
 								</div>
 							</div>
@@ -718,9 +727,11 @@
 							id="area"
 							cols="30"
 							rows="10"
-							placeholder="Впишіть текст повідомлення..."
+							placeholder={$t('section_main_form.areatext')}
 						></textarea>
-						<Main_Button classes="xl:w-full" type="submit">Відправити</Main_Button>
+						<Main_Button classes="xl:w-full" type="submit">
+							{$t('section_main_form.submit')}
+						</Main_Button>
 					</form>
 				</div>
 			</div>
@@ -809,14 +820,11 @@
 			0px 48px 19px 0px rgba(0, 0, 0, 0.01),
 			0px 75px 21px 0px rgba(0, 0, 0, 0);
 		height: 280px;
-		/* width: 280px; */
 		overflow-y: hidden;
 		position: absolute;
 		background-color: #fff;
 		bottom: 45px;
 		z-index: 2;
-		/* right: 10px; */
-		/* left: 10px; */
 	}
 
 	.filter-container {
@@ -829,9 +837,6 @@
 		.dropdown-speciality-small-filter {
 			display: flex;
 			flex-direction: column;
-			/* align-items: center; */
-			/* width: 460px; */
-			/* margin: 0 auto; */
 		}
 		.filter-container,
 		.filter-input {

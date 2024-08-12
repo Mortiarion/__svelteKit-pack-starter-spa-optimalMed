@@ -2,13 +2,56 @@
 	import Section from '$lib/base-components/Section.svelte';
 	import Container from '$lib/base-components/Container.svelte';
 	import Text from '$lib/base-components/Text.svelte';
+	import { t } from '$lib/i18n';
+
+	$: footerList = [
+		{ href: '/', text: $t('main_navigation.about_us') },
+		{ href: '/', text: $t('main_navigation.requirements') },
+		{ href: '/', text: $t('main_navigation.scheme') },
+		{ href: '/', text: $t('main_navigation.earnings') }
+	];
+
+	$: downloadDocuments = [
+		{
+			href: '/file-upload/{$t("section_footer.footer_download_doc_one")}',
+			text: $t('section_footer.footer_download_doc_two'),
+			download: $t('section_footer.footer_download_doc_three'),
+			title: $t('section_footer.footer_download_doc_four')
+		},
+		{
+			href: '/file-upload/{$t("section_footer.footer_download_doc_consent_one")}',
+			text: $t('section_footer.footer_download_doc_consent_two'),
+			download: $t('section_footer.footer_download_doc_consent_three'),
+			title: $t('section_footer.footer_download_doc_consent_four')
+		},
+		{
+			href: '/file-upload/{$t("section_footer.footer_download_list_one")}',
+			text: $t('section_footer.footer_download_list_two'),
+			download: $t('section_footer.footer_download_list_three'),
+			title: $t('section_footer.footer_download_list_four')
+		},
+		{
+			href: '/file-upload/{$t("section_footer.footer_download_list_two_one")}',
+			text: $t('section_footer.footer_download_list_two_two'),
+			download: $t('section_footer.footer_download_list_two_three'),
+			title: $t('section_footer.footer_download_list_two_four')
+		},
+		{
+			href: '/file-upload/{$t("section_footer.footer_download_list_three_one")}',
+			text: $t('section_footer.footer_download_list_three_two'),
+			download: $t('section_footer.footer_download_list_three_three'),
+			title: $t('section_footer.footer_download_list_three_four')
+		}
+	];
 </script>
 
 <Section tag="footer">
 	<Container>
-		<div class="footer-wrapper flex-col justify-center flex px-10 pb-10 pt-20 lg:flex-row lg:justify-between lg:pb-5 xl:px-14 2xl:px-32 xl:pb-24">
-			<div class="flex flex-col text-center ">
-				<a href="/" class="mb-5 inline-block mx-auto lg:mb-32 xl:mb-[150px]">
+		<div
+			class="footer-wrapper flex flex-col justify-center px-10 pb-10 pt-20 lg:flex-row lg:justify-between lg:pb-5 xl:px-14 xl:pb-24 2xl:px-32"
+		>
+			<div class="flex flex-col text-center">
+				<a href="/" class="mx-auto mb-5 inline-block lg:mb-32 xl:mb-[150px]">
 					<svg
 						width="243"
 						height="34"
@@ -32,7 +75,13 @@
 							fill="#0FA4AE"
 						/>
 					</svg>
-					<svg width="178" height="28" class="2xl:hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg
+						width="178"
+						height="28"
+						class="2xl:hidden"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
 						<path
 							d="M2 14.415h8.381a.04.04 0 00.038-.026l3.95-10.27a.04.04 0 01.076.004l4.736 17.762c.01.04.066.04.077 0L23.19 8.52a.04.04 0 01.076-.004l2.35 5.874a.04.04 0 00.037.025h5.578"
 							stroke="#461DBA"
@@ -49,46 +98,27 @@
 						/>
 					</svg>
 				</a>
-				<Text classes='font-raleway font-light text-sm'>© 2022 Optimus Work Med</Text>
+				<Text classes="font-raleway font-light text-sm">© 2022 Optimus Work Med</Text>
 			</div>
 			<div class="footer__col-2 hidden lg:flex lg:flex-col">
-				<ul class="lg:text-xs lg:font-bold lg:flex lg:flex-col lg:gap-[30px] xl:gap-[40px] xl:text-sm">
-					<li class="navigation__item">
-						<a href=".why">Про нас</a>
-					</li>
-					<li class="navigation__item">
-						<a href=".requierements">Вимоги</a>
-					</li>
-					<li class="navigation__item">
-						<a href=".scheme">Схема нашої співпраці</a>
-					</li>
-					<li class="navigation__item">
-						<a href=".doctor__salary">Заробітки</a>
-					</li>
+				<ul
+					class="lg:flex lg:flex-col lg:gap-[30px] lg:text-xs lg:font-bold xl:gap-[40px] xl:text-sm"
+				>
+					{#each footerList as list}
+						<li class="navigation__item">
+							<a href={list.href}>{list.text}</a>
+						</li>
+					{/each}
 				</ul>
 			</div>
-			<div class="footer__col-3 hidden lg:flex lg:flex-col lg:gap-5 lg:text-xs xl:text-sm xl:gap-[25px]">
-				<a
-					href="./file-upload/Інформаційна клаузула.pdf"
-					download="Інформаційна клаузула.pdf"
-					title="Скачати">Інформаційна клаузула</a
-				>
-				<a href="./file-upload/Згоди.pdf" download="Згоди.pdf" title="Скачати">Згоди</a>
-				<a
-					href="./file-upload/Список документів для подачі 1.pdf"
-					download="Список документів для подачі 1.pdf"
-					title="Скачати">Список документів для подачі 1</a
-				>
-				<a
-					href="./file-upload/Список документів для подачі 2.pdf"
-					download="Список документів для подачі 2.pdf"
-					title="Скачати">Список документів для подачі 2</a
-				>
-				<a
-					href="./file-upload/Список документів для подачі 3.pdf"
-					download="Список документів для подачі 3.pdf"
-					title="Скачати">Список документів для подачі 3</a
-				>
+			<div
+				class="footer__col-3 hidden lg:flex lg:flex-col lg:gap-5 lg:text-xs xl:gap-[25px] xl:text-sm"
+			>
+				{#each downloadDocuments as documents}
+					<a href={documents.href} download={documents.download} title={documents.title}>
+						{documents.text}
+					</a>
+				{/each}
 			</div>
 		</div>
 	</Container>

@@ -5,53 +5,71 @@
 	import Text from '$lib/base-components/Text.svelte';
 	import List_Link from '$lib/base-components/List_Link.svelte';
 
-	import type { Section_Page_Type } from '$lib/types';
+	import { t } from '$lib/i18n';
 
-	let items: Section_Page_Type = [
-		{ href: '/pages-doctors/alergologist', text: 'Алерголог' },
-		{ href: '/pages-doctors/anestesiologist', text: 'Анестезіолог' },
-		{ href: '/pages-doctors/virusologist', text: 'Вірусолог' },
-		{ href: '/pages-doctors/gastroenterologist', text: 'Гастроентеролог' },
-		{ href: '/pages-doctors/gematologist', text: 'Гематолог' },
-		{ href: '/pages-doctors/geneticist', text: 'Генетик' },
-		{ href: '/pages-doctors/geriatrician', text: 'Геріатр' },
-		{ href: '/pages-doctors/gynecologist', text: 'Гінеколог' },
-		{ href: '/pages-doctors/ambulance', text: 'Швидка допомога' }
+	$: items = [
+		{ href: '/pages-doctors/alergologist', text: $t('section_doctor_pages.special_one') },
+		{ href: '/pages-doctors/anestesiologist', text: $t('section_doctor_pages.special_two') },
+		{ href: '/pages-doctors/virusologist', text: $t('section_doctor_pages.special_three') },
+		{ href: '/pages-doctors/gastroenterologist', text: $t('section_doctor_pages.special_four') },
+		{ href: '/pages-doctors/gematologist', text: $t('section_doctor_pages.special_five') },
+		{ href: '/pages-doctors/geneticist', text: $t('section_doctor_pages.special_six') },
+		{ href: '/pages-doctors/geriatrician', text: $t('section_doctor_pages.special_seven') },
+		{ href: '/pages-doctors/gynecologist', text: $t('section_doctor_pages.special_eight') },
+		{ href: '/pages-doctors/ambulance', text: $t('section_doctor_pages.special_nine') }
 	];
 
-	let items_two: Section_Page_Type = [
-		{ href: '/pages-doctors/dermatologist', text: 'Дерматолог' },
-		{ href: '/pages-doctors/immunologist', text: 'Імунолог' },
-		{ href: '/pages-doctors/cardiologist', text: 'Карділолог' },
-		{ href: '/pages-doctors/cardiac_surgeon', text: 'Кардіо-хірург' },
-		{ href: '/pages-doctors/narcologist', text: 'Нарколог' },
-		{ href: '/pages-doctors/neurologist', text: 'Невролог' },
-		{ href: '/pages-doctors/neurosurgeon', text: 'Нейрохірург' },
-		{ href: '/pages-doctors/oncologist', text: 'Онколог' },
-		{ href: '/pages-doctors/urologist', text: 'Уролог' }
+	$: items_two = [
+		{ href: '/pages-doctors/dermatologist', text: $t('section_doctor_pages.special_eleven') },
+		{ href: '/pages-doctors/immunologist', text: $t('section_doctor_pages.special_twenteen') },
+		{ href: '/pages-doctors/cardiologist', text: $t('section_doctor_pages.special_thirteen') },
+		{ href: '/pages-doctors/cardiac_surgeon', text: $t('section_doctor_pages.special_fourteen') },
+		{ href: '/pages-doctors/narcologist', text: $t('section_doctor_pages.special_fiveteen') },
+		{ href: '/pages-doctors/neurologist', text: $t('section_doctor_pages.special_sixteen') },
+		{ href: '/pages-doctors/neurosurgeon', text: $t('section_doctor_pages.special_seventeen') },
+		{ href: '/pages-doctors/oncologist', text: $t('section_doctor_pages.special_eightteen') },
+		{ href: '/pages-doctors/urologist', text: $t('section_doctor_pages.special_nineteen') }
 	];
 
-	let items_three: Section_Page_Type = [
-		{ href: '/pages-doctors/orthodontist', text: 'Ортодонт' },
-		{ href: '/pages-doctors/otolaryngologist', text: 'Отоларинголог' },
-		{ href: '/pages-doctors/ophthalmologist', text: 'Офтальмолог' },
-		{ href: '/pages-doctors/pathologist', text: 'Патологоанатом' },
-		{ href: '/pages-doctors/pediatrician', text: 'Педіатр' },
-		{ href: '/pages-doctors/radiologist', text: 'Радіолог' },
-		{ href: '/pages-doctors/rehabilitation_specialist', text: 'Реабілітолог' },
-		{ href: '/pages-doctors/rheumatologist', text: 'Ревматолог' },
-		{ href: '/pages-doctors/doctor_in_poland', text: 'Лікар в Польщі' }
+	$: items_three = [
+		{ href: '/pages-doctors/orthodontist', text: $t('section_doctor_pages.special_twenty') },
+		{
+			href: '/pages-doctors/otolaryngologist',
+			text: $t('section_doctor_pages.special_twenty_one')
+		},
+		{ href: '/pages-doctors/ophthalmologist', text: $t('section_doctor_pages.special_twenty_two') },
+		{ href: '/pages-doctors/pathologist', text: $t('section_doctor_pages.special_twenty_three') },
+		{ href: '/pages-doctors/pediatrician', text: $t('section_doctor_pages.special_twenty_four') },
+		{ href: '/pages-doctors/radiologist', text: $t('section_doctor_pages.special_twenty_five') },
+		{
+			href: '/pages-doctors/rehabilitation_specialist',
+			text: $t('section_doctor_pages.special_twenty_six')
+		},
+		{
+			href: '/pages-doctors/rheumatologist',
+			text: $t('section_doctor_pages.special_twenty_seven')
+		},
+		{
+			href: '/pages-doctors/doctor_in_poland',
+			text: $t('section_doctor_pages.special_twenty_eight')
+		}
 	];
 
-	let items_four: Section_Page_Type = [
-		{ href: '/pages-doctors/dentist', text: 'Стоматолог' },
-		{ href: '/pages-doctors/traumatologist', text: 'Травматолог' },
-		{ href: '/pages-doctors/transfusiologist', text: 'Трансфузіолог' },
-		{ href: '/pages-doctors/therapist', text: 'Терапевт' },
-		{ href: '/pages-doctors/transplantologist', text: 'Трансплантолог' },
-		{ href: '/pages-doctors/phoniatrician', text: 'Фоніатр' },
-		{ href: '/pages-doctors/chemotherapist', text: 'Хіміотерапевт' },
-		{ href: '/pages-doctors/surgeon', text: 'Хірург' }
+	$: items_four = [
+		{ href: '/pages-doctors/dentist', text: $t('section_doctor_pages.special_twenty_nine') },
+		{ href: '/pages-doctors/traumatologist', text: $t('section_doctor_pages.special_thirty') },
+		{
+			href: '/pages-doctors/transfusiologist',
+			text: $t('section_doctor_pages.special_thirty_one')
+		},
+		{ href: '/pages-doctors/therapist', text: $t('section_doctor_pages.special_thirty_two') },
+		{
+			href: '/pages-doctors/transplantologist',
+			text: $t('section_doctor_pages.special_thirty_three')
+		},
+		{ href: '/pages-doctors/phoniatrician', text: $t('section_doctor_pages.special_thirty_four') },
+		{ href: '/pages-doctors/chemotherapist', text: $t('section_doctor_pages.special_thirty_five') },
+		{ href: '/pages-doctors/surgeon', text: $t('section_doctor_pages.special_thirty_six') }
 	];
 </script>
 
@@ -62,8 +80,8 @@
 				level="h2"
 				classes="my-5 text-3xl font-semibold text-biruza lg:max-w-[600px] lg:mb-10  xl:text-4xl 2xl:max-w-[700px] 2xl:mt-20"
 			>
-				Отримання права на виконання
-				<Text classes="text-main">лікарської діяльності</Text>
+				{$t('section_doctor_pages.title')}
+				<Text classes="text-main">{$t('section_doctor_pages.subtitle')}</Text>
 			</Heading>
 
 			<div
