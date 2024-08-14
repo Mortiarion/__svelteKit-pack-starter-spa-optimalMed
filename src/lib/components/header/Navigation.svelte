@@ -5,7 +5,6 @@
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 
-
 	let isOpenlanguageMenu = writable(false);
 	let isOpenlanguageMenuDropdown = writable(false);
 	let isOpenBurger = writable(false);
@@ -67,7 +66,6 @@
 		</li>
 
 		<Language_Swicther />
-		<!-- <h1>{$_: 'greeting'}</h1> -->
 	</ul>
 
 	<button class="hamburger-menu-button ml-auto lg:ml-10 2xl:hidden" on:click={toggleBurger}>
@@ -235,6 +233,9 @@
 
 <style lang="postcss">
 	nav {
+	position: sticky;
+	top: 0;
+	z-index: 1;
 		& .navigation__burger {
 			display: none;
 		}

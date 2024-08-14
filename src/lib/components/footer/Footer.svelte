@@ -13,31 +13,31 @@
 
 	$: downloadDocuments = [
 		{
-			href: '/file-upload/{$t("section_footer.footer_download_doc_one")}',
+			href: $t("section_footer.footer_download_doc_one"),
 			text: $t('section_footer.footer_download_doc_two'),
 			download: $t('section_footer.footer_download_doc_three'),
 			title: $t('section_footer.footer_download_doc_four')
 		},
 		{
-			href: '/file-upload/{$t("section_footer.footer_download_doc_consent_one")}',
+			href: $t("section_footer.footer_download_doc_consent_one"),
 			text: $t('section_footer.footer_download_doc_consent_two'),
 			download: $t('section_footer.footer_download_doc_consent_three'),
 			title: $t('section_footer.footer_download_doc_consent_four')
 		},
 		{
-			href: '/file-upload/{$t("section_footer.footer_download_list_one")}',
+			href: $t("section_footer.footer_download_list_one"),
 			text: $t('section_footer.footer_download_list_two'),
 			download: $t('section_footer.footer_download_list_three'),
 			title: $t('section_footer.footer_download_list_four')
 		},
 		{
-			href: '/file-upload/{$t("section_footer.footer_download_list_two_one")}',
+			href: $t("section_footer.footer_download_list_two_one"),
 			text: $t('section_footer.footer_download_list_two_two'),
 			download: $t('section_footer.footer_download_list_two_three'),
 			title: $t('section_footer.footer_download_list_two_four')
 		},
 		{
-			href: '/file-upload/{$t("section_footer.footer_download_list_three_one")}',
+			href: $t("section_footer.footer_download_list_three_one"),
 			text: $t('section_footer.footer_download_list_three_two'),
 			download: $t('section_footer.footer_download_list_three_three'),
 			title: $t('section_footer.footer_download_list_three_four')
