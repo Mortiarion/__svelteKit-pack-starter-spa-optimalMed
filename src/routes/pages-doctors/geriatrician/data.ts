@@ -1,44 +1,33 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Par_Text_List_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
 
-export const Bredcrumb_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота геріатром у Польщі'
-};
+import { t } from '$lib/i18n';
+import { derived } from 'svelte/store';
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота',
-	subtitle: 'геріатром у Польщі',
-	paragraph__one:
-		'Сьогодні в польському суспільстві склалася така ситуація. Молоді люди, зокрема медичні фахівці, масово виїжджають у країни з вищим рівнем життя, суспільство старіє, а займатися медичним обслуговуванням громадян похилого віку нікому. Тому робота геріатром у Польщі для іноземця на даний момент є цілком доступною опцією.',
-	paragraph__two:
-		'Цим шансом варто скористатися українцям і білорусам: зарплата спеціалістів, які мають знання, навички та досвід у галузі геріатрії, у польських медичних і соціальних установах навіть на старті суттєво відрізняється від зарплати в Україні чи Білорусі в більший бік.'
-};
+export const Bredcrumb_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('geriatrician.categories')
+}));
 
-export const Section_Title_Par_Text_List_Par_Data: Section_Title_Par_Text_List_Par_Type = {
-	title: 'Посадові',
-	subtitle: 'обов`язки',
-	paragraph__one:
-		'Дуже узагальнено геріатра можна назвати лікарем загальної практики для літніх і престарілих людей. Він так само, як терапевт, проводить обстеження, встановлює діагноз, за потреби - залучає вузьких профільних спеціалістів, призначає лікування і веде тривале спостереження.',
-	text: 'Різниця полягає в тому, що все перераховане здійснюється з поправкою на особливості цієї категорії пацієнтів. Зокрема, враховується:',
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('geriatrician.section_one_title'),
+	subtitle: $t('geriatrician.section_one_subtitle'),
+	paragraph__one: $t('geriatrician.section_one_par_one'),
+	paragraph__two: $t('geriatrician.section_one_par_two')
+}));
+
+export const Section_Title_Par_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('geriatrician.section_two_title'),
+	subtitle: $t('geriatrician.section_two_subtitle'),
+	paragraph__one: $t('geriatrician.section_two_par_one'),
+	text: $t('geriatrician.section_two_text'),
 	list: [
-		{ text: 'поліморбідність, тобто, наявність одночасно кількох хронічних захворювань;' },
-		{ text: 'перенесені травми та хірургічні втручання, здатні вплинути на перебіг хвороби;' },
-		{
-			text: 'вікові зміни в організмі, що роблять перебіг хвороби складнішим або специфічнішим, - втрата м`язової маси та кісткової щільності, погіршення слуху, зору, когнітивних функцій;'
-		},
-		{
-			text: 'обмеження застосування тих чи інших препаратів та їхніх поєднань, а також нелікарських методик лікування.'
-		}
+		{ text: $t('geriatrician.section_two_list_one') },
+		{ text: $t('geriatrician.section_two_list_two') },
+		{ text: $t('geriatrician.section_two_list_three') },
+		{ text: $t('geriatrician.section_two_list_four') }
 	],
-	paragraph__two:
-		'Отримати роботу геріатром у Польщі можна в медичних клініках амбулаторного типу, геріатричних відділеннях стаціонарів, різного роду пансіонатах і геріатричних центрах інтернатного типу - як державних, так і приватних.'
-};
+	paragraph__two: $t('geriatrician.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -55,24 +44,21 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Par_Data: Section_Title_Text_List_Par_Par_Par_Type = {
-	title: 'Кого візьмуть на роботу',
-	subtitle: 'і на що можна розраховувати?',
-	text: 'Претендувати на вакансію лікаря-геріатра можуть іноземні фахівці, які:',
+export const Section_Title_Text_List_Par_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('geriatrician.section_three_title'),
+	subtitle: $t('geriatrician.section_three_subtitle'),
+	text: $t('geriatrician.section_three_text'),
 	list: [
 		{
-			text: 'мають диплом про закінчення медичного ВНЗ і сертифікат про проходження підготовки з геріатрії;'
+			text: $t('geriatrician.section_three_list_one')
 		},
 		{
-			text: 'медичний досвід роботи з літніми пацієнтами у своїй країні не менше 3 років за останні 5 років;'
+			text: $t('geriatrician.section_three_list_two')
 		},
-		{ text: 'достатнє для здійснення професійної діяльності володіння польською мовою;' },
-		{ text: 'дозвіл від МОЗ Республіки Польща.' }
+		{ text: $t('geriatrician.section_three_list_three') },
+		{ text: $t('geriatrician.section_three_list_four') }
 	],
-	paragraph_one:
-		'З особистих якостей мають визначальне значення сумлінність, відповідальність, доброзичливість, терплячість, делікатність, небрезгливість, бажання допомагати пацієнтам незалежно від їхніх поведінкових особливостей, а також комунікабельність і вміння працювати в команді.',
-	paragraph_two:
-		'Гідним кандидатам гарантується заробітна плата від 7500 злотих "брудними" на місяць, доплати за перепрацювання і чергування, відтермінування нострифікації диплома до отримання стабільного доходу та інші важливі преференції.',
-	paragraph_three:
-		'Дізнатися про це більше, а також знайти роботу геріатра в Польщі з чудовими умовами в стислі строки й отримати комплексну підтримку в період працевлаштування та адаптації можна, скориставшись послугами нашої компанії.'
-};
+	paragraph_one: $t('geriatrician.section_three_par_one'),
+	paragraph_two: $t('geriatrician.section_three_par_two'),
+	paragraph_three: $t('geriatrician.section_three_par_three')
+}));

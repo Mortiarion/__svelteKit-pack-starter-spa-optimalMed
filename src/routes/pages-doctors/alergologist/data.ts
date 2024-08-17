@@ -1,10 +1,4 @@
-import type {
-	// Breadcrumb_Type,
-	// Section_Title_Par_Par_Type,
-	Section_Image_Type
-	// Section_Title_Par_Text_List_Par_Type,
-	// Section_Title_Text_List_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
 
 import { t } from '$lib/i18n';
 import { derived } from 'svelte/store';

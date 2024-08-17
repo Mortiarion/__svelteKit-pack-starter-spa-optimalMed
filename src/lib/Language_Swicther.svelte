@@ -42,15 +42,15 @@
 		class:active={$isOpenlanguageMenu}
 		class="language-dropdown border bg-white px-4 py-1 text-main-button"
 	>
-		<li>
-			{#each locales as language}
+		{#each locales as language}
+			<li>
 				<button
 					on:click={togglelanguageMenu}
 					type="button"
 					class="text-xs text-main-button"
 					on:click={() => setLocale(language)}>{language}</button
 				>
-			{/each}
-		</li>
+			</li>
+		{/each}
 	</ul>
 </li>

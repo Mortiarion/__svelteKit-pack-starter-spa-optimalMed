@@ -12,10 +12,10 @@
 	} from './data';
 </script>
 
-<Breadcrumbs data={Breadcrumb_Data} />
+<Breadcrumbs data={$Breadcrumb_Data} />
 
-<Section_Title_Par_Par data={Section_Title_Par_Par_Data} />
+<Section_Title_Par_Par data={$Section_Title_Par_Par_Data} />
 
-<Section_Title_Text_List_Img_Text_List_Par data={Section_Title_Text_List_Img_Text_List_Par_Data} />
+<Section_Title_Text_List_Img_Text_List_Par data={$Section_Title_Text_List_Img_Text_List_Par_Data} />
 
-<Section_Title_Par_Par_Par data={Section_Title_Par_Par_Par_Data} />
+<Section_Title_Par_Par_Par data={$Section_Title_Par_Par_Par_Data} />

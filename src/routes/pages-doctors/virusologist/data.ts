@@ -1,75 +1,56 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Img_Text_List_Par_Type,
-	Section_Title_Par_Par_Par_Type
-} from '$lib/types';
+import { t } from '$lib/i18n';
+import { derived } from 'svelte/store';
 
-export const Breadcrumb_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота вірусологом у Польщі'
-};
+export const Breadcrumb_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('virusologist.breadcrumbs_subtitle')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота',
-	subtitle: 'вірусологом у Польщі',
-	paragraph__one:
-		'Нещодавня пандемія наочно продемонструвала світу важливість розвитку вірусології. Сьогодні навіть ті медичні заклади, у штаті яких не було подібних вакансій, замислюються про наймання фахівців. Польща не є винятком. Така ситуація, в комплексі з дефіцитом медичних кадрів у цій країні, дає змогу мігрантам із колишніх радянських республік порівняно легко отримати роботу вірусологом у Польщі з пристойною заробітною платою і комфортними умовами праці.',
-	paragraph__two:
-		'Ба більше, у претендента є можливість обирати підходящий варіант із кількох пропозицій від роботодавців. Отримати список вакансій, а також допомогу у вивченні мови, переїзді та працевлаштуванні можна, скориставшись послугами нашої компанії. Ми створили ефективну програму інтеграції іноземців у польську спільноту, якою вже успішно скористалися десятки мігрантів.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('virusologist.section_one_title'),
+	subtitle: $t('virusologist.section_one_subtitle'),
+	paragraph__one: $t('virusologist.section_one_par_one'),
+	paragraph__two: $t('virusologist.section_one_par_two')
+}));
 
-export const Section_Title_Text_List_Img_Text_List_Par_Data: Section_Title_Text_List_Img_Text_List_Par_Type =
-	{
-		title: 'Які завдання',
-		subtitle: 'виконує вірусолог?',
-		text_one:
-			'Представники цієї професії працюють у двох напрямках: здійснюють наукову діяльність і лікують пацієнтів. Перші працюють у лабораторіях, віваріях, науково-дослідних організаціях - досліджують біологічні матеріали, розробляють і випробовують вакцини, нові препарати і методики боротьби з вірусами.',
-		list_one: [
-			{ text: 'ретельно вивчають історію хвороби пацієнта;' },
-			{
-				text: 'проводять з ним особисту бесіду, інформують про те, яку анестезію буде застосовано, в якому стані перебуватиме пацієнт і які складнощі на нього можуть очікувати під час виходу з наркозу;'
-			},
-			{ text: 'проводять алергопроби;' },
-			{
-				text: 'визначаються з видом використовуваної анестезії, оцінюють ризики, підбирають препарати, прораховують дозування;'
-			},
-			{
-				text: 'призначають так звану премедикацію - медикаментозну підготовку до введення анестезії;'
-			},
-			{ text: 'перебувають поруч із пацієнтом в операційній, контролюють його стан;' },
-			{ text: 'за необхідності - проводять реанімаційні заходи;' },
-			{ text: 'спостерігають хворого в ранньому післяопераційному періоді;' },
-			{ text: 'оформляють медичну документацію.' }
-		],
-		img: {
-			img: '/img/all-article-web-page-content-img/article-virusologist.jpg',
-			alt: 'article-virusologist',
-			srcset_one: '/img/all-article-web-page-content-img/article-virusologist.webp',
-			type_one: 'image/webp',
-			srcset_two: '/img/all-article-web-page-content-img/article-virusologist.avif',
-			type_two: 'image/avif'
-		},
-		text_two:
-			'Другі ведуть прийом пацієнтів у поліклініках і здійснюють їхнє лікування в стаціонарах. Той, хто шукає роботу вірусологом у Польщі в державній або приватній медичній установі, має бути готовий виконувати такі професійні обов`язки:',
-		list_two: [
-			{ text: 'проводити обстеження пацієнтів із підозрою на вірусне захворювання;' },
-			{ text: 'встановлювати діагноз, призначати, контролювати та коригувати лікування;' },
-			{ text: 'контролювати дотримання пацієнтами календаря вакцинації;' },
-			{ text: 'здійснювати профілактичні огляди;' },
-			{ text: 'вести медичну документацію' }
-		],
-		paragraph:
-			'У фокус уваги вірусолога потрапляють дорослі та діти з грипом, кором, вітрянкою, краснухою, паротитом, герпесом, гепатитами, кліщовим енцефалітом, а також сказом та іншими вірусними патологіями.'
-	};
+export const Section_Title_Text_List_Img_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('virusologist.section_two_title'),
+	subtitle: $t('virusologist.section_two_subtitle'),
+	text_one: $t('virusologist.section_two_text_one'),
+	list_one: [
+		{ text: $t('virusologist.section_two_list_one_one') },
+		{ text: $t('virusologist.section_two_list_one_two') },
+		{ text: $t('virusologist.section_two_list_one_three') },
+		{ text: $t('virusologist.section_two_list_one_four') },
+		{ text: $t('virusologist.section_two_list_one_five') },
+		{ text: $t('virusologist.section_two_list_one_six') },
+		{ text: $t('virusologist.section_two_list_one_seven') },
+		{ text: $t('virusologist.section_two_list_one_eight') },
+		{ text: $t('virusologist.section_two_list_one_nine') }
+	],
+	img: {
+		img: '/img/all-article-web-page-content-img/article-virusologist.jpg',
+		alt: 'article-virusologist',
+		srcset_one: '/img/all-article-web-page-content-img/article-virusologist.webp',
+		type_one: 'image/webp',
+		srcset_two: '/img/all-article-web-page-content-img/article-virusologist.avif',
+		type_two: 'image/avif'
+	},
+	text_two: $t('virusologist.section_two_text_two'),
+	list_two: [
+		{ text: $t('virusologist.section_two_list_two_one') },
+		{ text: $t('virusologist.section_two_list_two_two') },
+		{ text: $t('virusologist.section_two_list_two_three') },
+		{ text: $t('virusologist.section_two_list_two_four') },
+		{ text: $t('virusologist.section_two_list_two_five') }
+	],
+	paragraph: $t('virusologist.section_two_par')
+}));
 
-export const Section_Title_Par_Par_Par_Data: Section_Title_Par_Par_Par_Type = {
-	title: 'Що потрібно, щоб працювати',
-	subtitle: 'вірусологом у Польщі?',
-	paragraph__one:
-		'Вимог до кандидатів на вакансію вірусолога в польській клініці небагато. Лікарю, який претендує на отримання посади, потрібно мати диплом медичного ВНЗ, трирічний досвід роботи за фахом упродовж останніх 5 років, дозвіл від МОЗ та ліцензію від місцевих органів. Також важливо володіти знанням польської мови з ухилом у медичну сферу.',
-	paragraph__two:
-		'Специфіка діяльності передбачає постійний контакт лікаря з контагіозними хворими, високе вірусне навантаження і реальний ризик зараження. Такі обставини вимагають від лікаря спокою, зібраності, відповідальності, акуратності, обережності і, звичайно, стресостійкості. Претенденти, які володіють перерахованими якостями, мають усі шанси отримати бажану посаду вже після першої співбесіди.',
-	paragraph__three:
-		'Іноземцю, який отримав роботу вірусологом у Польщі, гарантують зарплату щонайменше 7500 злотих на місяць "брудними", унормований робочий день, окремо оплачувані чергування і перепрацювання, а також якісний соціальний пакет, відтермінування нострифікації документів про освіту.'
-};
+export const Section_Title_Par_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('virusologist.section_three_title'),
+	subtitle: $t('virusologist.section_three_subtitle'),
+	paragraph__one: $t('virusologist.section_three_par_one'),
+	paragraph__two: $t('virusologist.section_three_par_two'),
+	paragraph__three: $t('virusologist.section_three_par_three')
+}));

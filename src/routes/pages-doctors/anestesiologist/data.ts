@@ -1,44 +1,50 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Img_Par_Par_Type,
-	Section_Title_Text_List_Par_Type
-} from '$lib/types';
+import { t } from '$lib/i18n';
+import { derived } from 'svelte/store';
 
-export const Breadcrumb_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота анестезіологом у Польщі'
-};
+export const Breadcrumb_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('anestesiologist.breadcrumbs_subtitle')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота',
-	subtitle: 'анестезіологом у Польщі',
-	paragraph__one:
-		'У зв`язку зі складною ситуацією з медичними кадрами польські роботодавці готові приймати на роботу анестезіологом у Польщі іноземних спеціалістів, зокрема з колишніх союзних республік, гарантуючи адекватну заробітну плату та інші преференції.',
-	paragraph__two:
-		'Наша компанія пропонує працевлаштування та подальшу підтримку лікарям-вихідцям з України та Білорусі. З нашою допомогою ви отримаєте можливість обирати з великої кількості вакансій з різними умовами в різних регіонах країни.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('anestesiologist.section_one_title'),
+	subtitle: $t('anestesiologist.section_one_subtitle'),
+	paragraph__one: $t('anestesiologist.section_one_par_one'),
+	paragraph__two: $t('anestesiologist.section_one_par_two')
+}));
 
-export const Section_Title_Text_List_Img_Par_Par_Data: Section_Title_Text_List_Img_Par_Par_Type = {
-	title: 'Посадові',
-	subtitle: 'обов`язки анестезіолога',
-	text: 'Повна назва цієї спеціалізації звучить як "анестезіолог-реаніматолог". Лікар цього профілю працює з усіма видами анестезії, а також займається веденням інтенсивної терапії. Таким чином, іноземні громадяни, які отримали роботу анестезіологами в Польщі:',
+export const Section_Title_Text_List_Img_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('anestesiologist.section_two_title'),
+	subtitle: $t('anestesiologist.section_two_subtitle'),
+	text: $t('anestesiologist.section_two_text'),
 	list: [
-		{ text: 'ретельно вивчають історію хвороби пацієнта;' },
 		{
-			text: 'проводять з ним особисту бесіду, інформують про те, яку анестезію буде застосовано, в якому стані перебуватиме пацієнт і які складнощі на нього можуть очікувати під час виходу з наркозу;'
-		},
-		{ text: 'проводять алергопроби;' },
-		{
-			text: 'визначаються з видом використовуваної анестезії, оцінюють ризики, підбирають препарати, прораховують дозування;'
+			text: $t('anestesiologist.section_two_list_one')
 		},
 		{
-			text: 'призначають так звану премедикацію - медикаментозну підготовку до введення анестезії'
+			text: $t('anestesiologist.section_two_list_two')
 		},
-		{ text: 'перебувають поруч із пацієнтом в операційній, контролюють його стан;' },
-		{ text: 'за необхідності - проводять реанімаційні заходи;' },
-		{ text: 'спостерігають хворого в ранньому післяопераційному періоді;' },
-		{ text: 'оформляють медичну документацію' }
+		{
+			text: $t('anestesiologist.section_two_list_three')
+		},
+		{
+			text: $t('anestesiologist.section_two_list_four')
+		},
+		{
+			text: $t('anestesiologist.section_two_list_five')
+		},
+		{
+			text: $t('anestesiologist.section_two_list_six')
+		},
+		{
+			text: $t('anestesiologist.section_two_list_seven')
+		},
+		{
+			text: $t('anestesiologist.section_two_list_eight')
+		},
+		{
+			text: $t('anestesiologist.section_two_list_nine')
+		}
 	],
 	img: {
 		img: '/img/all-article-web-page-content-img/article-anestesiologist.jpg',
@@ -48,44 +54,48 @@ export const Section_Title_Text_List_Img_Par_Par_Data: Section_Title_Text_List_I
 		srcset_two: '/img/all-article-web-page-content-img/article-anestesiologist.avif',
 		type_two: 'image/avif'
 	},
-	paragraph__one:
-		'Кваліфікований анестезіолог має вміти працювати з усіма видами анестезії - загальною (так званим наркозом), регіонарною та місцевою.',
-	paragraph__two:
-		'Вільні вакансії лікаря-анестезіолога в Польщі є у відділеннях інтенсивної терапії в державних і приватних закладах стаціонарного типу, а також в амбулаторіях, обладнаних власними малими операційними.'
-};
+	paragraph__one: $t('anestesiologist.section_two_par_one'),
+	paragraph__two: $t('anestesiologist.section_two_par_two')
+}));
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'Кого візьмуть',
-	subtitle: 'на роботу анестезіологом у польську клініку?',
-	text: 'На співбесіді з претендентом на посаду анестезіолога-реаніматолога роботодавець звертає увагу на наявність:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('anestesiologist.section_three_title'),
+	subtitle: $t('anestesiologist.section_three_subtitle'),
+	text: $t('anestesiologist.section_three_text'),
 	list: [
-		{ text: 'диплома про закінчення вищого медичного навчального закладу у себе в країні;' },
-		{ text: 'сертифіката післядипломної підготовки з анестезіології;' },
-		{ text: 'досвіду роботи не менше 3 років протягом останніх 5 років;' },
-		{ text: 'дозволу на здійснення лікарської діяльності від МОЗ;' },
-		{ text: 'ліцензії від місцевих органів виконавчої влади;' },
-		{ text: 'володіння польською мовою з орієнтацією на медичну специфіку.' }
+		{ text: $t('anestesiologist.section_three_list_one') },
+		{ text: $t('anestesiologist.section_three_list_two') },
+		{ text: $t('anestesiologist.section_three_list_three') },
+		{ text: $t('anestesiologist.section_three_list_four') },
+		{ text: $t('anestesiologist.section_three_list_five') },
+		{ text: $t('anestesiologist.section_three_list_six') }
 	],
-	paragraph:
-		'За інших рівних умов перевагу віддають претендентам, у резюме яких зазначено наявність важливих професійних та особистих якостей - стресостійкості, самовладання, зібраності, холоднокровності, хорошої пам`яті, а також неконфліктності, сумлінності та здатності ефективно працювати в команді.'
-};
+	paragraph: $t('anestesiologist.section_three_par')
+}));
 
-export const Section_Title_Text_List_Par_Data_Two: Section_Title_Text_List_Par_Type = {
-	title: 'Умови, що',
-	subtitle: 'надаються',
-	text: 'Влаштовуючись на роботу анестезіологом до Польщі, іноземний фахівець може гарантовано розраховувати на:',
+export const Section_Title_Text_List_Par_Data_Two = derived(t, ($t) => ({
+	title: $t('anestesiologist.section_four_title'),
+	subtitle: $t('anestesiologist.section_four_subtitle'),
+	text: $t('anestesiologist.section_four_text'),
 	list: [
-		{ text: 'зарплату від 7500 злотих брутто на місяць з подальшим збільшенням;' },
 		{
-			text: 'нормований робочий день і доплати за будь-які перепрацювання, зокрема, за добові чергування;'
+			text: $t('anestesiologist.section_four_list_one')
 		},
-		{ text: 'європейські соціальні гарантії;' },
 		{
-			text: 'забезпечення уніформою, інструментами, медичними препаратами, витратними матеріалами, професійною літературою;'
+			text: $t('anestesiologist.section_four_list_two')
 		},
-		{ text: 'грамотно облаштоване комфортне робоче місце; ' },
-		{ text: 'відстрочку нострифікації диплома.' }
+		{
+			text: $t('anestesiologist.section_four_list_three')
+		},
+		{
+			text: $t('anestesiologist.section_four_list_four')
+		},
+		{
+			text: $t('anestesiologist.section_four_list_five')
+		},
+		{
+			text: $t('anestesiologist.section_four_list_six')
+		}
 	],
-	paragraph:
-		'Додайте до цього оптимальні умови для здобуття нових знань, професійного та кар`єрного зростання, а також можливість працювати, орієнтуючись на високі стандарти європейської медицини. А потім, оцінивши всі вигоди та переваги, звертайтеся - підберемо для вас найкращу вакансію.'
-};
+	paragraph: $t('anestesiologist.section_four_par')
+}));

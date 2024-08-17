@@ -1,42 +1,34 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Type,
-	Section_Title_Text_List_Par_Par_Par_Type,
-	Section_Image_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
 
-export const Breadcrumb_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота генетиком у Польщі - особливості та умови'
-};
+import { t } from '$lib/i18n';
+import { derived } from 'svelte/store';
 
-export const Section_Title_Par_Data: Section_Title_Par_Type = {
-	title: 'Робота',
-	subtitle: 'генетиком у Польщі - особливості та умови',
-	paragraph:
-		'Лікарі, які виявляють спадкові схильності до певних захворювань або генетичну природу вже наявних патологій пацієнта, є цінними фахівцями в будь-якій країні. А польська медицина, яка сьогодні переживає не найкращі кадрові часи, потребує таких лікарів особливо гостро. Це - реальний шанс для вихідців з України чи Білорусі влаштуватися на роботу генетиком у Польщі з високою заробітною платою та чудовими перспективами. А допоможе в цьому всім охочим наша компанія.'
-};
+export const Breadcrumb_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('geneticist.categories')
+}));
 
-export const Section_Title_Text_List_Par_Par_Par_Data: Section_Title_Text_List_Par_Par_Par_Type = {
-	title: 'Чим займається',
-	subtitle: 'лікар-генетик?',
-	text: 'Коло професійних обов`язків цього фахівця включає в себе:',
+export const Section_Title_Par_Data = derived(t, ($t) => ({
+	title: $t('geneticist.section_one_title'),
+	subtitle: $t('geneticist.section_one_subtitle'),
+	paragraph: $t('geneticist.section_one_paragraph')
+}));
+
+export const Section_Title_Text_List_Par_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('geneticist.section_two_title'),
+	subtitle: $t('geneticist.section_two_subtitle'),
+	text: $t('geneticist.section_two_text'),
 	list: [
-		{
-			text: 'виявлення спадкових захворювань або схильності до них за допомогою різних методів дослідження - лабораторних, інструментальних, цитологічних, скринінгових;'
-		},
-		{ text: 'вивчення сімейного анамнезу пацієнта;' },
-		{ text: 'визначення ймовірності генетичних відхилень плода;' },
-		{ text: 'консультування та лікування пацієнтів зі спадковими захворюваннями;' },
-		{ text: 'встановлення спорідненості на підставі дослідження генетичних матеріалів.' }
+		{ text: $t('geneticist.section_two_list_one') },
+		{ text: $t('geneticist.section_two_list_two') },
+		{ text: $t('geneticist.section_two_list_three') },
+		{ text: $t('geneticist.section_two_list_four') },
+		{ text: $t('geneticist.section_two_list_five') }
 	],
-	paragraph_one:
-		'Нині нерідко зустрічаються також пропозиції роботи імуногенетиком у Польщі. Ця галузь генетики вивчає особливості імунітету людини, тобто, реакції на антигени з точки зору успадкованих факторів. Зокрема, імуногенетики займаються підбором пар "донор-реципієнт" під час трансплантації органів та дослідженням сумісності чоловіків і жінок, які мають проблему невиношування вагітності.',
-	paragraph_two:
-		'Нині симбіоз імунології та генетики активно розвивається як самостійний напрям, тому потреба в компетентних фахівцях у цій галузі є завжди.',
-	paragraph_three:
-		'Працюють генетики та імуногенетики в державних і комерційних клініках як стаціонарного, так і амбулаторного типу, жіночих і сімейних консультаціях, перинатальних центрах, дитячих медичних закладах, лабораторіях, науково-дослідних установах.'
-};
+	paragraph_one: $t('geneticist.section_two_par_one'),
+	paragraph_two: $t('geneticist.section_two_par_two'),
+	paragraph_three: $t('geneticist.section_two_par_three')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -53,33 +45,19 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Par_Data_Two: Section_Title_Text_List_Par_Par_Par_Type =
-	{
-		title: 'Кого приймуть',
-		subtitle: 'на посаду генетика?',
-		text: 'Іноземний громадянин, який претендує на роботу генетиком у Польщі, повинен:',
-		list: [
-			{
-				text: 'пред`явити диплом про закінчення медичного університету у своїй країні;'
-			},
-			{
-				text: 'мати сертифікат, що підтверджує отримання додаткової підготовки за відповідною спеціалізацією;'
-			},
-			{
-				text: 'володіти достатнім досвідом. Він підтверджується стажем роботи не менше 3 років протягом останніх 5 років. Ця вимога нині не поширюється на українців;'
-			},
-			{
-				text: 'знати польську мову на рівні, що дає змогу виконувати посадові обов`язки без перекладача і словника;'
-			},
-			{ text: 'мати чинний дозвіл від польського МОЗ;' },
-			{
-				text: 'бути відповідальним, комунікабельним, сумлінним і доброзичливим, прагнути здобувати нові навички, компетенції та знання, професійно вдосконалюватися.'
-			}
-		],
-		paragraph_one:
-			'Таким претендентам роботодавці готові запропонувати роботу імуногенетиком у Польщі або посаду генетика з початковою зарплатою в розмірі 7500 злотих брутто на місяць, нормованим робочим днем, доплатами за переробки та іншими преференціями.',
-		paragraph_two:
-			'Фахівці як у приватних, так і в державних клініках забезпечуються усім необхідним для здійснення трудової діяльності та мають змогу трудитися в умовах, ідеальних для професійного зростання та будівництва кар`єри.',
-		paragraph_three:
-			'Переїзд на роботу в іншу країну завжди пов`язаний з низкою складнощів - оформленням документів, пошуком житла, мовним бар`єром, необхідністю інтеграції в суспільство. Ми готові надавати не тільки допомогу в підборі оптимальної вакансії та працевлаштуванні, а й тривалу підтримку в період адаптації іноземця до нових умов.'
-	};
+export const Section_Title_Text_List_Par_Par_Par_Data_Two = derived(t, ($t) => ({
+	title: $t('geneticist.section_three_title'),
+	subtitle: $t('geneticist.section_three_subtitle'),
+	text: $t('geneticist.section_three_text'),
+	list: [
+		{ text: $t('geneticist.section_three_list_one') },
+		{ text: $t('geneticist.section_three_list_two') },
+		{ text: $t('geneticist.section_three_list_three') },
+		{ text: $t('geneticist.section_three_list_four') },
+		{ text: $t('geneticist.section_three_list_five') },
+		{ text: $t('geneticist.section_three_list_six') }
+	],
+	paragraph_one: $t('geneticist.section_three_par_one'),
+	paragraph_two: $t('geneticist.section_three_par_two'),
+	paragraph_three: $t('geneticist.section_three_par_three')
+}));
