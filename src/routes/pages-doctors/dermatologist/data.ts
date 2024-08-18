@@ -1,46 +1,32 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Par_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { t } from '$lib/i18n';
+import { derived } from 'svelte/store';
 
-export const Breadcrumb_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота дерматологом у Польщі'
-};
+export const Breadcrumb_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('dermatologist.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота',
-	subtitle: 'дерматологом у Польщі',
-	paragraph__one:
-		'Дерматологія - спеціалізація, яка в усі роки була затребуваною в медичній галузі. Нині спостерігається гостра потреба в таких фахівцях у польських клініках. Тому роботодавці з готовністю надають роботу лікарем-дерматологом у Польщі іноземним претендентам, гарантуючи гідну заробітну плату. Пріоритет у таких випадках мають вихідці з України, Білорусі та деяких інших пострадянських країн, які володіють необхідними знаннями, навичками та компетенціями.',
-	paragraph__two:
-		'Наша компанія надає дієву практичну допомогу українцям і білорусам, які бажають отримати роботу дерматологом у Польщі швидко, з мінімальними зусиллями, а також з надійним захистом від обману і шахрайства.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('dermatologist.section_one_title'),
+	subtitle: $t('dermatologist.section_one_subtitle'),
+	paragraph__one: $t('dermatologist.section_one_par_one'),
+	paragraph__two: $t('dermatologist.section_one_par_two')
+}));
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Де працює і',
-	subtitle: 'що лікує дерматолог?',
-	text: 'Лікарі цієї спеціалізації займаються всіма проблемами, пов`язаними зі шкірою або такими, що проявляються на ній. Це, зокрема:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('dermatologist.section_two_title'),
+	subtitle: $t('dermatologist.section_two_subtitle'),
+	text: $t('dermatologist.section_two_text'),
 	list: [
-		{
-			text: 'виявлення причини висипу, акне, почервоніння, пігментних плям, лущення та інших патологій і призначення відповідного лікування після отримання результатів обстеження;'
-		},
-		{ text: 'визначення типу шкіри та підбір лікувально-доглядових засобів;' },
-		{
-			text: 'дослідження шкірних новоутворень і вибір тактики (спостереження, консервативне лікування або видалення);'
-		},
-		{
-			text: 'лікування таких захворювань як дерматит, себорея, псоріаз, екземи різної етіології тощо.'
-		}
+		{ text: $t('dermatologist.section_two_list_one') },
+		{ text: $t('dermatologist.section_two_list_two') },
+		{ text: $t('dermatologist.section_two_list_three') },
+		{ text: $t('dermatologist.section_two_list_four') }
 	],
-	paragraph__one:
-		'Усередині цієї професії існує кілька окремих напрямків: це дитяча, ендокринна, імунологічна, косметична дерматологія. Також у рамках цієї спеціалізації працюють дерматовенерологи, онковенерологи, трихологи, мікологи.',
-	paragraph__two:
-		'Місце роботи лікаря залежить від його вузької спеціалізації. Так, наприклад, роботу венерологом у Польщі здобувачеві можуть запропонувати венерологічні кабінети та диспансери, дитячі дерматологи ведуть прийом у дитячих амбулаторіях і стаціонарах, а найвірогідніші місця працевлаштування онкодерматологів - онкологічні диспансери та клініки.'
-};
+	paragraph__one: $t('dermatologist.section_two_par_one'),
+	paragraph__two: $t('dermatologist.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -57,28 +43,19 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Par_Data: Section_Title_Text_List_Par_Par_Par_Type = {
-	title: 'Що потрібно, щоб влаштуватися на роботу',
-	subtitle: 'дерматологом у Польщі?',
-	text: 'Претендентові, який претендує на вакансію в польському медичному закладі, слід мати:',
+export const Section_Title_Text_List_Par_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('dermatologist.section_three_title'),
+	subtitle: $t('dermatologist.section_three_subtitle'),
+	text: $t('dermatologist.section_three_text'),
 	list: [
-		{ text: 'диплом про закінчення медичного ВНЗ будь-якої країни;' },
-		{
-			text: 'сертифікат про проходження післядипломної підготовки, бажано, за певним напрямом. Тобто, наприклад, щоб отримати роботу венерологом у Польщі, потрібно мати знання у сферах дерматології та венерології. Аналогічний підхід застосовується і щодо інших напрямків;'
-		},
-		{ text: 'досвід роботи за обраною спеціалізацією щонайменше 3 роки за останні 5 дет;' },
-		{
-			text: 'впевнене володіння польською мовою з орієнтацією на професійну специфіку (терміни, поняття, назви препаратів і процедур тощо);'
-		},
-		{ text: 'дозвіл від МОЗ і ліцензію від місцевих органів;' },
-		{
-			text: 'відповідні особисті та професійні навички - комунікабельність, неконфліктність, сумлінність, негидливість, високий рівень відповідальності та інші.'
-		}
+		{ text: $t('dermatologist.section_three_list_one') },
+		{ text: $t('dermatologist.section_three_list_two') },
+		{ text: $t('dermatologist.section_three_list_three') },
+		{ text: $t('dermatologist.section_three_list_four') },
+		{ text: $t('dermatologist.section_three_list_five') },
+		{ text: $t('dermatologist.section_three_list_six') }
 	],
-	paragraph_one:
-		'Таким кандидатам роботодавці готові запропонувати роботу дерматологом у Польщі із зарплатою від 7500 злотих до вирахування податків щомісяця з перспективою підвищення, унормований робочий день і зручний графік чергувань, доплати за понаднормову роботу та премії за результатами трудової діяльності, відтермінування нострифікації диплома.',
-	paragraph_two:
-		'Крім того, лікарів у польських клініках забезпечують усім необхідним, вони мають можливість використовувати в роботі сучасну техніку та апаратуру, також їм надають усі можливості для професійного зростання та розвитку.',
-	paragraph_three:
-		'Запрошуємо до співпраці всіх, хто шукає роботу лікарем-дерматологом у Польщі. Порядність, відповідальність і позитивний результат гарантуємо.'
-};
+	paragraph_one: $t('dermatologist.section_three_par_one'),
+	paragraph_two: $t('dermatologist.section_three_par_two'),
+	paragraph_three: $t('dermatologist.section_three_par_three')
+}));

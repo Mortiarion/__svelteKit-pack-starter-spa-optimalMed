@@ -1,44 +1,33 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота онкологом у Польщі'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('oncologist.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота',
-	subtitle: 'онкологом у Польщі',
-	paragraph__one:
-		'Кількість онкологічних патологій на частку населення планети, на жаль, з роками не зменшується. Ба більше, онкологія "молодшає" - дедалі частіше вражає дітей та молодих людей. За таких обставин робота онкологом у Польщі для іноземців є реальним варіантом. Тим паче, що польські фахівці масово виїжджають до країн з Євросоюзу з вищою заробітною платою в медичній сфері.',
-	paragraph__two:
-		'Наша компанія займається працевлаштуванням лікарів-онкологів з України та Білорусі, підбирає відповідні вакансії, надає допомогу в підготовці документів, вивченні мови, пошуку житла, переїзді та інших значущих аспектах, що дають змогу почати жити і працювати в незнайомій країні з максимальним комфортом.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('oncologist.section_one_title'),
+	subtitle: $t('oncologist.section_one_subtitle'),
+	paragraph__one: $t('oncologist.section_one_par_one'),
+	paragraph__two: $t('oncologist.section_one_par_two')
+}));
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'Обов`язки онколога -',
-	subtitle: 'вимоги польської медичної сфери',
-	text: 'Іноземний фахівець, який претендує на роботу онкологом у Польщі в державній або приватній клініці:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('oncologist.section_two_title'),
+	subtitle: $t('oncologist.section_two_subtitle'),
+	text: $t('oncologist.section_two_text'),
 	list: [
-		{ text: 'оглядає й опитує пацієнта, вивчає анамнез;' },
-		{
-			text: 'здійснює комплексну діагностику - до неї входять лабораторні аналізи, мазки, біопсії, пункції, апаратні дослідження та інші заходи;'
-		},
-		{ text: 'за необхідності - консультується із суміжними фахівцями для уточнення діагнозу;' },
-		{ text: 'складає план лікування;' },
-		{
-			text: 'спостерігає пацієнта протягом усього лікувального курсу, за необхідності - коригує призначення;'
-		},
-		{ text: 'підбирає і призначає знеболювальні препарати паліативним онкохворим.' }
+		{ text: $t('oncologist.section_two_list_one') },
+		{ text: $t('oncologist.section_two_list_two') },
+		{ text: $t('oncologist.section_two_list_three') },
+		{ text: $t('oncologist.section_two_list_four') },
+		{ text: $t('oncologist.section_two_list_five') },
+		{ text: $t('oncologist.section_two_list_six') }
 	],
-	paragraph:
-		'Крім того, в обов`язки онколога входять виявлення передракових станів і визначення групи онкологічного ризику пацієнта.'
-};
+	paragraph: $t('oncologist.section_two_par')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -55,25 +44,17 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Кого беруть на роботу онкологом і',
-	subtitle: 'що гарантують польські клініки',
-	text: 'Для того, щоб влаштуватися на роботу онкологом у Польщі, іноземний претендент повинен:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('oncologist.section_three_title'),
+	subtitle: $t('oncologist.section_three_subtitle'),
+	text: $t('oncologist.section_three_text'),
 	list: [
-		{
-			text: 'мати диплом про вищу медичну освіту та сертифікат за відповідною спеціалізацією. Негайно проходити нострифікацію документів не обов`язково;'
-		},
-		{
-			text: 'володіти польською мовою на рівні, що дозволяє працювати в польській медичній сфері;'
-		},
-		{
-			text: 'мати достатні знання, а також досвід роботи онкологом 3 роки і більше протягом останніх 5 років;'
-		},
-		{ text: 'пройти процедуру отримання дозволу від МОЗ на здійснення лікарської діяльності;' },
-		{ text: 'отримати ліцензію в місцевих органах.' }
+		{ text: $t('oncologist.section_three_list_one') },
+		{ text: $t('oncologist.section_three_list_two') },
+		{ text: $t('oncologist.section_three_list_three') },
+		{ text: $t('oncologist.section_three_list_four') },
+		{ text: $t('oncologist.section_three_list_five') }
 	],
-	paragraph__one:
-		'Фахівці, які виконали перераховані умови, а також володіють необхідними професійними та особистими якостями, такими як комунікабельність, відповідальність, сумлінність, прагнення до професійного зростання, отримують чимало преференцій. Вони можуть претендувати на зарплату від 7500 злотих брутто на місяць за умови стандартного робочого дня, доплати за чергування і переробки, чітке дотримання роботодавцем норм трудового законодавства.',
-	paragraph__two:
-		'Крім того, лікарі в Польщі забезпечуються всім необхідним для продуктивної роботи - комфортним робочим місцем, оснащеним усім необхідним, медичною літературою, уніформою, витратними матеріалами. Усе це дає змогу отримувати позитивні результати в роботі та безперервно вдосконалюватися професійно.'
-};
+	paragraph__one: $t('oncologist.section_three_par_one'),
+	paragraph__two: $t('oncologist.section_three_par_two')
+}));

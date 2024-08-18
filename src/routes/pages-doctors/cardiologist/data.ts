@@ -1,43 +1,32 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота кардіологом у Польщі - інформація для іноземних кандидатів'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('cardiologist.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота кардіологом у Польщі',
-	subtitle: 'інформація для іноземних кандидатів',
-	paragraph__one:
-		'Для вихідців із країн СНД, зокрема, України та Білорусі, які шукають роботу кардіологом у Польщі, сьогодні - найкращий час реалізувати мрію. У польській медицині спостерігається критична нестача компетентних лікарів, зокрема, фахівців у галузі кардіології.',
-	paragraph__two:
-		'Максимально швидко знайти роботу з гідною зарплатою, вивчити мову приймаючої сторони, розв`язати питання, пов`язані з оформленням документів, і облаштуватися на новому місці вам допоможе наша компанія. Ви зможете приступити до виконання професійних обов`язків у найкоротші терміни.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('cardiologist.section_one_title'),
+	subtitle: $t('cardiologist.section_one_subtitle'),
+	paragraph__one: $t('cardiologist.section_one_par_one'),
+	paragraph__two: $t('cardiologist.section_one_pat_two')
+}));
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'Коло обов`язків',
-	subtitle: 'польського кардіолога',
-	text: 'По суті, професійні завдання лікаря-кардіолога в польській клініці нічим не відрізняються від обов`язків, прописаних в українських або білоруських посадових інструкціях, тому адаптація буде комфортною і необтяжливою. Отже, іноземний фахівець, який отримав роботу кардіологом у Польщі, зобов`язаний:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('cardiologist.section_two_title'),
+	subtitle: $t('cardiologist.section_two_subtitle'),
+	text: $t('cardiologist.section_two_text'),
 	list: [
-		{ text: 'оглядати та опитувати пацієнта;' },
-		{
-			text: 'здійснювати комплексну діагностику для виявлення серцево-судинних захворювань на ранніх стадіях;'
-		},
-		{ text: 'підбирати оптимальні схеми лікування та реабілітації;' },
-		{
-			text: 'здійснювати профілактичні огляди пацієнтів із хронічними серцевими захворюваннями та тих, що перебувають у групі ризику;'
-		},
-		{ text: 'вести медичну документацію.' }
+		{ text: $t('cardiologist.section_two_list_one') },
+		{ text: $t('cardiologist.section_two_list_two') },
+		{ text: $t('cardiologist.section_two_list_three') },
+		{ text: $t('cardiologist.section_two_list_four') },
+		{ text: $t('cardiologist.section_two_list_five') }
 	],
-	paragraph:
-		'Працюють польські кардіологи в державних і приватних медичних установах амбулаторного або стаціонарного типу. Окрема категорія лікарів цієї спеціалізації - дитячі кардіологи, які опікуються пацієнтами молодше 18 років у дитячих клініках.'
-};
+	paragraph: $t('cardiologist.section_two_par')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -54,25 +43,17 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Вимоги до',
-	subtitle: 'кардіолога в Польщі',
-	text: 'Претендент, який може зацікавити польського роботодавця, повинен мати:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('cardiologist.section_three_title'),
+	subtitle: $t('cardiologist.section_three_subtitle'),
+	text: $t('cardiologist.section_three_text'),
 	list: [
-		{
-			text: 'диплом про закінчення медичного вищого закладу і сертифікат, що підтверджує проходження курсу спеціалізації з кардіології. При цьому в негайному отриманні нострифікації документів немає необхідності;'
-		},
-		{
-			text: 'досвід роботи у своїй країні не менше 3 років протягом останніх 5 років. Для українців ця вимога на даний момент не є обов`язковою до виконання;'
-		},
-		{ text: 'високий рівень володіння польською мовою - як розмовною, так і професійною;' },
-		{ text: 'дозвіл на роботу від польського МОЗ і чинну ліцензію;' },
-		{
-			text: 'відповідний набір особистих якостей - відповідальність, сумлінність, неконфліктність, прагнення до нових знань і професійного зростання.'
-		}
+		{ text: $t('cardiologist.section_three_list_one') },
+		{ text: $t('cardiologist.section_three_list_two') },
+		{ text: $t('cardiologist.section_three_list_three') },
+		{ text: $t('cardiologist.section_three_list_four') },
+		{ text: $t('cardiologist.section_three_list_five') }
 	],
-	paragraph__one:
-		'Зі свого боку, роботодавець надає встановлену законодавством мінімальну заробітну плату для лікарів у розмірі 7500 злотих брутто на місяць, яка надалі зростатиме. Також іноземцю, який влаштувався на роботу кардіологом у Польщі, гарантується нормований 8-годинний робочий день, доплати за чергування, підміни та перепрацювання, гідний соціальний пакет та ідеальні умови для продуктивного здійснення трудової діяльності.',
-	paragraph__two:
-		'Готові кардинально змінити життя на краще? Звертайтеся: підберемо відповідну вакансію, допоможемо з працевлаштуванням та адаптацією на новому місці.'
-};
+	paragraph__one: $t('cardiologist.section_three_par_one'),
+	paragraph__two: $t('cardiologist.section_three_par_two')
+}));

@@ -1,40 +1,33 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Type,
-	Section_Title_Text_List_Par_Type,
-	Section_Image_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота неврологом у Польщі для іноземних фахівців'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('neurologist.breadctumbs_categories')
+}));
 
-export const Section_Title_Par_Data: Section_Title_Par_Type = {
-	title: 'Робота неврологом у Польщі',
-	subtitle: 'для іноземних фахівців',
-	paragraph:
-		'У лікарів з України та Білорусі, яких не влаштовують зарплата та інші умови праці на батьківщині, сьогодні є реальний шанс змінити ситуацію - виїхати на роботу неврологом до Польщі. Наразі обставини склалися таким чином, що в країні спостерігається хронічна нестача фахівців медичної сфери, зокрема і в галузі неврології. Тому знайти гідне місце з перспективами професійного зростання - цілком реально. А зробити це в стислі терміни ціною мінімальних зусиль допоможе наша компанія.'
-};
+export const Section_Title_Par_Data = derived(t, ($t) => ({
+	title: $t('neurologist.section_one_title'),
+	subtitle: $t('neurologist.section_one_subtitle'),
+	paragraph: $t('neurologist.section_one_par')
+}));
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'У чому полягають обов`язки',
-	subtitle: 'польського невролога?',
-	text: 'Загалом їхній перелік не відрізняється від переліку обов`язків невролога (інша назва - невропатолог) в українській чи білоруській медицині, тому кардинально перенавчатися не доведеться. Лікар цієї спеціалізації займається всім, що пов`язано з центральною і периферичною нервовою системою дорослих або дітей, зокрема:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('neurologist.section_two_title'),
+	subtitle: $t('neurologist.section_two_subtitle'),
+	text: $t('neurologist.section_two_text'),
 	list: [
-		{
-			text: 'профілактикою та лікуванням патологій спинного і головного мозку, спровокованих порушенням кровообігу;'
-		},
-		{ text: 'наслідками черепно-мозкових травм і травм хребта;' },
-		{ text: 'судомними синдромами, зокрема, епілепсією;' },
-		{ text: 'нейроінфекціями;' },
-		{ text: 'нервово-м`язовими порушеннями;' },
-		{ text: 'патологіями, пов`язаними з демієлінізацією нервових волокон;' },
-		{ text: 'ураженнями периферичних нервів.' }
+		{ text: $t('neurologist.section_two_list_one') },
+		{ text: $t('neurologist.section_two_list_two') },
+		{ text: $t('neurologist.section_two_list_three') },
+		{ text: $t('neurologist.section_two_list_four') },
+		{ text: $t('neurologist.section_two_list_five') },
+		{ text: $t('neurologist.section_two_list_six') },
+		{ text: $t('neurologist.section_two_list_seven') }
 	],
-	paragraph:
-		'Вакансії невролога є в амбулаторних і стаціонарних медичних установах державної та приватної форм власності, а також у профільних санаторіях, реабілітаційних центрах і тому подібних закладах.'
-};
+	paragraph: $t('neurologist.section_two_par')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -51,20 +44,15 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Data_Two: Section_Title_Text_List_Par_Type = {
-	title: 'Що потрібно для працевлаштування',
-	subtitle: '- професійний багаж кандидата',
-	text: 'Щоб отримати роботу невролога в Польщі, здобувачеві необхідно мати:',
+export const Section_Title_Text_List_Par_Data_Two = derived(t, ($t) => ({
+	title: $t('neurologist.section_three_title'),
+	subtitle: $t('neurologist.section_three_subtitle'),
+	text: $t('neurologist.section_three_text'),
 	list: [
-		{
-			text: 'документ про закінчення медичного ВНЗ і сертифікат про проходження спеціалізованої підготовки з неврології. Вимоги до нострифікації диплома висуваються вже після отримання посади;'
-		},
-		{
-			text: 'вихідцям із Білорусі - досвід роботи у вигляді трирічного стажу за фахом протягом останніх 5 років. Українські мігранти на сьогоднішній день цю вимогу можуть проігнорувати;'
-		},
-		{ text: 'упевнені знання професійної медичної польської мови;' },
-		{ text: 'дозвіл на роботу лікарем від МОЗ Республіки Польща.;' }
+		{ text: $t('neurologist.section_three_list_one') },
+		{ text: $t('neurologist.section_three_list_two') },
+		{ text: $t('neurologist.section_three_list_three') },
+		{ text: $t('neurologist.section_three_list_four') }
 	],
-	paragraph:
-		'Відповідність перерахованим параметрам відкриває перед відповідальними, сумлінними, неконфліктними та комунікабельними претендентами масу можливостей. Головна з них - працювати за фахом і отримувати гідну заробітну плату. Ставка польського невролога стартує від 7500 злотих "брудними" на місяць. Додайте до цього нормований робочий день, доволі високі доплати за чергування та перепрацювання, соціальні гарантії та можливість рости й удосконалюватися в професії - і ви переконаєтеся в тому, що робота неврологом у Польщі - саме те, що вам потрібно. А потім зверніться по практичну допомогу в отриманні посади та облаштуванні на новому місці до нашої досвідченої, ефективної та результативної команди.'
-};
+	paragraph: $t('neurologist.section_three_par')
+}));

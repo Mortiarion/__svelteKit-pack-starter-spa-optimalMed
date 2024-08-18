@@ -233,9 +233,9 @@
 
 <style lang="postcss">
 	nav {
-	position: sticky;
-	top: 0;
-	z-index: 1;
+		position: sticky;
+		top: 0;
+		z-index: 1;
 		& .navigation__burger {
 			display: none;
 		}

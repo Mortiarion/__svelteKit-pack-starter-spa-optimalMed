@@ -1,44 +1,34 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Text_List_Par_Type,
-	Section_Title_Par_Par_Type,
-    Section_Image_Type,
-    Section_Title_Text_List_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота кардіохірургом у Польщі'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('cardiac_surgeon.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота',
-	subtitle: 'кардіохірургом у Польщі',
-	paragraph__one:
-		'У польському національному рейтингу причин смертності протягом багатьох років утримують першість серцево-судинні захворювання. Водночас фахівців, здатних своєчасно провести хірургічну корекцію серцевих патологій, катастрофічно не вистачає. Така ситуація обертається для лікарів з України, Білорусі та інших пострадянських країн реальною перспективою влаштуватися на роботу кардіохірургом у Польщі.',
-	paragraph__two:
-		'Кількість вакансій дає змогу знайти місце з хорошою зарплатою і гідними умовами праці практично в будь-якій частині країни. Як це зробити - знають співробітники нашої компанії, готові надати допомогу в працевлаштуванні всім охочим.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('cardiac_surgeon.section_one_title'),
+	subtitle: $t('cardiac_surgeon.section_one_subtitle'),
+	paragraph__one: $t('cardiac_surgeon.section_one_par_one'),
+	paragraph__two: $t('cardiac_surgeon.section_one_par_two')
+}));
 
-export const Section_Title_Par_Text_List_Par_Data: Section_Title_Par_Text_List_Par_Type = {
-	title: 'Що входить до посадової',
-	subtitle: 'інструкції кардіохірурга?',
-	paragraph__one:
-		'Завдання кардіохірургії - усунути порушення в роботі серця або полегшити перебіг хвороби за допомогою хірургічного втручання. Сучасні кардіохірурги не тільки проводять операції на відкритому серці, а й використовують прогресивні методики доступу через вени й артерії.',
-	text: 'Окреслити коло обов`язків фахівця, який отримав роботу кардіохірургом у Польщі, можна такими пунктами:',
+export const Section_Title_Par_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('cardiac_surgeon._two_title'),
+	subtitle: $t('cardiac_surgeon._two_subtitle'),
+	paragraph__one: $t('cardiac_surgeon._two_par_one'),
+	text: $t('cardiac_surgeon._two_text'),
 	list: [
-		{ text: 'огляд, обстеження та консультування пацієнтів;' },
-		{ text: 'визначення доцільності проведення хірургічного втручання;' },
-		{ text: 'розробка протоколу проведення операції;' },
-		{
-			text: 'безпосередньо оперативне втручання - шунтування, стентування, встановлення клапана, інтеграція водія ритму, усунення вад серцевого м`яза, інші - аж до пересадки серця;'
-		},
-		{ text: 'призначення післяопераційної медикаментозної терапії та реабілітаційних заходів;' },
-		{ text: 'спостереження за пацієнтами в післяопераційному періоді.' }
+		{ text: $t('cardiac_surgeon._two_list_one') },
+		{ text: $t('cardiac_surgeon._two_list_two') },
+		{ text: $t('cardiac_surgeon._two_list_three') },
+		{ text: $t('cardiac_surgeon._two_list_four') },
+		{ text: $t('cardiac_surgeon._two_list_five') },
+		{ text: $t('cardiac_surgeon._two_list_six') }
 	],
-	paragraph__two:
-		'Лікарі-кардіохірурги, як правило, працюють у загальномедичних державних і приватних стаціонарах, а також у вузькопрофільних кардіоцентрах.'
-};
+	paragraph__two: $t('cardiac_surgeon._two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -55,18 +45,16 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Як отримати роботу ',
-	subtitle: 'кардіохірургом у польській установі?',
-	text: 'Логічно, що для цього потрібно знайти підходящу вакансію. Однак для того, щоб на неї претендувати, претендент повинен мати:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('cardiac_surgeon.three_title'),
+	subtitle: $t('cardiac_surgeon.three_subtitle'),
+	text: $t('cardiac_surgeon.three_text'),
 	list: [
-		{ text: 'диплом медичного ВНЗ і сертифікат за відповідною спеціалізацією;' },
-		{ text: 'досвід роботи кардіохірургом не менше 3 років протягом останніх 5 років;' },
-		{ text: 'достатнє для виконання службових обов`язків знання польської мови;' },
-		{ text: 'отриманий у МОЗ дозвіл на роботу лікарем.' }
+		{ text: $t('cardiac_surgeon.three_list_one') },
+		{ text: $t('cardiac_surgeon.three_list_two') },
+		{ text: $t('cardiac_surgeon.three_list_three') },
+		{ text: $t('cardiac_surgeon.three_list_four') }
 	],
-	paragraph__one:
-		'Крім цього, важливо, щоб претендент на роботу кардіохірургом у Польщі був знайомий із прогресивними високотехнологічними методами і підходами до оперування пацієнтів і мав відповідні професійні якості. Це, зокрема, емоційна стабільність, рішучість, витривалість, відмінна фізична форма, бездоганний зір, хороша дрібна моторика. А ще - вміння працювати в команді, неконфліктність і відповідальність.',
-	paragraph__two:
-		'Такі фахівці в Польщі вельми цінуються, тому кардіохірург, який отримав місце в польській клініці, вже на початку роботи може розраховувати на досить високу зарплату на рівні 7500 злотих брутто на місяць, доплати за понадтермінову роботу, премії, соціальні гарантії та повне забезпечення всім необхідним для роботи.'
-};
+	paragraph__one: $t('cardiac_surgeon.three_par_one'),
+	paragraph__two: $t('cardiac_surgeon.three_par_two')
+}));

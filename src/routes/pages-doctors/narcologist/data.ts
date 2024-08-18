@@ -1,50 +1,35 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Par_Text_List_Par_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота наркологом у Польщі: як влаштуватися іноземцю'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('narcologist.section_one_breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота наркологом у Польщі:',
-	subtitle: 'як влаштуватися іноземцю',
-	paragraph__one:
-		'Лікарі-наркологи завжди були затребувані й будуть такими доти, доки існують залежності. У Польщі, у зв`язку з напруженою ситуацією з медичними кадрами, запит є безпрецедентно високим. Це свідчить про те, що іноземний фахівець, який претендує на роботу наркологом у Польщі, має всі шанси отримати посаду з хорошою заробітною платою і гідними умовами.',
-	paragraph__two:
-		'Наша компанія займається працевлаштуванням українських і білоруських лікарів до польських медичних установ. Звертайтеся - зробимо цей процес максимально швидким і комфортним для вас!'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('narcologist.section_one_title'),
+	subtitle: $t('narcologist.section_one_subtitle'),
+	paragraph__one: $t('narcologist.section_one_par_one'),
+	paragraph__two: $t('narcologist.section_one_par_two')
+}));
 
-export const Section_Title_Par_Text_List_Par_Par_Data: Section_Title_Par_Text_List_Par_Par_Type = {
-	title: 'Чим займається',
-	subtitle: 'лікар-нарколог?',
-	paragraph_one:
-		'Всупереч розхожій думці, пацієнтами такого лікаря є не тільки люди з наркотичною залежністю. До сфери його уваги потрапляють також алкоголізм, токсикоманія, нікотинова, ігрова, інтернет-залежність.',
-	text: 'В обов`язки нарколога входить:',
+export const Section_Title_Par_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('narcologist.section_two_title'),
+	subtitle: $t('narcologist.section_two_subtitle'),
+	paragraph_one: $t('narcologist.section_two_par_one'),
+	text: $t('narcologist.section_two_text'),
 	list: [
-		{ text: 'діагностика залежності;' },
-		{
-			text: 'виведення пацієнтів із гострих станів, зняття абстинентного синдрому, зокрема, з виїздом додому;'
-		},
-		{ text: 'підбір найбільш ефективного виду терапії для залежних хворих;' },
-		{
-			text: 'лікування патологічних станів, пов`язаних із залежностями, - фобій, агресії, тривожності;'
-		},
-		{ text: 'контроль осіб із залежностями з метою недопущення рецидивів;' },
-		{
-			text: 'профілактичний огляд співробітників деяких професій (водіїв, льотчиків, військових, поліцейських тощо).'
-		}
+		{ text: $t('narcologist.section_two_list_one') },
+		{ text: $t('narcologist.section_two_list_two') },
+		{ text: $t('narcologist.section_two_list_three') },
+		{ text: $t('narcologist.section_two_list_four') },
+		{ text: $t('narcologist.section_two_list_five') },
+		{ text: $t('narcologist.section_two_list_six') }
 	],
-	paragraph_two:
-		'Наркологи часто працюють у зв`язці з іншими лікарями - психологами, психіатрами, вузькими фахівцями, які займаються лікуванням соматичних захворювань, спричинених тривалим вживанням токсичних речовин.',
-	paragraph_three:
-		'Влаштуватися на роботу наркологом у Польщі можна як у державну, так і в приватну клініку. Також фахівців цього профілю потребують служби швидкої допомоги, наркологічні кабінети, реабілітаційні центри.'
-};
+	paragraph_two: $t('narcologist.section_two_par_two'),
+	paragraph_three: $t('narcologist.section_two_par_three')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -61,23 +46,16 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'Нарколог у Польщі:',
-	subtitle: 'вимоги, умови, перспективи',
-	text: 'Роботодавець готовий розглядати іноземця як кандидата на вакансію нарколога, якщо він:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('narcologist.section_three_title'),
+	subtitle: $t('narcologist.section_three_subtitle'),
+	text: $t('narcologist.section_three_text'),
 	list: [
-		{
-			text: 'має диплом про закінчення ВНЗ у своїй країні і може пред`явити сертифікат про отримання спеціалізації "нарколог";'
-		},
-		{
-			text: 'отримав хоча б трирічний досвід роботи за фахом протягом останніх 5 років. До претендентів з України ця вимога наразі не стосується;'
-		},
-		{ text: 'оформив дозвіл на роботу в МОЗ і отримав ліцензію в місцевих органах;' },
-		{ text: 'вільно володіє польською мовою, включно зі знанням медичних термінів і понять;' },
-		{
-			text: 'коректно ставиться до людей із залежностями, не проявляє агресії щодо агресивних пацієнтів, володіє навичками комунікації з представниками різних соціальних груп.'
-		}
+		{ text: $t('narcologist.section_three_list_one') },
+		{ text: $t('narcologist.section_three_list_two') },
+		{ text: $t('narcologist.section_three_list_three') },
+		{ text: $t('narcologist.section_three_list_four') },
+		{ text: $t('narcologist.section_three_list_five') }
 	],
-	paragraph:
-		'Таких кандидатів медичні заклади із задоволенням приймають на роботу, гарантуючи зарплату від 7500 злотих до вирахування податків на місяць, стабільний восьмигодинний робочий день, доплати за перепрацювання і підміни, відстрочку нострифікації диплома. Крім того, ті, хто влаштувався на роботу наркологом у Польщі, можуть розраховувати на забезпечення всім необхідним для ефективного здійснення професійної діяльності.'
-};
+	paragraph: $t('narcologist.section_three_par_one')
+}));

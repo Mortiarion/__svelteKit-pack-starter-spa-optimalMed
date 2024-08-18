@@ -1,43 +1,35 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Par_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { t } from '$lib/i18n';
+import { derived } from 'svelte/store';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота імунологом у Польщі - важлива інформація'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('immunologist.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота імунологом у Польщі',
-	subtitle: '- важлива інформація',
-	paragraph__one:
-		'В останні десятиліття імунітет популяції неухильно знижується - через різні причини. А затребуваність лікарів-імунологів, які працюють у цій сфері, навпаки, підвищується. Польські фахівці активно мігрують до країн Західної Європи, де їм пропонують вищі зарплати. Відповідно, їхній дефіцит у польській медичній галузі зростає з кожним днем. І це - гарний шанс для вихідців із пострадянських країн отримати роботу імунологом у Польщі з набагато більш гідними умовами і позитивними перспективами, ніж на батьківщині.',
-	paragraph__two:
-		'Працевлаштуванням медичних фахівців і допомогою у всіх супутніх питаннях професійно займається наша компанія. Ми маємо великий досвід в успішному підборі вакансій для претендентів із найрізноманітнішими запитами і робочими кейсами.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('immunologist.section_one_title'),
+	subtitle: $t('immunologist.section_one_subtitle'),
+	paragraph__one: $t('immunologist.section_one_par_one'),
+	paragraph__two: $t('immunologist.section_one_par_two')
+}));
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Чим займається',
-	subtitle: 'імунолог у польській клініці?',
-	text: 'Пацієнтами цього фахівця є люди з вродженими або набутими проблемами імунної системи. Загалом, робота імунологом у Польщі передбачає:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('immunologist.section_two_title'),
+	subtitle: $t('immunologist.section_two_subtitle'),
+	text: $t('immunologist.section_two_text'),
 	list: [
-		{ text: 'обстеження пацієнтів, виявлення імунного дефіциту та визначення його причини;' },
-		{ text: 'підбір і призначення медикаментозної терапії;' },
+		{ text: $t('immunologist.section_two_list_one') },
+		{ text: $t('immunologist.section_two_list_two') },
 		{
-			text: 'постійне спостереження за пацієнтами з імунодефіцитом та аутоімунними захворюваннями;'
+			text: $t('immunologist.section_two_list_three')
 		},
-		{ text: 'контроль виконання календаря вакцинації;' },
-		{ text: 'оформлення медичних документів.' }
+		{ text: $t('immunologist.section_two_list_four') },
+		{ text: $t('immunologist.section_two_list_five') }
 	],
-	paragraph__one:
-		'Крім того, імунологія має кілька напрямків, якими визначається вузька спеціалізація лікаря. Так, наприклад, імунолог-інфекціоніст займається пацієнтами, чий організм схильний до частих інфекцій. Лікар-трансплантолог готує пацієнта до трансплантації та веде післяопераційне спостереження з метою запобігти відторгненню органу або тканини. Імунолог зі спеціалізацією алерголога лікує різного роду алергії. А імунолог-радіолог працює над приведенням у норму імунітету, втраченого під час проходження курсу променевої терапії.',
-	paragraph__two:
-		'Працюють польські імунологи в державних і приватних клініках амбулаторного та стаціонарного типу.'
-};
+	paragraph__one: $t('immunologist.section_two_par_one'),
+	paragraph__two: $t('immunologist.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -54,22 +46,15 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'Що потрібно для працевлаштування',
-	subtitle: 'імунологом у Польщі?',
-	text: 'Через гостру нестачу фахівців перелік вимог до іноземних претендентів, зокрема, українців і білорусів, мінімальний. Це:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('immunologist.section_three_title'),
+	subtitle: $t('immunologist.section_three_subtitle'),
+	text: $t('immunologist.section_three_text'),
 	list: [
-		{
-			text: 'наявність диплома медичного ВНЗ і документа, що підтверджує проходження курсу за відповідною спеціалізацією;'
-		},
-		{
-			text: 'професійний досвід, підтверджений стажем у своїй країні, - мінімум 3 роки за останні 5 років;'
-		},
-		{
-			text: 'добре знання польської мови, що включає володіння професійною медичною термінологією;'
-		},
-		{ text: 'отримання дозволу на роботу від МОЗ Республіки Польща.' }
+		{ text: $t('immunologist.section_three_list_one') },
+		{ text: $t('immunologist.section_three_list_two') },
+		{ text: $t('immunologist.section_three_list_three') },
+		{ text: $t('immunologist.section_three_list_four') }
 	],
-	paragraph:
-		'Кандидати, які відповідають цим критеріям, без складнощів знайдуть підходящу роботу імунологом у Польщі зі стартовою заробітною платою від 7500 злотих "брудними" на місяць, нормованим робочим днем, доплатами за будь-які переробітки, преміями та надбавками, соціальним пакетом, уніформою від роботодавця і забезпеченням усім необхідним на робочому місці.'
-};
+	paragraph: $t('immunologist.section_three_par_one')
+}));
