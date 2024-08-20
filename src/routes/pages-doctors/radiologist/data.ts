@@ -1,44 +1,32 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Type,
-	Section_Title_Par_Par_Text_List_Par_Type,
-	Section_Image_Type,
-	Section_Title_Par_Text_List_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Лікар-радіолог: особливості працевлаштування в Польщі для іноземців'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('radiologist.section_breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Data: Section_Title_Par_Type = {
-	title: 'Лікар-радіолог: особливості працевлаштування',
-	subtitle: 'в Польщі для іноземців',
-	paragraph:
-		'З розвитком і застосуванням у медицині радіоізотопних методів діагностики та лікування професія радіолога стає дедалі більш затребуваною. З урахуванням масової міграції фахівців у Західну Європу, робота радіологом у Польщі на сьогоднішній день є досяжною реальністю для лікарів-іноземців. Зокрема, тих, хто переїжджає в цю країну з України, Білорусі, інших пострадянських держав.'
-};
+export const Section_Title_Par_Data = derived(t, ($t) => ({
+	title: $t('radiologist.section_one_title'),
+	subtitle: $t('radiologist.section_one_subtitle'),
+	paragraph: $t('radiologist.section_one_par')
+}));
 
-export const Section_Title_Par_Par_Text_List_Par_Data: Section_Title_Par_Par_Text_List_Par_Type = {
-	title: 'Коло обов`язків',
-	subtitle: 'радіолога',
-	paragraph_one:
-		'Умовно професійні завдання цього фахівця можна розділити на два напрямки: діагностичний і лікувальний.',
-	paragraph_two:
-		'У першому випадку радіологія допомагає встановити або уточнити діагноз за допомогою апаратного обстеження пацієнта. Найбільш затребуваними методами в цій галузі є рентгенографія, комп`ютерна та магнітно-резонансна терапія, а також ультразвукове дослідження. Фахівці, компетентні в проведенні обстежень і розшифровці результатів, можуть претендувати на роботу лікарем-рентгенологом у Польщі.',
-	text: 'Якщо лікар займається не тільки радіоізотопною діагностикою, а й здійснює лікування за допомогою такого випромінювання, така спеціалізація називається радіологією. Ті, хто працює в цьому напрямі, здійснюють:',
+export const Section_Title_Par_Par_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('radiologist.section_one_two_title'),
+	subtitle: $t('radiologist.section_one_two_subtitle'),
+	paragraph_one: $t('radiologist.section_one_two_par_one'),
+	paragraph_two: $t('radiologist.section_one_two_par_two'),
+	text: $t('radiologist.section_one_two_text'),
 	list: [
-		{
-			text: 'обстеження пацієнта, зокрема, за допомогою введення радіоактивних складів в організм для фіксації вихідних променів за допомогою високоточної апаратури. Так, зокрема, виявляють різного роду новоутворення;'
-		},
-		{
-			text: 'лікування онкологічних пацієнтів, для яких оптимальним методом обрано променеву терапію. У рамках супроводу хворого фахівець розробляє та реалізує індивідуальну схему лікування, а також підбирає найбільш ефективний і найменш шкідливий спосіб опромінення;'
-		},
-		{ text: 'підбір препаратів і процедур, які допоможуть зменшити наслідки променевої терапії;' },
-		{ text: 'лікування пацієнтів, які постраждали від немедичного радіаційного опромінення.' }
+		{ text: $t('radiologist.section_one_two_list_one') },
+		{ text: $t('radiologist.section_one_two_list_two') },
+		{ text: $t('radiologist.section_one_two_list_three') },
+		{ text: $t('radiologist.section_one_two_list_four') }
 	],
-	paragraph_three:
-		'Також в обов`язки радіологів і рентгенологів входить ведення медичної документації та консультування представників суміжних спеціалізацій - онкологів, хіміотерапевтів, гінекологів, нефрологів тощо.'
-};
+	paragraph_three: $t('radiologist.section_one_two_par_three')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -55,24 +43,17 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Par_Text_List_Par_Par_Data: Section_Title_Par_Text_List_Par_Par_Type = {
-	title: 'Що потрібно, щоб отримати роботу',
-	subtitle: 'радіолога в польській клініці?',
-	paragraph_one:
-		'Насамперед, необхідно мати документ про вищу медичну освіту за спеціальністю, на яку претендує здобувач. Приємний нюанс: нострифікація диплома при працевлаштуванні не потрібна - її можна зробити пізніше.',
-	text: 'Крім того, робота радіологом у Польщі передбачає:',
+export const Section_Title_Par_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('radiologist.section_three_title'),
+	subtitle: $t('radiologist.section_three_subtitle'),
+	paragraph_one: $t('radiologist.section_three_par_one'),
+	text: $t('radiologist.section_three_text'),
 	list: [
-		{
-			text: 'наявність досвіду, підтвердженого стажем роботи за цією спеціальністю у своїй країні від 3 років. Він має бути отриманий протягом останніх 5 років;'
-		},
-		{
-			text: 'впевненого володіння польською мовою. Рівень і специфіка знань повинні дозволяти якісно виконувати посадові обов`язки;'
-		},
-		{ text: 'отримання затверджених чинним законодавством дозволів;' },
-		{ text: 'наявність необхідних особистих і професійних якостей.' }
+		{ text: $t('radiologist.section_three_list_one') },
+		{ text: $t('radiologist.section_three_list_two') },
+		{ text: $t('radiologist.section_three_list_three') },
+		{ text: $t('radiologist.section_three_list_four') }
 	],
-	paragraph_two:
-		'Кандидати, яким наша компанія вже допомогла працевлаштуватися в польські медичні установи, відгукуються про свою роботу виключно в позитивному ключі. Їхня заробітна плата стартує від 7500 злотих на місяць до вирахування податків. До основної зарплати додаються премії, надбавки, доплати за чергування і перепрацювання. У підсумку на руки фахівець отримує солідну суму. А високі стандарти медицини і відмінне забезпечення дають змогу ефективно зростати в професії.',
-	paragraph_three:
-		'Сьогодні робота рентгенологом у Польщі - це можливість для мігрантів-українців чи білорусів обирати з широкого пулу вакансій, а отже, отримати саме те, чого хочеться. Ми готові вам це довести, запропонувавши гідний вибір реальних варіантів.'
-};
+	paragraph_two: $t('radiologist.section_three_par_two'),
+	paragraph_three: $t('radiologist.section_three_par_three')
+}));

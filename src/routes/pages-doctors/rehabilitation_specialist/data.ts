@@ -1,39 +1,32 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Type,
-	Section_Title_Par_Text_List_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота реабілітологом у Польщі - перспективи для іноземців'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('rehabilitation.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Data: Section_Title_Par_Type = {
-	title: 'Робота реабілітологом у Польщі -',
-	subtitle: 'перспективи для іноземців',
-	paragraph:
-		'Одним із досить затребуваних запитів з боку українських і білоруських мігрантів є робота реабілітологом у Польщі. Ця професія має багато вузьких напрямків - вона включає в себе спортивну, дитячу, неврологічну, соціально-психологічну та інші види реабілітацій. Польські роботодавці сьогодні активно шукають представників цієї професії, зокрема, серед іноземців, пропонуючи досить високу заробітну плату вже на старті, оскільки дефіцит спеціалістів у країні вкрай великий.'
-};
+export const Section_Title_Par_Data = derived(t, ($t) => ({
+	title: $t('rehabilitation.section_one_title'),
+	subtitle: $t('rehabilitation.section_one_sub'),
+	paragraph: $t('rehabilitation.section_one_par')
+}));
 
-export const Section_Title_Par_Text_List_Par_Data: Section_Title_Par_Text_List_Par_Type = {
-	title: 'Чим займається',
-	subtitle: 'лікар-реабілітолог?',
-	paragraph__one:
-		'Завдання реабілітолога - допомагати пацієнтам відновлюватися після фізичних і психоемоційних травм, поранень, опіків, тривалих хвороб, складних хірургічних операцій. Вони працюють із наслідками інфарктів та інсультів, інших неврологічних уражень, допомагають зберегти максимум функціональності за патологій дегенеративного характеру, прагнуть у найкоротший термін відновити працездатність пацієнта, допомогти йому адаптуватися до нових обставин.',
-	text: 'Виходячи з вищесказаного, в обов`язки такого фахівця входить:',
+export const Section_Title_Par_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('rehabilitation.section_two_title'),
+	subtitle: $t('rehabilitation.section_two_sub'),
+	paragraph__one: $t('rehabilitation.section_two_par_one'),
+	text: $t('rehabilitation.section_two_text'),
 	list: [
-		{ text: 'вивчення історії хвороби, опитування та огляд пацієнта;' },
-		{ text: 'розробка індивідуальної програми реабілітації;' },
-		{ text: 'контроль реалізації цієї програми, за необхідності - участь у ній;' },
-		{ text: 'періодичний огляд реабілітованого з метою відстеження прогресу;' },
-		{ text: 'ведення супутньої медичної документації.' }
+		{ text: $t('rehabilitation.section_two_list_one') },
+		{ text: $t('rehabilitation.section_two_list_two') },
+		{ text: $t('rehabilitation.section_two_list_three') },
+		{ text: $t('rehabilitation.section_two_list_four') },
+		{ text: $t('rehabilitation.section_two_list_five') }
 	],
-	paragraph__two:
-		'Це загальний алгоритм, який можна застосувати до будь-якого напрямку цієї галузі медицини. Якщо компетенції кандидата на роботу реабілітолога в Польщі дозволяють його реалізувати - він може сміливо претендувати на відповідну вакансію.'
-};
+	paragraph__two: $t('rehabilitation.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -50,26 +43,17 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Par_Data: Section_Title_Text_List_Par_Par_Par_Type = {
-	title: 'Реабілітолог у Польщі',
-	subtitle: '- вимоги та умови',
-	text: 'У зв`язку з гострою нестачею кваліфікованих лікарів польське МОЗ максимально спростило процедуру працевлаштування іноземців. Усе, що від них вимагається, - це:',
+export const Section_Title_Text_List_Par_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('rehabilitation.section_three_title'),
+	subtitle: $t('rehabilitation.section_three_sub'),
+	text: $t('rehabilitation.section_three_text'),
 	list: [
-		{
-			text: 'наявність диплома про вищу медичну освіту та відповідну спеціалізацію. Його нострифікація здійснюється вже після отримання місця в польській клініці;'
-		},
-		{
-			text: 'досвід професійної діяльності не менше 3 років протягом останніх років. Для українців цю норму скасовано до березня 2024 року;'
-		},
-		{ text: 'знання польської мови в розрізі медичної специфіки;' },
-		{
-			text: 'видані владою дозвіл на здійснення медичної діяльності та ліцензія лікаря-реабілітолога.'
-		}
+		{ text: $t('rehabilitation.section_three_list_one') },
+		{ text: $t('rehabilitation.section_three_list_two') },
+		{ text: $t('rehabilitation.section_three_list_three') },
+		{ text: $t('rehabilitation.section_three_list_four') }
 	],
-	paragraph_one:
-		'Безумовно, важливими є й такі якості, як відповідальність, порядність, чесність, сумлінність, неконфліктність, прагнення здобувати нові навички та знання.',
-	paragraph_two:
-		'Тим, хто відповідає перерахованим вимогам, польські клініки пропонують чудові умови. Це і зарплата щонайменше 7500 злотих на місяць брутто, і нормований робочий день, і доплати за перепрацювання, підміни, чергування, і гідний соціальний пакет, і забезпечення всім, що необхідно для успішної професійної діяльності.',
-	paragraph_three:
-		'Знайти гідну вашого рівня роботу реабілітологом у Польщі допоможе наша компанія. Звертайтеся - заощадимо ваш час і сили!'
-};
+	paragraph_one: $t('rehabilitation.section_three_par_one'),
+	paragraph_two: $t('rehabilitation.section_three_par_two'),
+	paragraph_three: $t('rehabilitation.section_three_par_three')
+}));

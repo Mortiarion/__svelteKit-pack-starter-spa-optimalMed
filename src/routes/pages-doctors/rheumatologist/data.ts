@@ -1,42 +1,30 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Type,
-	Section_Title_Text_List_Par_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Type,
-	Section_Title_Par_Text_List_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота ревматологом у Польщі: все, що вам потрібно про це знати'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('rheumatologist.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Data: Section_Title_Par_Type = {
-	title: 'Робота ревматологом у Польщі: все,',
-	subtitle: 'що вам потрібно про це знати',
-	paragraph:
-		'Українські та білоруські лікарі, особливо ті, що мають досвід роботи за фахом, затребувані не тільки у своїй країні, а й за кордоном. Одне з підтверджень цьому - реальна можливість працевлаштуватися на роботу ревматологом у Польщі на комфортних і вигідних умовах, з широкими перспективами зростання.'
-};
+export const Section_Title_Par_Data = derived(t, ($t) => ({
+	title: $t('rheumatologist.section_one_title'),
+	subtitle: $t('rheumatologist.section_one_sub'),
+	paragraph: $t('rheumatologist.section_one_par')
+}));
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Що для цього',
-	subtitle: 'потрібно?',
-	text: 'Перелік вимог для працевлаштування включає всього кілька пунктів:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('rheumatologist.section_two_title'),
+	subtitle: $t('rheumatologist.section_two_sub'),
+	text: $t('rheumatologist.section_two_text'),
 	list: [
-		{
-			text: 'знання медичної польської мови, достатнє для комунікацій з колегами та пацієнтами, оформлення документів;'
-		},
-		{ text: 'бажання працювати за фахом у сучасному закладі та розвиватися в професії;' },
-		{
-			text: 'наявність інтернатури за спеціальністю "ревматолог" у медичному закладі своєї країни.'
-		}
+		{ text: $t('rheumatologist.section_two_list_one') },
+		{ text: $t('rheumatologist.section_two_list_two') },
+		{ text: $t('rheumatologist.section_two_list_three') }
 	],
-	paragraph__one:
-		'Зверніть увагу: на сьогодні для лікарів, які отримали документ про освіту за межами ЄС, діє спрощена система працевлаштування - негайна нострифікація диплома не потрібна.',
-	paragraph__two:
-		'Наявність за плечима кейса лікарської практики у своїй країні не є обов`язковою. Деякі роботодавці справді віддають перевагу фахівцям із досвідом, інші ж вважають за краще отримати не обтяженого усталеними прийомами й алгоритмами в роботі співробітника, готового швидко пристосуватися до чинних правил і підходів.'
-};
+	paragraph__one: $t('rheumatologist.section_two_par_one'),
+	paragraph__two: $t('rheumatologist.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -53,41 +41,32 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'Що отримує',
-	subtitle: 'здобувач?',
-	text: 'За мінімальних вимог до претендента робота ревматологом у Польщі гарантує чимало преференцій, зокрема:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('rheumatologist.section_three_title'),
+	subtitle: $t('rheumatologist.section_three_sub'),
+	text: $t('rheumatologist.section_three_text'),
 	list: [
-		{
-			text: 'гідну заробітну плату. Станом на 01.07.2023 польські медичні заклади оцінювали працю фахівця-ревматолога щонайменше в 9200 злотих брутто на місяць;'
-		},
-		{
-			text: 'широкий вибір варіантів працевлаштування - можна працювати в державних і комерційних медичних установах стаціонарного та амбулаторного типу;'
-		},
-		{ text: 'соціальний пакет, що включає різні формати підтримки;' },
-		{
-			text: 'можливість розвиватися, здобуваючи новий досвід, навички та знання в умовах сучасних європейських клінік із високотехнологічним діагностичним обладнанням та оснащенням.'
-		}
+		{ text: $t('rheumatologist.section_three_list_one') },
+		{ text: $t('rheumatologist.section_three_list_two') },
+		{ text: $t('rheumatologist.section_three_list_three') },
+		{ text: $t('rheumatologist.section_three_list_four') }
 	],
-	paragraph:
-		'Перший контракт із майбутнім співробітником укладається максимум на 5 років. Надалі його можна буде продовжити - якщо не з`являться перспективніші та цікавіші варіанти або вакансії з вищою зарплатою.'
-};
+	paragraph: $t('rheumatologist.section_three_par')
+}));
 
-export const Section_Title_Par_Text_List_Par_Data: Section_Title_Par_Text_List_Par_Type = {
-	title: 'Куди звертатися по допомогу',
-	subtitle: 'в працевлаштуванні?',
-	paragraph__one:
-		'Наш медичний заклад спеціалізується на виконанні підрядних робіт у лікарнях і клініках, спрямованих на лікування пацієнтів, зокрема, наймає на роботу ревматологом у Польщі українців і білорусів, а також супроводжує претендентів на всіх стадіях процесу.',
-	text: 'Алгоритм співпраці складається з таких етапів:',
+export const Section_Title_Par_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('rheumatologist.section_four_title'),
+	subtitle: $t('rheumatologist.section_four_sub'),
+	paragraph__one: $t('rheumatologist.section_four_par_one'),
+	text: $t('rheumatologist.section_four_text'),
 	list: [
-		{ text: 'безкоштовна консультація;' },
-		{ text: 'укладення офіційного договору;' },
-		{ text: 'навчання польської мови з профільним ухилом;' },
-		{ text: 'отримання згоди міністра та оформлення дозволу на роботу в Окружній Раді Лікарів;' },
-		{ text: 'підбір відповідної клініки або амбулаторії;' },
-		{ text: 'допомога в переїзді фахівця разом із сім`єю, кураторство в процесі адаптації;' },
-		{ text: 'підтримка на старті роботи.' }
+		{ text: $t('rheumatologist.section_four_list_one') },
+		{ text: $t('rheumatologist.section_four_list_two') },
+		{ text: $t('rheumatologist.section_four_list_three') },
+		{ text: $t('rheumatologist.section_four_list_four') },
+		{ text: $t('rheumatologist.section_four_list_five') },
+		{ text: $t('rheumatologist.section_four_list_six') },
+		{ text: $t('rheumatologist.section_four_list_seven') }
 	],
-	paragraph__two:
-		'Останнім етапом стає допомога в нострифікації диплома. Однак і після цього, через півроку, рік або навіть кілька років, іноземці, які стали польськими лікарями-ревматологами, можуть звертатися до нас з будь-яких питань, що виникають.'
-};
+	paragraph__two: $t('rheumatologist.section_four_par_two')
+}));

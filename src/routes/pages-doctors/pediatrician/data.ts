@@ -1,44 +1,34 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Par_Par_Type,
-	Section_Image_Type,
-	Section_Title_Par_Par_Par_Text_List_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота педіатром у Польщі для іноземних претендентів - що потрібно знати'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('pediatrician.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Робота педіатром у Польщі для',
-	subtitle: 'іноземних претендентів - що потрібно знати',
-	paragraph__one:
-		'У формуванні здоров`я нації провідну роль відіграє діагностика та лікування дитячих захворювань. Це - зона відповідальності педіатра, який веде пацієнтів віком до 18 років. У польських медичних установах давно спостерігається нестача таких фахівців, і з роками проблема поглиблюється. Тому влада охоче приймає на роботу педіатрами в Польщі мігрантів із колишніх радянських республік, зокрема, України та Білорусі.',
-	paragraph__two:
-		'Наша компанія надає допомогу в працевлаштуванні іноземців у найкращі польські клініки. Якщо ви шукаєте роботу педіатра з гідною зарплатою і комфортними умовами, готові переїхати в іншу країну і будувати тут кар`єру - зв`яжіться з нами просто зараз!'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('pediatrician.section_one_title'),
+	subtitle: $t('pediatrician.section_one_subtitle'),
+	paragraph__one: $t('pediatrician.section_one_par_one'),
+	paragraph__two: $t('pediatrician.section_one_par_two')
+}));
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Чим займається',
-	subtitle: 'лікар-педіатр?',
-	text: 'Обов`язки дитячого лікаря в Польщі схожі з обов`язками в Україні або Білорусі. Такий фахівець:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('pediatrician.section_two_title'),
+	subtitle: $t('pediatrician.section_two_subtitle'),
+	text: $t('pediatrician.section_two_text'),
 	list: [
-		{ text: 'веде спостереження дитини;' },
-		{ text: 'оцінює її фізичну та психічну відповідність календарному віку, шкільну зрілість;' },
-		{ text: 'організовує своєчасну диспансеризацію та профілактичні заходи;' },
-		{ text: 'контролює дотримання графіка вакцинації;' },
-		{
-			text: 'за наявності скарг - проводить загальне обстеження, встановлює первинний діагноз і направляє маленького пацієнта до вузького спеціаліста;'
-		},
-		{ text: 'оформляє довідки та іншу медичну документацію.' }
+		{ text: $t('pediatrician.section_two_list_one') },
+		{ text: $t('pediatrician.section_two_list_two') },
+		{ text: $t('pediatrician.section_two_list_three') },
+		{ text: $t('pediatrician.section_two_list_four') },
+		{ text: $t('pediatrician.section_two_list_five') },
+		{ text: $t('pediatrician.section_two_list_six') }
 	],
-	paragraph__one:
-		'Крім того, компетенція педіатра після додаткової підготовки та отримання потрібних знань дає змогу йому працювати сімейним лікарем.',
-	paragraph__two:
-		'Вакансії, пов`язані з роботою педіатром у Польщі, є в амбулаторіях, дитячих стаціонарах, приватних клініках, центрах дитячої спортивної медицини, дитячих таборах відпочинку, санаторіях - словом, у будь-яких закладах, де відпочивають, лікуються або проходять реабілітацію неповнолітні.'
-};
+	paragraph__one: $t('pediatrician.section_two_par_one'),
+	paragraph__two: $t('pediatrician.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -55,25 +45,18 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Par_Par_Par_Text_List_Par_Data: Section_Title_Par_Par_Par_Text_List_Par_Type =
-	{
-		title: 'Переваги роботи дитячим',
-		subtitle: 'лікарем у Польщі',
-		paragraph_one:
-			'Почати варто із заробітної плати. Мінімальний оклад за чинним законодавством становить 7500 злотих брутто на місяць. Саме стільки, за вирахуванням податків, отримує лікар одразу ж після працевлаштування. Надалі сума збільшуватиметься.',
-		paragraph_two:
-			'До зарплати додаються виплати і доплати - за хорошу роботу, чергування, перепрацювання понад нормований робочий день, додаткові обов`язки.',
-		paragraph_three:
-			'Клініки забезпечують своїх співробітників уніформою, необхідним інструментарієм, витратними матеріалами, облаштовують робочі місця відповідно до високих сучасних стандартів. Усе це дає змогу працювати, не відволікаючись на незручності.',
-		text: 'Щоб претендувати на роботу лікаря-педіатра в Польщі, необхідно:',
-		list: [
-			{
-				text: 'мати відповідний диплом. Оскільки його нострифікація - послуга недешева, польська влада йде назустріч мігрантам, дозволяючи відкласти її до набуття фінансової стабільності;'
-			},
-			{ text: 'отримати дозвіл на здійснення лікарської діяльності;' },
-			{ text: 'вивчити професійну польську мову;' },
-			{ text: 'мати за плечима мінімум 3-річний досвід роботи за фахом протягом останніх 5 років.' }
-		],
-		paragraph_four:
-			'Якщо, крім перерахованого, у вашому активі - відповідальність, сумлінність, уміння ладнати з дітьми і прагнення до професійного зростання, значить ви - ідеальний кандидат на цю роботу.'
-	};
+export const Section_Title_Par_Par_Par_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('pediatrician.section_three_title'),
+	subtitle: $t('pediatrician.section_three_subtitle'),
+	paragraph_one: $t('pediatrician.section_three_par_one'),
+	paragraph_two: $t('pediatrician.section_three_par_two'),
+	paragraph_three: $t('pediatrician.section_three_par_three'),
+	text: $t('pediatrician.section_three_text'),
+	list: [
+		{ text: $t('pediatrician.section_three_list_one') },
+		{ text: $t('pediatrician.section_three_list_two') },
+		{ text: $t('pediatrician.section_three_list_three') },
+		{ text: $t('pediatrician.section_three_list_four') }
+	],
+	paragraph_four: $t('pediatrician.section_three_par_four')
+}));

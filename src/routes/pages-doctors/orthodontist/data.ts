@@ -1,43 +1,32 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Type,
-	Section_Title_Text_List_Par_Type,
-	Section_Image_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumb_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота ортодонтом у Польщі - як отримати'
-};
+export const Bredcrumb_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('ortodontist.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Data: Section_Title_Par_Type = {
-	title: 'Робота ортодонтом у Польщі',
-	subtitle: '- як отримати',
-	paragraph:
-		'Красива посмішка справляє враження на оточуючих. На жаль, не всіх природа обдарувала рівними зубними рядами. Іноді для виправлення її недбалості доводиться вдаватися до допомоги стоматолога-ортодонта. Нині, у зв`язку з масовою міграцією в Західну Європу медичних фахівців, робота ортодонтом у Польщі з гарною зарплатою і гідними умовами праці стала доступною для вихідців із пострадянських країн, насамперед для українців і білорусів. Підбір вакансій, допомогу в працевлаштуванні та супутні послуги таким кандидатам надає наша компанія.'
-};
+export const Section_Title_Par_Data = derived(t, ($t) => ({
+	title: $t('ortodontist.section_one_title'),
+	subtitle: $t('ortodontist.section_one_subtitle'),
+	paragraph: $t('ortodontist.section_one_par')
+}));
 
-export const Section_Title_Text_List_Par_Data: Section_Title_Text_List_Par_Type = {
-	title: 'Чим',
-	subtitle: 'займається ортодонт?',
-	text: 'Стоматолог, який спеціалізується на ортодонтії, не видаляє зуби, не займається лікуванням зубів і ясен. Він працює виключно з виправленням прикусу, підвищенням функціональності та поліпшенням естетики зубного ряду, зокрема:',
+export const Section_Title_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('ortodontist.section_two_title'),
+	subtitle: $t('ortodontist.section_two_subtitle'),
+	text: $t('ortodontist.section_two_text'),
 	list: [
-		{
-			text: 'оглядає пацієнта і діагностує наявні проблеми - викривлене положення або скупченість зубних одиниць, широкі зубні проміжки, порушення прикусу, аномалії дуг, дефекти й патології зубощелепної системи, інші;'
-		},
-		{
-			text: 'підбирає і встановлює спеціальні апарати - брекет-системи, капи, елайнери, пластинки;'
-		},
-		{ text: 'тривало спостерігає пацієнта і коригує лікування;' },
-		{
-			text: 'тих, кому неможливо встановити зубну конструкцію, наприклад, маленьких дітей, навчає спеціальної лікувальної гімнастики;'
-		},
-		{ text: 'за серйозних патологій направляє пацієнта до щелепно-лицьового хірурга;' },
-		{ text: 'веде медичну документацію.' }
+		{ text: $t('ortodontist.section_two_list_one') },
+		{ text: $t('ortodontist.section_two_list_two') },
+		{ text: $t('ortodontist.section_two_list_three') },
+		{ text: $t('ortodontist.section_two_list_four') },
+		{ text: $t('ortodontist.section_two_list_five') },
+		{ text: $t('ortodontist.section_two_list_six') }
 	],
-	paragraph:
-		'Нині іноземним фахівцям робота ортодонта в Польщі доступна як у державних спеціалізованих клініках, так і в приватних стоматологічних закладах.'
-};
+	paragraph: $t('ortodontist.section_two_par')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -54,25 +43,16 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Data_Two: Section_Title_Text_List_Par_Type = {
-	title: 'Вимоги та умови',
-	subtitle: 'роботи',
-	text: 'Для працевлаштування в польський медичний заклад лікарям-іноземцям необхідно відповідати вимогам, сформульованим МОЗ, а саме:',
+export const Section_Title_Text_List_Par_Data_Two = derived(t, ($t) => ({
+	title: $t('ortodontist.section_three_title'),
+	subtitle: $t('ortodontist.section_three_subtitle'),
+	text: $t('ortodontist.section_three_text'),
 	list: [
-		{
-			text: 'мати диплом про закінчення медичного ВНЗ на батьківщині та сертифікат про отримання спеціалізації ортодонта;'
-		},
-		{
-			text: 'мати мінімум трирічний досвід роботи за фахом протягом останніх 5 років;'
-		},
-		{ text: 'вивчити польську мову з орієнтацією на медичну специфіку;' },
-		{
-			text: 'отримати дозвіл і ліцензію на здійснення професійної діяльності;'
-		},
-		{
-			text: 'володіти фундаментальними профільними знаннями, бути відповідальним, сумлінним, неконфліктним, комунікабельним, вміти працювати з дорослими пацієнтами та знаходити індивідуальні підходи до дітей.'
-		}
+		{ text: $t('ortodontist.section_three_list_one') },
+		{ text: $t('ortodontist.section_three_list_two') },
+		{ text: $t('ortodontist.section_three_list_three') },
+		{ text: $t('ortodontist.section_three_list_four') },
+		{ text: $t('ortodontist.section_three_list_five') }
 	],
-	paragraph:
-		'Серед переваг, які отримує українець або білорус, що влаштувався на роботу ортодонтом у Польщі, насамперед відзначимо комфортну заробітну плату - від 7500 злотих на місяць. Крім того, важливе значення мають нормований робочий день, значний пакет соціальних гарантій і забезпечення працівника усім необхідним - уніформою, сучасною апаратурою, високотехнологічними ортодонтичними конструкціями та пристосуваннями. Робота в таких умовах приносить не тільки матеріальні блага, а й моральне задоволення.'
-};
+	paragraph: $t('ortodontist.section_three_par')
+}));

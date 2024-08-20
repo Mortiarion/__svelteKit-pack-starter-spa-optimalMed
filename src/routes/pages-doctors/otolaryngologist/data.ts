@@ -1,39 +1,35 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Text_List_Par_Type,
-	Section_Image_Type,
-	Section_Title_Text_List_Par_Par_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота отоларингологом у Польщі'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('otolaryngologist.breadcrumbs_categories')
+}));
 
-export const Section_Title_Par_Text_List_Par_Data: Section_Title_Par_Text_List_Par_Type = {
-	title: 'Чим',
-	subtitle: 'займаються отоларингологи?',
-	paragraph__one:
-		'У сфері компетенції цього фахівця перебувають усі патології, пов`язані з горлом, носом і вухами, - отити, гайморити, хронічний нежить, тонзиліти, аденоїдити та інші.',
-	text: 'У рамках професійної діяльності отоларинолога:',
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('otolaryngologist.section_one_title'),
+	subtitle: $t('otolaryngologist.section_one_subtitle'),
+	paragraph__one: $t('otolaryngologist.section_one_par_one'),
+	paragraph__two: $t('otolaryngologist.section_one_par_two')
+}));
+
+export const Section_Title_Par_Text_List_Par_Data = derived(t, ($t) => ({
+	title: $t('otolaryngologist.section_two_title'),
+	subtitle: $t('otolaryngologist.section_two_subtitle'),
+	paragraph__one: $t('otolaryngologist.section_two_par_one'),
+	text: $t('otolaryngologist.section_two_text'),
 	list: [
-		{ text: 'здійснює огляд і проводить обстеження пацієнта;' },
-		{ text: 'встановлює діагноз;' },
-		{ text: 'обирає спосіб лікування - консервативний або хірургічний;' },
-		{ text: 'у разі консервативного способу призначає медичні препарати;' },
-		{
-			text: 'у разі хірургічного - проводить оперативне втручання, наприклад, видалення аденоїдів, пункції гайморових пазух, розтин абсцесів;'
-		},
-		{
-			text: 'здійснює нескладні маніпуляції в амбулаторних умовах - видаляє сторонні тіла, зупиняє носові кровотечі, промиває сірчані пробки тощо;'
-		},
-		{
-			text: 'спостерігає пацієнтів, контролює отримання лікування, за необхідності - коригує його, дає рекомендації профілактичного характеру.'
-		}
+		{ text: $t('otolaryngologist.section_two_list_one') },
+		{ text: $t('otolaryngologist.section_two_list_two') },
+		{ text: $t('otolaryngologist.section_two_list_three') },
+		{ text: $t('otolaryngologist.section_two_list_four') },
+		{ text: $t('otolaryngologist.section_two_list_five') },
+		{ text: $t('otolaryngologist.section_two_list_six') },
+		{ text: $t('otolaryngologist.section_two_list_seven') }
 	],
-	paragraph__two:
-		'Сьогодні робота отоларингологом у Польщі вимагає від кандидата високого рівня професійних навичок і знань. Він має вміти проводити обстеження на складному обладнанні та правильно інтерпретувати результати, грамотно підбирати слухові апарати, ефективно й обґрунтовано застосовувати кріотерапевтичні методи лікування та здійснювати інші складні маніпуляції.'
-};
+	paragraph__two: $t('otolaryngologist.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -50,20 +46,16 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Вимоги до отоларинголога',
-	subtitle: 'за нормами польського законодавства',
-	text: 'Щоб мати підстави претендувати на вакансію отоларинголога, здобувач повинен:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('otolaryngologist.section_three_title'),
+	subtitle: $t('otolaryngologist.section_three_subtitle'),
+	text: $t('otolaryngologist.section_three_text'),
 	list: [
-		{ text: 'мати диплом про вищу медичну освіту та підтверджену сертифікатом спеціалізацію;' },
-		{
-			text: 'мати досвід роботи за фахом мінімум 3 роки протягом останніх 5 років. Наразі українці цю вимогу можуть не враховувати, а ось на білорусів вона поширюється;'
-		},
-		{ text: 'вивчити "професійну" польську мову;' },
-		{ text: 'отримати дозвіл на здійснення лікарської діяльності.' }
+		{ text: $t('otolaryngologist.section_three_list_one') },
+		{ text: $t('otolaryngologist.section_three_list_two') },
+		{ text: $t('otolaryngologist.section_three_list_three') },
+		{ text: $t('otolaryngologist.section_three_list_four') }
 	],
-	paragraph__one:
-		'Усім, хто відповідає переліченим параметрам, польська медицина пропонує гідну заробітну плату - від 7500 злотих "брудними" на місяць, унормований робочий день, доплати за перепрацювання і добові чергування, а також премії, завдяки яким остаточна зарплата виглядає ще привабливішою.',
-	paragraph__two:
-		'Крім того, претендент на роботу отоларингологом у Польщі може розраховувати на пристойний соціальний пакет, широкі можливості кар`єрного зростання і впевненість у завтрашньому дні.'
-};
+	paragraph__one: $t('otolaryngologist.section_three_par_one'),
+	paragraph__two: $t('otolaryngologist.section_three_par_two')
+}));
