@@ -14,14 +14,14 @@
 	} from './data';
 </script>
 
-<Bredcrumbs data={Breadcrumb_Data} />
+<Bredcrumbs data={$Breadcrumb_Data} />
 
-<Section_Title_Par data={Section_Title_Par_Data} />
+<Section_Title_Par data={$Section_Title_Par_Data} />
 
-<Section_Title_Text_List_Par_Par data={Section_Title_Text_List_Par_Par_Data} />
+<Section_Title_Text_List_Par_Par data={$Section_Title_Text_List_Par_Par_Data} />
 
 <Section_Image data={Section_Image_Data} />
 
 <Section_Title_Par_Text_List_Par_Par_Par_Par
-	data={Section_Title_Par_Text_List_Par_Par_Par_Par_Data}
+	data={$Section_Title_Par_Text_List_Par_Par_Par_Par_Data}
 />

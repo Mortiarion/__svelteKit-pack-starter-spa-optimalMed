@@ -1,39 +1,32 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Type,
-	Section_Title_Text_List_Par_Par_Type,
-	Section_Image_Type,
-	Section_Title_Par_Text_List_Par_Par_Par_Par_Type
-} from '$lib/types';
+import { t } from '$lib/i18n';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
 
-export const Breadcrumb_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Робота хірургом у Польщі - що потрібно знати'
-};
+export const Breadcrumb_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('surgeon.breadcrumbs_cat')
+}));
 
-export const Section_Title_Par_Data: Section_Title_Par_Type = {
-	title: 'Робота хірургом у Польщі -',
-	subtitle: 'що потрібно знати',
-	paragraph:
-		'Напрям "загальна хірургія" є одним із найбільш затребуваних у системі охорони здоров`я будь-якої держави, і Польща не є винятком. Кадровий голод у медичній сфері цієї країни сьогодні призвів до необхідності залучення до роботи хірургом у Польщі іноземних фахівців. Громадяни України та Білорусі, з огляду на географічну близькість, схожість мов і менталітетів, є бажаними кандидатами і реально можуть отримати посаду хірурга в польській медичній установі з високою, порівняно зі своєю країною, заробітною платою і чудовими умовами праці.'
-};
+export const Section_Title_Par_Data = derived(t, ($t) => ({
+	title: $t('surgeon.section_one_title'),
+	subtitle: $t('surgeon.section_one_sub'),
+	paragraph: $t('surgeon.section_one_par')
+}));
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Стандартне коло обов`язків',
-	subtitle: 'хірурга в польській клініці',
-	text: 'Приймаючи на роботу іноземного фахівця, роботодавець має право розраховувати на його досвід і компетенцію в:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('surgeon.section_two_title'),
+	subtitle: $t('surgeon.section_two_sub'),
+	text: $t('surgeon.section_two_text'),
 	list: [
-		{ text: 'діагностиці захворювань внутрішніх органів, травм, поранень, опіків;' },
-		{ text: 'призначення консервативного лікування;' },
-		{ text: 'хірургічних втручаннях, післяопераційному спостереженні;' },
-		{ text: 'підборі ефективних реабілітаційних процедур, а також профілактичних заходів.' },
-		{ text: 'заповнення медичних документів.' }
+		{ text: $t('surgeon.section_two_list_one') },
+		{ text: $t('surgeon.section_two_list_two') },
+		{ text: $t('surgeon.section_two_list_three') },
+		{ text: $t('surgeon.section_two_list_four') },
+		{ text: $t('surgeon.section_two_list_five') }
 	],
-	paragraph__one:
-		'Крім того, робота лікарем-хірургом у Польщі передбачає професійне консультування лікарів інших спеціалізацій у сфері загальної хірургії.',
-	paragraph__two:
-		'Обов`язки частково залежать від того, в якому закладі пропонується вакансія. Наприклад, хірург з амбулаторії не проводить повноцінних операцій під загальною анестезією.'
-};
+	paragraph__one: $t('surgeon.section_two_par_one'),
+	paragraph__two: $t('surgeon.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -50,27 +43,19 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Par_Text_List_Par_Par_Par_Par_Data: Section_Title_Par_Text_List_Par_Par_Par_Par_Type =
-	{
-		title: 'Вимоги та',
-		subtitle: 'умови',
-		paragraph_one:
-			'Працевлаштування на посаду хірурга в польському медичному закладі мігранта з країни, що не входить до ЄС, сьогодні здійснюється за спрощеною процедурою. Це означає, що нострифікацію диплома можна пройти вже після оформлення на роботу, головне, щоб документ про освіту був у принципі.',
-		text: 'Таким чином, щоб працювати хірургом у Польщі, іноземному кандидату достатньо:',
-		list: [
-			{ text: 'диплома, отриманого у ВНЗ на батьківщині;' },
-			{ text: 'знання спеціалізованої "медичної" польської мови;' },
-			{ text: 'досвіду роботи у своїй країні за фахом 3 роки і більше протягом останніх 5 років;' },
-			{
-				text: 'бажання розвиватися в професії, неконфліктність, доброзичливість, комунікабельність.'
-			}
-		],
-		paragraph_two:
-			'Зарплата лікаря загальнохірургічної практики в Польщі коливається в межах 13-22 тисяч злотих на місяць до вирахування податків. Співробітників забезпечують формою та тимчасовим житлом у гуртожитку. Надалі клініка може посприяти в пошуках окремого житла.',
-		paragraph_three:
-			'Графік роботи є індивідуальним і може коливатися від 168 до 268 годин на місяць, розподілених на різну кількість днів.',
-		paragraph_four:
-			'Наша компанія займається пошуками роботи хірургом у Польщі для українських і білоруських фахівців. Але цим наш сервіс не обмежується. Ми надаємо допомогу у вивченні польської мови з медичним ухилом, зборі документів, оформленні віз, отриманні дозволу від МОЗ і лікарської ліцензії, оформленні посвідки на проживання.',
-		paragraph_five:
-			'Після працевлаштування кандидатів наші співробітники продовжують комунікувати з ними і за необхідності допоможуть у швидкому та ефективному вирішенні поточних проблем і труднощів.'
-	};
+export const Section_Title_Par_Text_List_Par_Par_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('surgeon.section_three_title'),
+	subtitle: $t('surgeon.section_three_sub'),
+	paragraph_one: $t('surgeon.section_three_par_one'),
+	text: $t('surgeon.section_three_text'),
+	list: [
+		{ text: $t('surgeon.section_three_list_one') },
+		{ text: $t('surgeon.section_three_list_two') },
+		{ text: $t('surgeon.section_three_list_three') },
+		{ text: $t('surgeon.section_three_list_four') }
+	],
+	paragraph_two: $t('surgeon.section_three_par_two'),
+	paragraph_three: $t('surgeon.section_three_par_three'),
+	paragraph_four: $t('surgeon.section_three_par_four'),
+	paragraph_five: $t('surgeon.section_three_par_five')
+}));

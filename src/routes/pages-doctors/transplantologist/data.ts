@@ -1,43 +1,32 @@
-import type {
-	Breadcrumb_Type,
-	Section_Title_Par_Par_Type,
-	Section_Title_Text_List_Par_Par_Type,
-	Section_Image_Type
-} from '$lib/types';
+import type { Section_Image_Type } from '$lib/types';
+import { derived } from 'svelte/store';
+import { t } from '$lib/i18n';
 
-export const Bredcrumbs_Data: Breadcrumb_Type = {
-	bredCrumbsHead: 'Головна',
-	bredCrumbsCategories: 'Трансплантолог - як отримати роботу в Польщі'
-};
+export const Bredcrumbs_Data = derived(t, ($t) => ({
+	bredCrumbsHead: $t('breadcrumbs.title'),
+	bredCrumbsCategories: $t('transplantologist.breadcrumbs_cat')
+}));
 
-export const Section_Title_Par_Par_Data: Section_Title_Par_Par_Type = {
-	title: 'Трансплантолог - як отримати',
-	subtitle: 'роботу в Польщі',
-	paragraph__one:
-		'Пересадка різних тканин і органів від донора реципієнту з кожним роком стає дедалі успішнішою і масовішою. Відповідно, зростає і затребуваність тих, хто вміє це робити. Тому сьогодні в багатьох країнах, особливо, у східній Європі та, зокрема, в Польщі, спостерігається гострий дефіцит лікарів-трансплантологів. Їхні зарплати, звісно, програють західноєвропейським, чим і спричинена міграція польських фахівців. А ось лікар, приміром, з України чи Білорусі, влаштувавшись на роботу трансплантологом у Польщі, отримає набагато більше преференцій, ніж у себе на батьківщині.',
-	paragraph__two:
-		'Що має робити фахівець, який працює в польській клініці, як отримати посаду та які плюси цієї роботи на вас очікують, розповідаємо далі.'
-};
+export const Section_Title_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('transplantologist.section_one_title'),
+	subtitle: $t('transplantologist.section_one_sub'),
+	paragraph__one: $t('transplantologist.section_one_par_one'),
+	paragraph__two: $t('transplantologist.section_one_par_two')
+}));
 
-export const Section_Title_Text_List_Par_Par_Data: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Обов`язки польського',
-	subtitle: 'лікаря-трансплантолога',
-	text: 'В очах обивателя трансплантолог - це той, хто здійснює операції з пересадки органів. Насправді, такий фахівець виконує набагато більший обсяг роботи, зокрема:',
+export const Section_Title_Text_List_Par_Par_Data = derived(t, ($t) => ({
+	title: $t('transplantologist.section_two_title'),
+	subtitle: $t('transplantologist.section_two_sub'),
+	text: $t('transplantologist.section_two_text'),
 	list: [
-		{ text: 'підбирає донора, перевіряє його на сумісність із реципієнтом;' },
-		{ text: 'готує донора і реципієнта до операції;' },
-		{
-			text: 'здійснює всі види пересадок - органів і тканин від людини людині, від тварини людині, трансплантацію кісткового мозку і стовбурових клітин;'
-		},
-		{
-			text: 'спостерігає пацієнтів у післяопераційному періоді, оперативно реагує на можливі ускладнення.'
-		}
+		{ text: $t('transplantologist.section_two_list_one') },
+		{ text: $t('transplantologist.section_two_list_two') },
+		{ text: $t('transplantologist.section_two_list_three') },
+		{ text: $t('transplantologist.section_two_list_four') }
 	],
-	paragraph__one:
-		'Крім того, такі фахівці ведуть медичну документацію, а також можуть бути задіяні у розв`язанні морально-етичних питань, пов`язаних із донорством.',
-	paragraph__two:
-		'Ті, хто планує отримати роботу трансплантологом у Польщі, можуть розглядати вакансії як державних, так і в приватних клініках, у відділеннях трансплантології.'
-};
+	paragraph__one: $t('transplantologist.section_two_par_one'),
+	paragraph__two: $t('transplantologist.section_two_par_two')
+}));
 
 export const Section_Image_Data: Section_Image_Type = {
 	image: {
@@ -54,29 +43,17 @@ export const Section_Image_Data: Section_Image_Type = {
 	}
 };
 
-export const Section_Title_Text_List_Par_Par_Data_Two: Section_Title_Text_List_Par_Par_Type = {
-	title: 'Що потрібно для',
-	subtitle: 'успішного працевлаштування',
-	text: 'Перелік вимог, що висуває польське законодавство до іноземних кандидатів із колишніх радянських республік, містить лише кілька пунктів. Вам потрібно мати:',
+export const Section_Title_Text_List_Par_Par_Data_Two = derived(t, ($t) => ({
+	title: $t('transplantologist.section_three_title'),
+	subtitle: $t('transplantologist.section_three_sub'),
+	text: $t('transplantologist.section_three_text'),
 	list: [
-		{
-			text: 'диплом про закінчення медичного ВНЗ, і сертифікат за спеціалізацією "трансплантологія". Зробити нострифікацію документів про освіту можна буде вже після працевлаштування та отримання першої зарплати;'
-		},
-		{
-			text: 'досвід роботи за фахом на батьківщині - щонайменше 3 роки протягом останніх 5 років. Для мігрантів з України станом на 2023 рік цю норму тимчасово скасовано;'
-		},
-		{
-			text: 'знання польської мови, включно з медичними термінами, достатнє для вільного спілкування з пацієнтами та колегами, а також для грамотного ведення документації;'
-		},
-		{
-			text: 'дозвіл від МОЗ і ліцензія на здійснення лікарської діяльності від регіональних органів;'
-		},
-		{
-			text: 'бажання працювати продуктивно, відповідально і сумлінно, зростати професійно, ухвалювати виважені рішення в межах посадових обов`язків.'
-		}
+		{ text: $t('transplantologist.section_three_list_one') },
+		{ text: $t('transplantologist.section_three_list_two') },
+		{ text: $t('transplantologist.section_three_list_three') },
+		{ text: $t('transplantologist.section_three_list_four') },
+		{ text: $t('transplantologist.section_three_list_five') }
 	],
-	paragraph__one:
-		'Кандидати, які відповідають запитам роботодавця, можуть обґрунтовано розраховувати на досить високу заробітну плату - від 7500 злотих до сплати податків на місяць на старті професійної діяльності. Крім того, в польських клініках завжди і в повному обсязі оплачуються чергування і додаткові зміни, грошовим результатом ефективної роботи стає отримання премії, а також наявний значний пакет соціальних гарантій, з якими можна ознайомитися при працевлаштуванні.',
-	paragraph__two:
-		'Наша компанія надає комплексну допомогу в пошуку роботи трансплантологом у Польщі вихідцям з України та Білорусі. У вашому багажі - відповідний кейс із досвіду, знань і навичок, а також бездоганні особисті якості та бажання змінити життя на краще? Зв`яжіться з нами просто зараз: займемося вашим працевлаштуванням негайно!'
-};
+	paragraph__one: $t('transplantologist.section_three_par_one'),
+	paragraph__two: $t('transplantologist.section_three_par_two')
+}));
