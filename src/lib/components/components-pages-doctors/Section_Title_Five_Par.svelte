@@ -5,8 +5,7 @@
 	import Text from '$lib/base-components/Text.svelte';
 	import Paragraph from '$lib/base-components/Paragraph.svelte';
 
-	import type { Section_Title_Five_Par_Type } from '$lib/types';
-	export let data: Section_Title_Five_Par_Type;
+	export let data;
 </script>
 
 <Section>

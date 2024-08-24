@@ -34,7 +34,7 @@
 	export let showModal: boolean = false;
 </script>
 
-<Section>
+<Section id="requirements">
 	<Container classes="2xl:max-w-screen-2xl">
 		<div class="gradient px-3 pb-10 pt-20 2xl:pb-[100px]">
 			<div

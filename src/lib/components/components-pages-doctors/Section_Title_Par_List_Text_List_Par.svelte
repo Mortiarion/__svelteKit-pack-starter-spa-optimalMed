@@ -6,8 +6,7 @@
 	import Heading from '$lib/base-components/Heading.svelte';
 	import List from '$lib/base-components/List.svelte';
 
-	import type { Section_Title_Par_List_Text_List_Par_Type } from '$lib/types';
-	export let data: Section_Title_Par_List_Text_List_Par_Type;
+	export let data;
 </script>
 
 <Section>

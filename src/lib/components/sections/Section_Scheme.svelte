@@ -12,10 +12,7 @@
 		{ number: '01/', text: $t('section_scheme.one') },
 		{ number: '02/', text: $t('section_scheme.two') },
 		{ number: '03/', text: $t('section_scheme.three') },
-		{
-			number: '04/',
-			text: $t('section_scheme.four')
-		},
+		{ number: '04/', text: $t('section_scheme.four') },
 		{ number: '05/', text: $t('section_scheme.five') },
 		{ number: '06/', text: $t('section_scheme.six') },
 		{ number: '07/', text: $t('section_scheme.seven') },

@@ -8,7 +8,7 @@
 	import { t } from '$lib/i18n';
 </script>
 
-<Section>
+<Section id="salary">
 	<Container classes="px-5 lg:px-8 xl:px-14 2xl:px-32">
 		<div class="mb-10">
 			<Heading classes="text-3xl font-semibold text-main mb-5 lg:max-w-[60%]">
@@ -47,8 +47,10 @@
 						{$t('section_doctor_salary.three')}
 					</Paragraph>
 					<div class="hidden items-center gap-5 lg:flex">
-						<Paragraph classes="text-sm text-biruza font-semibold">{$t('section_doctor_salary.four')}</Paragraph>
-						<Link href="#">
+						<Paragraph classes="text-sm text-biruza font-semibold"
+							>{$t('section_doctor_salary.four')}</Paragraph
+						>
+						<Link href="/pages-doctors/salary">
 							<svg
 								width="80"
 								height="40"
@@ -77,8 +79,10 @@
 				</div>
 			</div>
 			<div class="flex items-center gap-5 lg:hidden">
-				<Paragraph classes="text-sm text-biruza font-semibold">{$t('section_doctor_salary.four')}</Paragraph>
-				<Link href="#">
+				<Paragraph classes="text-sm text-biruza font-semibold"
+					>{$t('section_doctor_salary.four')}</Paragraph
+				>
+				<Link href="/pages-doctors/salary">
 					<svg
 						width="80"
 						height="40"

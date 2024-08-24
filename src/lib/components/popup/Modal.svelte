@@ -5,7 +5,19 @@
 
 	let dialog: HTMLDialogElement;
 
-	$: if (dialog && showModal) dialog.showModal();
+	$: if (dialog && showModal) {
+		dialog.showModal();
+		document.body.classList.add('no-scroll');
+		window.addEventListener('scroll', preventScroll);
+	} else {
+		document.body.classList.remove('no-scroll');
+		window.removeEventListener('scroll', preventScroll);
+	}
+
+	function preventScroll(event: Event) {
+		event.preventDefault();
+		window.scrollTo(0, 0);
+	}
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -52,5 +64,9 @@
 		to {
 			opacity: 1;
 		}
+	}
+
+	.no-scroll {
+		overflow: hidden;
 	}
 </style>

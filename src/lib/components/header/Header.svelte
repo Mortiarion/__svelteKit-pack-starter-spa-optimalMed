@@ -23,7 +23,7 @@
 	<Container classes="2xl:max-w-screen-2xl">
 		<div class="header-bg lg:mx-2.5 lg:mt-5 lg:rounded-t-3xl xl:h-[650px] 2xl:mx-5">
 			<Navigation />
-			<div class="mb-8 mt-5 xl:mt-32 2xl:ml-[52px] 2xl:mt-24">
+			<div class="mb-8 bs:mt-24 xl:mt-32 2xl:ml-[52px] 2xl:mt-[172px]">
 				<Heading
 					level="h1"
 					classes="mb-5 text-center text-[32px] leading-9 font-semibold lg:w-[500px] lg:text-left lg:text-[42px] lg:leading-[48px] xl:w-[600px] xl:text-[64px] xl:leading-none "

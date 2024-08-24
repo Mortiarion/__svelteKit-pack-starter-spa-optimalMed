@@ -1,8 +1,7 @@
-// i18n.ts;
 import { derived, writable } from 'svelte/store';
 import translations from '$lib/translations';
 
-export const locale = writable<string>('ru');
+export const locale = writable<string>('Ru');
 export const locales: string[] = Object.keys(translations);
 
 type Translations = {

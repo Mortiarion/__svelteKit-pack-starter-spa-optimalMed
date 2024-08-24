@@ -1,4 +1,3 @@
-<!-- Language_Swicther.svelte -->
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -31,10 +30,10 @@
 	$: currentLocale = $locale;
 </script>
 
-<li class="language-menu relative hidden lg:block" bind:this={languageMenu}>
+<li class="language-menu relative" bind:this={languageMenu}>
 	<button
 		on:click={togglelanguageMenu}
-		class="language-menu-button ml-10 rounded-full border px-4 py-1.5 text-xs text-main-button 2xl:m-0"
+		class="language-menu-button rounded-full border px-4 py-1.5 text-xs text-main-button 2xl:m-0"
 		>{currentLocale}</button
 	>
 
