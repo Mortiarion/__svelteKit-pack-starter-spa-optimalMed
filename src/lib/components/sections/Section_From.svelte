@@ -290,6 +290,21 @@
 	const popupFilterError = writable(false);
 	const popupFilterErrorSmall = writable(false);
 
+	$: {
+		if (showFilterLarge) {
+			document.body.classList.add('no-scroll');
+			window.addEventListener('scroll', preventScroll);
+		} else {
+			document.body.classList.remove('no-scroll');
+			window.removeEventListener('scroll', preventScroll);
+		}
+	}
+
+	function preventScroll(event: Event) {
+		event.preventDefault();
+		window.scrollTo(4000, 4000);
+	}
+
 	function handleSubmit() {
 		let valid = true;
 
@@ -831,6 +846,10 @@
 		height: 200px;
 		overflow-y: scroll;
 		padding: 15px 25px 25px;
+	}
+
+	.no-scroll {
+		overflow: hidden;
 	}
 
 	@media (min-width: 768px) {

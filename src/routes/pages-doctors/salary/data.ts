@@ -34,3 +34,50 @@ export const Section_Image_Data: Section_Image_Type = {
 		type: 'image/avif'
 	}
 };
+
+export const Section_Three_Data = derived(t, ($t) => ({
+	par_one: $t('salary.section_three_par_one'),
+	list_one: [
+		{
+			text: $t('salary.section_three_list_one_one')
+		},
+		{
+			text: $t('salary.section_three_list_one_two')
+		},
+		{
+			text: $t('salary.section_three_list_one_three')
+		}
+	],
+	title_one: $t('salary.section_three_title_one'),
+	subtitle: $t('salary.section_three_sub'),
+	list_two: [
+		{
+			text: $t('salary.section_three_list_two_one')
+		},
+		{
+			text: $t('salary.section_three_list_two_two')
+		},
+		{
+			text: $t('salary.section_three_list_two_three')
+		}
+	],
+	par_two: $t('salary.section_three_par_two'),
+	title_two: $t('salary.section_three_title_two'),
+	text: $t('salary.section_three_text'),
+	list_three: [
+		{
+			text: $t('salary.section_three_list_three_one')
+		},
+		{
+			text: $t('salary.section_three_list_three_two')
+		},
+		{
+			text: $t('salary.section_three_list_three_three')
+		}
+	],
+	par_three: $t('salary.section_three_par_three'),
+	par_four: $t('salary.section_three_par_four'),
+	par_five: $t('salary.section_three_par_five'),
+	par_six: $t('salary.section_three_par_six'),
+	par_seven: $t('salary.section_three_par_seven')
+}));
