@@ -61,6 +61,19 @@
 		{ href: '/#scheme', title: $t('main_navigation.title'), text: $t('main_navigation.scheme') },
 		{ href: '/#salary', title: $t('main_navigation.title'), text: $t('main_navigation.earnings') }
 	];
+	$: {
+		if ($isOpenBurger) {
+			document.body.classList.add('no-scroll');
+			window.addEventListener('scroll', preventScroll);
+		} else {
+			document.body.classList.remove('no-scroll');
+			window.removeEventListener('scroll', preventScroll);
+		}
+	}
+	function preventScroll(event: Event) {
+		event.preventDefault();
+		window.scrollTo(0, 0);
+	}
 </script>
 
 <nav class:sticky bind:this={nav}>
@@ -255,8 +268,11 @@
 </nav>
 
 <style lang="postcss">
+	.no-scroll {
+        overflow: hidden;
+    }
 	nav {
-		position: fixed;
+		/* position: fixed; */
 		left: 20px;
 		right: 20px;
 		display: flex;
